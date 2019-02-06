@@ -18,7 +18,7 @@ const Products = ({ data, mutate }) => (
     </header>
     {data.products && data.products.length ? (
       <ProductsList>
-        {data.products.map(({ _id, isPublic, title, updatedAt }) => (
+        {data.products.map(({ _id, isPublic, productName, productDescription, updatedAt }) => (
           <Product key={_id}>
             <Link to={`/products/${_id}/edit`} />
             <header>
@@ -27,7 +27,8 @@ const Products = ({ data, mutate }) => (
               ) : (
                 <span className="label label-default">Private</span>
               )}
-              <h2>{title}</h2>
+              <h2>{productName}</h2>
+              <p>{productDescription}</p>
               <p>{timeago(updatedAt)}</p>
             </header>
           </Product>

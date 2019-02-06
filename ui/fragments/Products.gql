@@ -1,7 +1,8 @@
 fragment ProductAttributes on Product {
   _id
   isPublic
-  title
+  productName
+  productDescription
   body
   updatedAt
   createdAt
