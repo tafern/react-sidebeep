@@ -85,8 +85,8 @@ const productsSeed = (userId) => {
             createdAt: date,
             updatedAt: date,
             owner: userId,
-            title: `Product #${iteration + 1}`,
-            body: `This is the body of product #${iteration + 1}`,
+            productName: `Product #${iteration + 1}`,
+            productDescription: `This is the body of product #${iteration + 1}`,
             dependentData(productId) {
               productCommentsSeed(userId, date, productId);
             },
