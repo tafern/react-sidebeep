@@ -1,0 +1,35 @@
+#import "../fragments/Products.gql"
+
+query products {
+  products {
+    _id
+    isPublic
+    title
+    updatedAt
+    createdAt
+  }
+}
+
+query editProduct($_id: String) {
+  product(_id: $_id) {
+    ...ProductAttributes
+  }
+}
+
+query product($_id: String) {
+  product(_id: $_id) {
+    ...ProductAttributes
+    comments {
+      _id
+      comment
+      createdAt
+      user {
+        _id
+        name {
+          first
+          last
+        }
+      }
+    }
+  }
+}

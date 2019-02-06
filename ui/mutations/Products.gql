@@ -1,0 +1,29 @@
+mutation addProduct($title: String, $body: String) {
+  addProduct(title: $title, body: $body) {
+    _id
+    isPublic
+    title
+    body
+    createdAt
+    updatedAt
+    owner
+  }
+}
+
+mutation updateProduct($_id: String!, $title: String, $body: String, $isPublic: Boolean) {
+  updateProduct(_id: $_id, title: $title, body: $body, isPublic: $isPublic) {
+    _id
+    isPublic
+    title
+    body
+    createdAt
+    updatedAt
+    owner
+  }
+}
+
+mutation removeProduct($_id: String!) {
+  removeProduct(_id: $_id) {
+    _id
+  }
+}

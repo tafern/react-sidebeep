@@ -7,25 +7,37 @@ import { Grid } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 
+// New Sidebeep
+import Welcome from '../../pages/Welcome';
+import Campaign from '../../pages/Campaign';
+
+import Products from '../../pages/Products';
+import ViewProduct from '../../pages/ViewProduct';
+import EditProduct from '../../pages/EditProduct';
+
+import Guide from '../../pages/Guide';
+import Signup from '../../pages/Signup';
+import Login from '../../pages/Login';
+import ForgotPassword from '../../pages/ForgotPassword';
+
+// Pup
 import Navigation from '../../components/Navigation';
 
 import Authenticated from '../../components/Authenticated';
 import Authorized from '../../components/Authorized';
 import Public from '../../components/Public';
 
-import Index from '../../pages/Index';
+// import Index from '../../pages/Index';
 
 import Documents from '../../pages/Documents';
 import ViewDocument from '../../pages/ViewDocument';
 import EditDocument from '../../pages/EditDocument';
 
 import Profile from '../../pages/Profile';
-import Signup from '../../pages/Signup';
-import Login from '../../pages/Login';
 import Logout from '../../pages/Logout';
 
 import VerifyEmail from '../../pages/VerifyEmail';
-import RecoverPassword from '../../pages/RecoverPassword';
+// import RecoverPassword from '../../pages/RecoverPassword';
 import ResetPassword from '../../pages/ResetPassword';
 
 import AdminUsers from '../../pages/AdminUsers';
@@ -77,8 +89,35 @@ class App extends React.Component {
         <Navigation {...props} {...state} />
         <Grid>
           <Switch>
-            <Route exact name="index" path="/" component={Index} />
+            {/* New Sidebeep */}
+            <Route exact name="welcome" path="/" component={Welcome} />
 
+            <Authenticated
+              exact
+              path="/products"
+              component={Products}
+              setAfterLoginPath={setAfterLoginPath}
+              {...props}
+              {...state}
+            />
+            <Route exact path="/products/:_id" component={ViewProduct} />
+            <Authenticated
+              exact
+              path="/products/:_id/edit"
+              component={EditProduct}
+              setAfterLoginPath={setAfterLoginPath}
+              {...props}
+              {...state}
+            />
+
+            <Route exact name="campaign" path="/campaign" component={Campaign} />
+            <Public path="/signup" component={Signup} {...props} {...state} />
+            <Public path="/login" component={Login} {...props} {...state} />
+            <Public path="/guide" component={Guide} {...props} {...state} />
+
+            <Route name="forgot-password" path="/forgot-password" component={ForgotPassword} />
+
+            {/* Pup */}
             <Authenticated
               exact
               path="/documents"
@@ -96,7 +135,6 @@ class App extends React.Component {
               {...props}
               {...state}
             />
-
             <Authenticated
               exact
               path="/profile"
@@ -105,8 +143,6 @@ class App extends React.Component {
               {...props}
               {...state}
             />
-            <Public path="/signup" component={Signup} {...props} {...state} />
-            <Public path="/login" component={Login} {...props} {...state} />
             <Route
               path="/logout"
               render={(routeProps) => (
@@ -117,7 +153,7 @@ class App extends React.Component {
             />
 
             <Route name="verify-email" path="/verify-email/:token" component={VerifyEmail} />
-            <Route name="recover-password" path="/recover-password" component={RecoverPassword} />
+            {/* <Route name="recover-password" path="/recover-password" component={RecoverPassword} /> */}
             <Route name="reset-password" path="/reset-password/:token" component={ResetPassword} />
 
             <Route name="terms" path="/terms" component={Terms} />

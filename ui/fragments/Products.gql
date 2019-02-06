@@ -1,0 +1,8 @@
+fragment ProductAttributes on Product {
+  _id
+  isPublic
+  title
+  body
+  updatedAt
+  createdAt
+}
