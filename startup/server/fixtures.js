@@ -2,6 +2,8 @@ import seeder from '@cleverbeagle/seeder';
 import { Meteor } from 'meteor/meteor';
 import Documents from '../../api/Documents/Documents';
 import Comments from '../../api/Comments/Comments';
+import Products from '../../api/Products/Products';
+import ProductComments from '../../api/ProductComments/ProductComments';
 
 const commentsSeed = (userId, date, documentId) => {
   seeder(Comments, {
@@ -49,6 +51,52 @@ const documentsSeed = (userId) => {
   });
 };
 
+const productCommentsSeed = (userId, date, productId) => {
+  seeder(ProductComments, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 3,
+        seed(productCommentIteration, faker) {
+          return {
+            userId,
+            productId,
+            productComment: faker.hacker.phrase(),
+            createdAt: date,
+          };
+        },
+      },
+    },
+  });
+};
+
+const productsSeed = (userId) => {
+  seeder(Products, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 5,
+        seed(iteration) {
+          const date = new Date().toISOString();
+          return {
+            isPublic: false,
+            createdAt: date,
+            updatedAt: date,
+            owner: userId,
+            title: `Product #${iteration + 1}`,
+            body: `This is the body of product #${iteration + 1}`,
+            dependentData(productId) {
+              productCommentsSeed(userId, date, productId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
 seeder(Meteor.users, {
   seedIfExistingData: true,
   environments: ['development', 'staging'],
@@ -66,6 +114,7 @@ seeder(Meteor.users, {
         roles: ['admin'],
         dependentData(userId) {
           documentsSeed(userId);
+          productsSeed(userId);
         },
       },
     ],
@@ -85,6 +134,7 @@ seeder(Meteor.users, {
           roles: ['user'],
           dependentData(userId) {
             documentsSeed(userId);
+            productsSeed(userId);
           },
         };
       },
