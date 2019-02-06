@@ -17,9 +17,19 @@ import CommentQueries from '../../api/Comments/queries';
 import CommentMutations from '../../api/Comments/mutations';
 import CommentSubscriptions from '../../api/Comments/subscriptions';
 
+import ProductTypes from '../../api/Products/types';
+import ProductQueries from '../../api/Products/queries';
+import ProductMutations from '../../api/Products/mutations';
+
+import ProductCommentTypes from '../../api/ProductComments/types';
+import ProductCommentQueries from '../../api/ProductComments/queries';
+import ProductCommentMutations from '../../api/ProductComments/mutations';
+import ProductCommentSubscriptions from '../../api/ProductComments/subscriptions';
+
 import OAuthQueries from '../../api/OAuth/queries';
 
 import '../../api/Documents/server/indexes';
+import '../../api/Products/server/indexes';
 import '../../api/webhooks';
 
 const schema = {
@@ -28,6 +38,8 @@ const schema = {
     ${DocumentTypes}
     ${CommentTypes}
     ${UserSettingsTypes}
+    ${ProductTypes}
+    ${ProductCommentTypes}
 
     type Query {
       documents: [Document]
@@ -37,6 +49,8 @@ const schema = {
       userSettings: [UserSetting]
       exportUserData: UserDataExport
       oAuthServices(services: [String]): [String]
+      products: [Product]
+      product(_id: String): Product
     }
 
     type Mutation {
@@ -52,10 +66,21 @@ const schema = {
       removeUserSetting(_id: String!): UserSetting
       sendVerificationEmail: User
       sendWelcomeEmail: User
+      addProduct(productName: String, productDescription: String): Product
+      updateProduct(
+        _id: String!
+        productName: String
+        productDescription: String
+        isPublic: Boolean
+      ): Product
+      removeProduct(_id: String!): Product
+      addProductComment(productId: String!, productComment: String!): ProductComment
+      removeProductComment(productCommentId: String!): ProductComment
     }
 
     type Subscription {
       commentAdded(documentId: String!): Comment
+      productCommentAdded(productId: String!): ProductComment
     }
   `,
   resolvers: {
@@ -64,20 +89,30 @@ const schema = {
       ...UserQueries,
       ...UserSettingsQueries,
       ...OAuthQueries,
+      ...ProductQueries,
     },
     Mutation: {
       ...DocumentMutations,
       ...CommentMutations,
       ...UserMutations,
       ...UserSettingsMutations,
+      ...ProductMutations,
+      ...ProductCommentMutations,
     },
     Subscription: {
       ...CommentSubscriptions,
+      ...ProductCommentSubscriptions,
     },
     Document: {
       comments: CommentQueries.comments,
     },
     Comment: {
+      user: UserQueries.user,
+    },
+    Product: {
+      productComments: ProductCommentQueries.productComments,
+    },
+    ProductComment: {
       user: UserQueries.user,
     },
   },
