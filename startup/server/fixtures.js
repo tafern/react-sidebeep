@@ -3,7 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import Documents from '../../api/Documents/Documents';
 import Comments from '../../api/Comments/Comments';
 import Products from '../../api/Products/Products';
-import ProductComments from '../../api/ProductComments/ProductComments';
+import Files from '../../api/Files/Files';
+import ProductReviews from '../../api/ProductReviews/ProductReviews';
+import Orgs from '../../api/Orgs/Orgs';
+import Images from '../../api/Images/Images';
 
 const commentsSeed = (userId, date, documentId) => {
   seeder(Comments, {
@@ -51,18 +54,18 @@ const documentsSeed = (userId) => {
   });
 };
 
-const productCommentsSeed = (userId, date, productId) => {
-  seeder(ProductComments, {
+const productReviewsSeed = (userId, date, productId) => {
+  seeder(ProductReviews, {
     seedIfExistingData: true,
     environments: ['development', 'staging'],
     data: {
       dynamic: {
         count: 3,
-        seed(productCommentIteration, faker) {
+        seed(productReviewIteration, faker) {
           return {
             userId,
             productId,
-            productComment: faker.hacker.phrase(),
+            productReview: faker.hacker.phrase(),
             createdAt: date,
           };
         },
@@ -71,13 +74,125 @@ const productCommentsSeed = (userId, date, productId) => {
   });
 };
 
-const productsSeed = (userId) => {
+const productImageSeed = (userId, date, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 3,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl:
+              'https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,',
+            createdAt: date,
+          };
+        },
+      },
+    },
+  });
+};
+
+const productFileSeed = (userId, date, productId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refferenceId: productId,
+            fileUrl: '',
+            createdAt: date,
+            type: 'Product',
+            dependentData(fileId) {
+              productImageSeed(userId, date, fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
+const productsSeed = (userId, date, organizationId) => {
   seeder(Products, {
     seedIfExistingData: true,
     environments: ['development', 'staging'],
     data: {
       dynamic: {
-        count: 5,
+        count: 3,
+        seed(iteration) {
+          return {
+            isPublic: false,
+            createdAt: date,
+            updatedAt: date,
+            orgId: organizationId,
+            name: `Product #${iteration + 1}`,
+            description: `This is the body of product #${iteration + 1}`,
+            dependentData(productId) {
+              productReviewsSeed(userId, date, productId);
+              productFileSeed(userId, date, productId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
+const orgImageSeed = (userId, date, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl:
+              'https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,',
+            createdAt: date,
+          };
+        },
+      },
+    },
+  });
+};
+
+const orgFileSeed = (userId, date, orgId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refferenceId: orgId,
+            fileUrl: '',
+            createdAt: date,
+            type: 'Org',
+            dependentData(fileId) {
+              orgImageSeed(userId, date, fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
+const orgsSeed = (userId) => {
+  seeder(Orgs, {
+    seedIfExistingData: false,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 2,
         seed(iteration) {
           const date = new Date().toISOString();
           return {
@@ -85,10 +200,11 @@ const productsSeed = (userId) => {
             createdAt: date,
             updatedAt: date,
             owner: userId,
-            productName: `Product #${iteration + 1}`,
-            productDescription: `This is the body of product #${iteration + 1}`,
-            dependentData(productId) {
-              productCommentsSeed(userId, date, productId);
+            name: `Store #${iteration + 1}`,
+            description: `This is the body of store #${iteration + 1}`,
+            dependentData(orgId) {
+              productsSeed(userId, date, orgId);
+              orgFileSeed(userId, date, orgId);
             },
           };
         },
@@ -114,12 +230,12 @@ seeder(Meteor.users, {
         roles: ['admin'],
         dependentData(userId) {
           documentsSeed(userId);
-          productsSeed(userId);
+          orgsSeed(userId);
         },
       },
     ],
     dynamic: {
-      count: 5,
+      count: 2,
       seed(iteration, faker) {
         const userCount = iteration + 1;
         return {
@@ -134,7 +250,7 @@ seeder(Meteor.users, {
           roles: ['user'],
           dependentData(userId) {
             documentsSeed(userId);
-            productsSeed(userId);
+            orgsSeed(userId);
           },
         };
       },

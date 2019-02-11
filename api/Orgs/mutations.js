@@ -1,13 +1,12 @@
 import sanitizeHtml from 'sanitize-html';
-import Products from './Products';
+import Orgs from './Orgs';
 
 export default {
-  addProduct: (root, args, context) => {
+  addOrg: (root, args, context) => {
     if (!context.user) throw new Error('Sorry, you must be logged in to add a new document.');
     const date = new Date().toISOString();
-    const productId = Products.insert({
+    const orgId = Orgs.insert({
       isPublic: args.isPublic || false,
-      orgId: args.orgId,
       name: args.name,
       description: args.description
         ? sanitizeHtml(args.description)
@@ -16,14 +15,14 @@ export default {
       createdAt: date,
       updatedAt: date,
     });
-    const doc = Products.findOne(productId);
+    const doc = Orgs.findOne(orgId);
     return doc;
   },
-  updateProduct: (root, args, context) => {
-    if (!context.user) throw new Error('Sorry, you must be logged in to update a document.');
-    if (!Products.findOne({ _id: args._id, owner: context.user._id }))
+  updateOrg: (root, args, context) => {
+    if (!context.user) throw new Error('Sorry, you must be logged in to update a org.');
+    if (!Orgs.findOne({ _id: args._id, owner: context.user._id }))
       throw new Error('Sorry, you need to be the owner of this document to update it.');
-    Products.update(
+    Orgs.update(
       { _id: args._id },
       {
         $set: {
@@ -33,14 +32,14 @@ export default {
         },
       },
     );
-    const doc = Products.findOne(args._id);
+    const doc = Orgs.findOne(args._id);
     return doc;
   },
-  removeProduct: (root, args, context) => {
-    if (!context.user) throw new Error('Sorry, you must be logged in to remove a product.');
-    if (!Products.findOne({ _id: args._id, owner: context.user._id }))
+  removeOrg: (root, args, context) => {
+    if (!context.user) throw new Error('Sorry, you must be logged in to remove a org.');
+    if (!Orgs.findOne({ _id: args._id, owner: context.user._id }))
       throw new Error('Sorry, you need to be the owner of this document to remove it.');
-    Products.remove(args);
+    Orgs.remove(args);
     return args;
   },
 };

@@ -4,8 +4,8 @@ query products {
   products {
     _id
     isPublic
-    productName
-    productDescription
+    name
+    description
     updatedAt
     createdAt
   }

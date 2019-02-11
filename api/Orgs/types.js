@@ -1,13 +1,16 @@
 export default `
-  type Product {
+  type Org {
     _id: String
-    orgId: String
-    isPublic: Boolean
     name: String
     description: String
+    phones: String
     files: [File]
+    locations: [Location]
+    products: [Product]
+    type: String,
+	  status: String,
+    owner: String
     createdAt: String
     updatedAt: String
-    productReviews: [ProductReview]
   }
 `;

@@ -1,9 +1,9 @@
 export default `
-  type ProductComment {
+  type ProductReview {
     _id: String
     user: User
     productId: String
-    productComment: String
+    productReview: String
     createdAt: String
   }
 `;
