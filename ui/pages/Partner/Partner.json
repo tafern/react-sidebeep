@@ -1,0 +1,38 @@
+[
+  {
+    "partner_id": "1",
+    "partner_name": "Liputan 6",
+    "partner_image_url": "/img/liputan_enam.png",
+    "partner_link": "https://m.liputan6.com/lifestyle/read/3638860/untungnya-beli-brand-lokal-lewat-sidebeep-di-custom-collaboration-2018#"
+  },
+  {
+    "partner_id": "2",
+    "partner_name": "Viva.co.id",
+    "partner_image_url": "/img/viva_co_id.png",
+    "partner_link": "https://m.viva.co.id/amp/digital/startup/1073164-sidebeep-aplikasi-gaya-hidup-yang-manjakan-kaum-milenial"
+  },
+  {
+    "partner_id": "3",
+    "partner_name": "Sindo News",
+    "partner_image_url": "/img/sindo_news.png",
+    "partner_link": "https://autotekno.sindonews.com/read/1337110/133/sidebeep-aplikasi-penyedia-layanan-jasa-gaya-hidup-1536562378"
+  },
+  {
+    "partner_id": "4",
+    "partner_name": "Opini.id",
+    "partner_image_url": "/img/opini.png",
+    "partner_link": "https://opini.id/topik/6547/belanja-brand-lokal-lewat-sidebeep"
+  },
+  {
+    "partner_id": "5",
+    "partner_name": "Popular World",
+    "partner_image_url": "/img/popular.png",
+    "partner_link": "https://www.popular-world.com/groove/sidebeep-aplikasi-jasa-gaya-hidup-mendukung-custom-collaboration-2018--101274/"
+  },
+  {
+    "partner_id": "6",
+    "partner_name": "Driven Hype",
+    "partner_image_url": "/img/driven_hype.png",
+    "partner_link": "https://drivenhype.com/aplikasi-sidebeep-dukung-industri-kreatif-lokal/"
+  }
+]

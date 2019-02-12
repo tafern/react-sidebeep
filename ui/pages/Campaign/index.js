@@ -1,31 +1,60 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Carousel } from 'react-bootstrap';
 import Styles from './styles';
 
-const Campaign = () => (
-  <Styles.Campaign>
-    <img
-      src="https://s3-us-west-2.amazonaws.com/cleverbeagle-assets/graphics/email-icon.png"
-      alt="Clever Beagle"
-    />
-    <h1>Campaign</h1>
-    <p>The Ultimate Boilerplate for Products.</p>
-    <div>
-      <Button href="http://cleverbeagle.com/pup">Read the Docs</Button>
-      <Button href="https://github.com/cleverbeagle/pup">
-        <i className="fa fa-star" /> Star on GitHub
-      </Button>
-    </div>
-    <footer>
-      <p>
-        Want to build your product with an experienced buddy?{' '}
-        <a href="https://cleverbeagle.com/together?utm_source=pup&utm_medium=app&utm_campaign=oss">
-          Check out Together by Clever Beagle
-        </a>
-        .
-      </p>
-    </footer>
-  </Styles.Campaign>
-);
+class Campaign extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      index: 0,
+      direction: null,
+    };
+  }
+  handleSelect = (selectedIndex, e) => {
+    this.setState({
+      index: selectedIndex,
+      direction: e.direction,
+    });
+  };
+
+  render() {
+    const { index, direction } = this.state;
+    return (
+      <Carousel activeIndex={index} direction={direction} onSelect={this.handleSelect}>
+        <Carousel.Item>
+          <Link to={`/campaign/${1}`}>
+            <Styles.CampaignImage src="/banner1.jpg" alt="First slide" />
+          </Link>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Link to={`/campaign/${2}`}>
+            <Styles.CampaignImage src="/banner2.jpg" alt="First slide" />
+          </Link>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Link to={`/campaign/${3}`}>
+            <Styles.CampaignImage src="/banner3.jpg" alt="First slide" />
+          </Link>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Link to={`/campaign/${4}`}>
+            <Styles.CampaignImage src="/banner4.jpg" alt="First slide" />
+          </Link>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Link to={`/campaign/${5}`}>
+            <Styles.CampaignImage src="/banner5.jpg" alt="First slide" />
+          </Link>
+        </Carousel.Item>
+        <Carousel.Item>
+          <Link to={`/campaign/${6}`}>
+            <Styles.CampaignImage src="/banner6.png" alt="First slide" />
+          </Link>
+        </Carousel.Item>
+      </Carousel>
+    );
+  }
+}
 
 export default Campaign;

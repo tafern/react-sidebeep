@@ -1,68 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { compose, graphql } from 'react-apollo';
+import Slider from 'react-slick';
+import Styles from './styles';
 import { timeago } from '../../../modules/dates';
+import ProductDetail from './ProductDetail';
 import BlankState from '../../components/BlankState';
-import { StyledProducts, ProductsList, Product } from './styles';
-import { products } from '../../queries/Products.gql';
-import { addProduct } from '../../mutations/Products.gql';
 
-const Products = ({ data, mutate }) => (
-  <StyledProducts>
-    <header className="clearfix">
-      <Button bsStyle="success" onClick={mutate}>
-        New Product
-      </Button>
-    </header>
-    {data.products && data.products.length ? (
-      <ProductsList>
-        {data.products.map(({ _id, isPublic, name, description, updatedAt }) => (
-          <Product key={_id}>
-            <Link to={`/products/${_id}/edit`} />
-            <header>
-              {isPublic ? (
-                <span className="label label-success">Public</span>
-              ) : (
-                <span className="label label-default">Private</span>
-              )}
-              <h2>{name}</h2>
-              <p>{description}</p>
-              <p>{timeago(updatedAt)}</p>
-            </header>
-          </Product>
+const settings = {
+  dots: true,
+  infinite: true,
+  nextArrow: <Styles.ArrowIconNext src="/img/icons/sb-arrow-next.png" />,
+  prevArrow: <Styles.ArrowIconPrev src="/img/icons/sb-arrow-prev.png" />,
+  speed: 500,
+  slidesToShow: 5,
+  slidesToScroll: 5,
+};
+const Products = ({ data }) => (
+  <Styles.Wrapper>
+    {data.products.length > 0 ? (
+      <Slider {...settings}>
+        {data.products.map((item) => (
+          <div key={item._id}>
+            <ProductDetail
+              productName={item.name}
+              updateAt={timeago(item.updatedAt)}
+              productDescription={item.description}
+              isPublic={item.isPublic}
+              id={item._id}
+            />
+          </div>
         ))}
-      </ProductsList>
+      </Slider>
     ) : (
       <BlankState
         icon={{ style: 'solid', symbol: 'file-alt' }}
         title="You're plum out of products, friend!"
         subtitle="Add your first product by clicking the button below."
-        action={{
-          style: 'success',
-          onClick: mutate,
-          label: 'Create Your First Product',
-        }}
       />
     )}
-  </StyledProducts>
+  </Styles.Wrapper>
 );
 
 Products.propTypes = {
-  // userId: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
-  mutate: PropTypes.func.isRequired,
 };
 
-export default compose(
-  graphql(products),
-  graphql(addProduct, {
-    options: ({ history }) => ({
-      refetchQueries: [{ query: products }],
-      onCompleted: (mutation) => {
-        history.push(`/products/${mutation.addProduct._id}/edit`);
-      },
-    }),
-  }),
-)(Products);
+export default Products;

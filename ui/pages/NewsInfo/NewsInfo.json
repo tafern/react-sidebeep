@@ -1,0 +1,20 @@
+[
+  {
+    "news_info_id": "1",
+    "news_info_name": "Banner 1",
+    "news_info_image_url": "/img/news/ace7252e-5dda-42ee-bbed-6d69ff4f958d.jpg",
+    "news_info_link": "/"
+  },
+  {
+    "news_info_id": "2",
+    "news_info_name": "Banner 2",
+    "news_info_image_url": "/img/news/adc141c3-3177-448c-84e2-e430e2b86375.jpg",
+    "news_info_link": "/"
+  },
+  {
+    "news_info_id": "3",
+    "news_info_name": "Banner 3",
+    "news_info_image_url": "/img/news/e9459b69-7f5c-483d-b946-c83d7228b94d.jpg",
+    "news_info_link": "/"
+  }
+]

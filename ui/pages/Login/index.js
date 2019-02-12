@@ -14,7 +14,7 @@ class Login extends React.Component {
       if (error) {
         Bert.alert(error.reason, 'danger');
       } else {
-        Bert.alert('Welcome back!', 'success');
+        Bert.alert('HomePage back!', 'success');
       }
     });
   };

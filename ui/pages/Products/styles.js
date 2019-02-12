@@ -1,32 +1,15 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const StyledProducts = styled.div`
-  header {
-    margin: 0px 0 20px;
-  }
+import { SB_DARK_GREY } from '../../../modules/styleConstants';
 
-  @media screen and (min-width: 768px) {
-    header {
-      margin: 0 0 20px;
-    }
-  }
+const Wrapper = styled.div`
+  width: 100%;
+  min-height: 200px;
+  padding-left: 15px;
+  padding-right: 15px;
 `;
-
-export const ProductsList = styled.div`
-  @media screen and (min-width: 768px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: 1fr;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-  }
-
-  @media screen and (min-width: 992px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-`;
-
-export const Product = styled.div`
+const ProductDetailWrapper = styled(Link)`
   position: relative;
   border: 1px solid var(--gray-lighter);
   border-top: 5px solid var(--gray-lighter);
@@ -73,3 +56,33 @@ export const Product = styled.div`
     }
   }
 `;
+const ArrowIconNext = styled.img`
+  right: -17px !important;
+`;
+const ArrowIconPrev = styled.img`
+  left: -17px !important;
+`;
+const HeaderContentWrapper = styled.div`
+  position: relative;
+`;
+const DetailWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-top: -8px;
+  border: 0px solid ${SB_DARK_GREY};
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 7px;
+  border-top: 0;
+  @media (max-width: 680px) {
+    padding: 5px 0;
+  }
+`;
+export default {
+  Wrapper,
+  ProductDetailWrapper,
+  ArrowIconNext,
+  ArrowIconPrev,
+  HeaderContentWrapper,
+  DetailWrapper,
+};
