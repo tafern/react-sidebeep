@@ -22,9 +22,9 @@ const Products = ({ data }) => (
         {data.products.map((item) => (
           <div key={item._id}>
             <ProductDetail
-              productName={item.productName}
+              productName={item.name}
               updateAt={timeago(item.updatedAt)}
-              productDescription={item.productDescription}
+              productDescription={item.description}
               isPublic={item.isPublic}
               id={item._id}
             />
