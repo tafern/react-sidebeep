@@ -9,6 +9,7 @@ import Orgs from '../../api/Orgs/Orgs';
 import Images from '../../api/Images/Images';
 import Headlines from '../../api/Headlines/Headlines';
 import Categories from '../../api/Categories/Categories';
+import Locations from '../../api/Locations/Locations';
 
 const commentsSeed = (userId, date, documentId) => {
   seeder(Comments, {
@@ -76,13 +77,13 @@ const productReviewsSeed = (userId, date, productId) => {
   });
 };
 
-const productImageSeed = (userId, date, idOfFile) => {
+const productPortfolioImageSeed = (userId, date, idOfFile) => {
   seeder(Images, {
     seedIfExistingData: true,
     environments: ['development', 'staging'],
     data: {
       dynamic: {
-        count: 3,
+        count: 5,
         seed() {
           return {
             fileId: idOfFile,
@@ -96,7 +97,7 @@ const productImageSeed = (userId, date, idOfFile) => {
   });
 };
 
-const productFileSeed = (userId, date, productId) => {
+const productPortfolioFileSeed = (userId, date, productId) => {
   seeder(Files, {
     seedIfExistingData: true,
     environments: ['development', 'staging'],
@@ -108,9 +109,52 @@ const productFileSeed = (userId, date, productId) => {
             refferenceId: productId,
             fileUrl: '',
             createdAt: date,
-            type: 'Product',
+            type: 'ProductPortfolio',
             dependentData(fileId) {
-              productImageSeed(userId, date, fileId);
+              productPortfolioImageSeed(userId, date, fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
+const productCoverImageSeed = (userId, date, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl:
+              'https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,',
+            createdAt: date,
+          };
+        },
+      },
+    },
+  });
+};
+
+const productCoverFileSeed = (userId, date, productId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refferenceId: productId,
+            fileUrl: '',
+            createdAt: date,
+            type: 'ProductCover',
+            dependentData(fileId) {
+              productCoverImageSeed(userId, date, fileId);
             },
           };
         },
@@ -155,6 +199,8 @@ const productsSeed = (userId, date, organizationId) => {
             name: `Product #${iteration + 1}`,
             description: `This is the body of product #${iteration + 1}`,
             price: Math.floor(Math.random() * (50000 - 50 + 1)) + 500000,
+            viewCount: Math.floor(Math.random() * (514 - 50 + 1)) + 200,
+            orderCount: Math.floor(Math.random() * (914 - 63 + 1)) + 248,
             categories: [
               {
                 _id: ctgryId,
@@ -163,7 +209,8 @@ const productsSeed = (userId, date, organizationId) => {
             ],
             dependentData(productId) {
               productReviewsSeed(userId, date, productId);
-              productFileSeed(userId, date, productId);
+              productCoverFileSeed(userId, date, productId);
+              productPortfolioFileSeed(userId, date, productId);
             },
           };
         },
@@ -215,13 +262,48 @@ const orgFileSeed = (userId, date, orgId) => {
   });
 };
 
+const locationsSeed = (userId, date, organizationId) => {
+  const locationList = [
+    'Jl MH Thamrin 9 Menara Cakrawala Lt 5,Kebon Sirih',
+    'Jl HR Rasuna Said Kav 2-3 Bl X-5 Menara Kadin Indonesia Lt 16',
+    'Jl Raya Pasar Minggu Kav 34 Graha Sucofindo Bl B,Pancoran',
+    'Ruko Daan Mogot Baru Bl 3-A/3,Kalideres',
+    'Erector House, (2nd Floor), South Wing',
+    'Jl Jend Gatot Subroto Kav 54 Wisma Baja Lt 3,Kuningan Timur',
+    'Jl Bendungan Hilir IV 15,Bendungan Hilir',
+  ];
+  seeder(Locations, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          const arrayLocation = locationList[Math.floor(Math.random() * locationList.length)];
+          return {
+            isPublic: false,
+            createdAt: date,
+            updatedAt: date,
+            orgId: organizationId,
+            address: arrayLocation,
+            city: 'Jakarta Pusat',
+            province: 'DKI Jakarta',
+            latitude: '-6.135558',
+            longitude: '106.8044564',
+          };
+        },
+      },
+    },
+  });
+};
+
 const orgsSeed = (userId) => {
   seeder(Orgs, {
     seedIfExistingData: false,
     environments: ['development', 'staging'],
     data: {
       dynamic: {
-        count: 2,
+        count: 5,
         seed(iteration) {
           const date = new Date().toISOString();
           return {
@@ -234,6 +316,7 @@ const orgsSeed = (userId) => {
             dependentData(orgId) {
               productsSeed(userId, date, orgId);
               orgFileSeed(userId, date, orgId);
+              locationsSeed(userId, date, orgId);
             },
           };
         },

@@ -9,6 +9,8 @@ export default `
     locations: [Location]
     files: [File]
     categories: [Category]
+    viewCount: Int
+    orderCount: Int
     type: String,
 	  status: String,
     createdAt: String
