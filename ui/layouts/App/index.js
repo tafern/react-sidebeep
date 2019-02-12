@@ -8,14 +8,17 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 
 // New Sidebeep
-import Welcome from '../../pages/Welcome';
+import HomePage from '../../pages/HomePage';
 import Campaign from '../../pages/Campaign';
+import CampaignDetail from '../../pages/Campaign/CampaignDetail';
 
+import Category from '../../pages/Category';
 import Products from '../../pages/Products';
 import ViewProduct from '../../pages/ViewProduct';
 import EditProduct from '../../pages/EditProduct';
 
 import Guide from '../../pages/Guide';
+import FixFlexGuide from '../../pages/Guide/FixFlexGuide';
 import Signup from '../../pages/Signup';
 import Login from '../../pages/Login';
 import ForgotPassword from '../../pages/ForgotPassword';
@@ -90,8 +93,7 @@ class App extends React.Component {
         <Grid>
           <Switch>
             {/* New Sidebeep */}
-            <Route exact name="welcome" path="/" component={Welcome} />
-
+            <Route exact name="welcome" path="/" component={HomePage} />
             <Authenticated
               exact
               path="/products"
@@ -100,7 +102,8 @@ class App extends React.Component {
               {...props}
               {...state}
             />
-            <Route exact path="/products/:_id" component={ViewProduct} />
+            <Route exact name="category" path="/category" component={Category} />
+            <Route exact path="/product/view/:_id" component={ViewProduct} />
             <Authenticated
               exact
               path="/products/:_id/edit"
@@ -109,11 +112,12 @@ class App extends React.Component {
               {...props}
               {...state}
             />
-
             <Route exact name="campaign" path="/campaign" component={Campaign} />
+            <Route exact name="campaignDetail" path="/campaign/:id" component={CampaignDetail} />
             <Public path="/signup" component={Signup} {...props} {...state} />
             <Public path="/login" component={Login} {...props} {...state} />
             <Public path="/guide" component={Guide} {...props} {...state} />
+            <Public path="/guide/fix-and-flex" component={FixFlexGuide} {...props} {...state} />
 
             <Route name="forgot-password" path="/forgot-password" component={ForgotPassword} />
 

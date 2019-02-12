@@ -1,8 +1,9 @@
 import Products from './Products';
 
 export default {
-  products: (parent, args, context) =>
-    context.user && context.user._id ? Products.find({ owner: context.user._id }).fetch() : [],
+  products: () =>
+    // context.user && context.user._id ? Products.find({ owner: context.user._id }).fetch() : [],
+    Products.find({}).fetch(),
   product: (parent, args, context) =>
     Products.findOne({
       $or: [

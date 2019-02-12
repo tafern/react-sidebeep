@@ -1,30 +1,38 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
 import Styles from './styles';
 
 const Guide = () => (
   <Styles.Guide>
-    <img
-      src="https://s3-us-west-2.amazonaws.com/cleverbeagle-assets/graphics/email-icon.png"
-      alt="Clever Beagle"
-    />
-    <h1>Guide</h1>
-    <p>The Ultimate Boilerplate for Products.</p>
-    <div>
-      <Button href="http://cleverbeagle.com/pup">Read the Docs</Button>
-      <Button href="https://github.com/cleverbeagle/pup">
-        <i className="fa fa-star" /> Star on GitHub
-      </Button>
-    </div>
-    <footer>
-      <p>
-        Want to build your product with an experienced buddy?{' '}
-        <a href="https://cleverbeagle.com/together?utm_source=pup&utm_medium=app&utm_campaign=oss">
-          Check out Together by Clever Beagle
-        </a>
-        .
-      </p>
-    </footer>
+    <Styles.ContentWrapper>
+      <Row>
+        <Col md={5}>
+          <Styles.ImageGuide src="/img/beeper-guide.png" className="img img-responsive" />
+          <Styles.CustomButton to="https://help.sidebeep.com/beeper_guides.php" target="_BLANK">
+            PENCARI JASA (BEEPER)
+          </Styles.CustomButton>
+        </Col>
+        <Col md={2}>
+          <Styles.ImageLogo src="/img/sidebeep_logo.png" className="img img-responsive" />
+        </Col>
+        <Col md={5}>
+          <Styles.ImageGuide src="/img/sider-guide.png" className="img img-responsive" />
+          <Styles.CustomButton to="https://help.sidebeep.com/sider_guides.php" target="_BLANK">
+            PENYEDIA JASA (SIDER)
+          </Styles.CustomButton>
+        </Col>
+      </Row>
+    </Styles.ContentWrapper>
+    <Styles.ContentWrapper>
+      <Row>
+        <Col md={12}>
+          <Link to="/guide/fix-and-flex">
+            <Styles.ImageProductType src="/img/fix_and_flex.svg" className="img img-responsive" />
+          </Link>
+        </Col>
+      </Row>
+    </Styles.ContentWrapper>
   </Styles.Guide>
 );
 

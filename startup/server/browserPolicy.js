@@ -6,6 +6,12 @@ BrowserPolicy.content.allowOriginForAll('*.bootstrapcdn.com');
 // FontAwesome
 BrowserPolicy.content.allowOriginForAll('use.fontawesome.com');
 
+// Cdnjs Slick
+BrowserPolicy.content.allowOriginForAll('cdnjs.cloudflare.com');
+
+// Font Ionicons
+BrowserPolicy.content.allowOriginForAll('unpkg.com');
+
 // GraphQL Playground
 BrowserPolicy.content.allowOriginForAll('graphcool-playground.netlify.com');
 BrowserPolicy.content.allowOriginForAll('cdn.jsdelivr.net');

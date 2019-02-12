@@ -1,0 +1,158 @@
+{
+  "id": "3a3d8a33-9898-42d9-81f5-febb58d1f993",
+  "sider": {
+    "sider_quality": "Very Good",
+    "id": "e9b7505f-bd8b-48e2-8ee1-eb3ce08414d8",
+    "sidebeep_name": "Mau Kemana Si",
+    "identification_name": "indah islamiaty",
+    "profile_picture": "87f6c84a-35fc-429f-af22-0e491e588d64",
+    "verification_status": "verified",
+    "status": "active",
+    "gender": "male",
+    "slug": "sider-1"
+  },
+  "user_id": "c1d5b1b4-40b6-4c14-949b-617fd9e169d9",
+  "status": "active",
+  "covered_region": {
+    "id": "a1b93ac1-52db-4ebe-834a-f0d5cf58ab51",
+    "name": "Jabodetabek",
+    "country": {
+      "id": "ID",
+      "name": "Indonesia",
+      "currency_id": "IDR"
+    }
+  },
+  "title": "MAU KEMANA SI",
+  "slug": "mau-kemana-si",
+  "description": "Mau Kemana Si adalah Tour Organizer yang sudah berpengalaman semenjak tahun 2015 dan sangat mengutamakan kenyamanan, keamanan dan kepuasaan customers.\n\nTour Organizer kami sudah dipercaya untuk event Family Gathering dan Private Trip oleh banyak Perusahaan Besar seperti Astra Honda Motor, Ace Hardware, Honda Mobil, Gikoko, RPT dan lainnya. Serta kami sudah dipercaya untuk Study tour beberapa kampus dan sekolah yaitu Universitas Uhamka, GS Fame Bussiness School, SMP 269 Jakarta, SMP 78 Jakarta dan lainnya\n\nWe Provide : \n\n🏖 Open trip\n🕴 Private trip\n👩\u200d🎓 Study tour\n👔 Family gathering\n🚎 Rent Bus",
+  "additional_service": [],
+  "price": 85000,
+  "unit": {
+    "type": "unit",
+    "name": "per orang",
+    "qty": 1
+  },
+  "estimation_time": 720,
+  "availability": {
+    "F": [
+      {
+        "start": 240,
+        "end": 1439
+      }
+    ],
+    "M": [
+      {
+        "start": 240,
+        "end": 1439
+      }
+    ],
+    "St": [
+      {
+        "start": 240,
+        "end": 1439
+      }
+    ],
+    "Su": [
+      {
+        "start": 240,
+        "end": 1439
+      }
+    ],
+    "Th": [
+      {
+        "start": 240,
+        "end": 1439
+      }
+    ],
+    "Tu": [
+      {
+        "start": 240,
+        "end": 1439
+      }
+    ],
+    "W": [
+      {
+        "start": 240,
+        "end": 1439
+      }
+    ]
+  },
+  "default_portfolio": [
+    {
+      "id": "03b1b90d-0dbc-4894-ab27-16facecb8379",
+      "file_id": "20296705-d354-424a-99d3-b259da56e833",
+      "caption": "OPEN TRIP JOGJA (4D3N)",
+      "description": "16-19 NOVEMBER | 21-24 DESEMBER | 29-1 JANUARI"
+    },
+    {
+      "id": "bdb51a00-c398-401e-bc66-28e508eb01d7",
+      "file_id": "0591fab6-9816-49ae-ab3e-90a37f67e329",
+      "caption": "END YEAR TRIP",
+      "description": "rencanakan liburan akhir tahunmu"
+    },
+    {
+      "id": "48296fff-576c-470d-b084-bf093733058a",
+      "file_id": "9a984a8e-baf1-4b4e-938c-1498953b734e",
+      "caption": "ONE DAY TRIP SKY CAVE GUNUNG PARANG",
+      "description": "EVERY SATURDAY"
+    },
+    {
+      "id": "e39d74c1-3c76-4ff5-a6df-9db88318f4b7",
+      "file_id": "902c58f5-7c05-4431-911b-902b9df89a25",
+      "caption": "OPEN TRIP DIENG (3D2N)",
+      "description": "16-18 November | 30-2 Desember | 21-23 Desember | 23-25 Desember | 30-1 Januari"
+    },
+    {
+      "id": "9553eb36-1c33-4958-9f47-4ff12294a0ee",
+      "file_id": "6b5ef479-cf8a-427a-9024-0c350f52f9b3",
+      "caption": "OPEN TRIP PAHAWANG (3 HARI 2 MALAM)",
+      "description": "Start Merak : 450.000/orang\nStart Jakarta : 625.000/orang"
+    }
+  ],
+  "followers_amount": 3,
+  "status_updated_at": "2018-11-23T08:32:12+0000",
+  "total_reviewer": 6,
+  "view_count": 536,
+  "order_count": 87,
+  "favourite_count": 0,
+  "popularity": 9236,
+  "average_rating": 5,
+  "location": {
+    "lat": -6.2291231340147,
+    "long": 106.83381803334
+  },
+  "default_location_additional_info": "Meeting Point untuk setiap trip sudah ada di detail trip kamu.\nSetiap Destinasi Trip memiliki Meeting Point yang berbeda-beda.\nUntuk detail bisa langsung chat yaa",
+  "default_location_address": "Kantorkuu, Agro Plaza,\nJl. H. Rasuna Said No. Kav X2-1 Kuningan Timur, Setiabudi, Jakarta Selatan",
+  "default_location_city": "Jabodetabek",
+  "default_location_country_code": "ID",
+  "default_location_postal_code": "12950",
+  "published_at": "2018-10-19T05:15:24+0000",
+  "created_at": "2018-10-19T05:15:21+0000",
+  "service_location": "by_sider",
+  "type": "private_session",
+  "tags": [],
+  "subcategory": {
+    "id": "tour-guide",
+    "description": "Tour and Travel",
+    "tags": [
+      "tour",
+      "travel",
+      "travelling",
+      "petualangan",
+      "refreshing",
+      "entertainment",
+      "lifestyle",
+      "holiday",
+      "liburan",
+      "hiburan"
+    ],
+    "category": {
+      "id": "hobby_and_lifestyle",
+      "description": "Hobby and Lifestyle",
+      "status": "active",
+      "picture": "629ca337-2355-42c9-9d07-4690ef17cde4"
+    },
+    "status": "active"
+  },
+  "approved_by_admin": "approved"
+}

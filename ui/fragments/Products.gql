@@ -3,7 +3,7 @@ fragment ProductAttributes on Product {
   isPublic
   productName
   productDescription
-  body
+  owner
   updatedAt
   createdAt
 }
