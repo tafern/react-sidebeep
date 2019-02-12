@@ -7,6 +7,8 @@ import Files from '../../api/Files/Files';
 import ProductReviews from '../../api/ProductReviews/ProductReviews';
 import Orgs from '../../api/Orgs/Orgs';
 import Images from '../../api/Images/Images';
+import Headlines from '../../api/Headlines/Headlines';
+import Categories from '../../api/Categories/Categories';
 
 const commentsSeed = (userId, date, documentId) => {
   seeder(Comments, {
@@ -118,6 +120,21 @@ const productFileSeed = (userId, date, productId) => {
 };
 
 const productsSeed = (userId, date, organizationId) => {
+  const categoryList = [
+    'Hobby and Lifestyle',
+    'Dance',
+    'Knowledge and Education',
+    'Reparation',
+    'All About Music',
+    'Animal and Pets Lover',
+    'Event and Entertainment',
+    'Home and Utilities',
+    'Art and Craft',
+    'Beauty and Health',
+    'Business Professional',
+    'Martial Arts and Self Defense',
+    'Sports',
+  ];
   seeder(Products, {
     seedIfExistingData: true,
     environments: ['development', 'staging'],
@@ -125,6 +142,11 @@ const productsSeed = (userId, date, organizationId) => {
       dynamic: {
         count: 3,
         seed(iteration) {
+          const arrayCategory = categoryList[Math.floor(Math.random() * categoryList.length)];
+          let ctgryId = arrayCategory.replace(' ', '_').toLowerCase();
+          ctgryId = ctgryId.replace(' ', '_').toLowerCase();
+          ctgryId = ctgryId.replace(' ', '_').toLowerCase();
+          ctgryId = ctgryId.replace(' ', '_').toLowerCase();
           return {
             isPublic: false,
             createdAt: date,
@@ -132,6 +154,7 @@ const productsSeed = (userId, date, organizationId) => {
             orgId: organizationId,
             name: `Product #${iteration + 1}`,
             description: `This is the body of product #${iteration + 1}`,
+            category: [ctgryId],
             dependentData(productId) {
               productReviewsSeed(userId, date, productId);
               productFileSeed(userId, date, productId);
@@ -213,6 +236,167 @@ const orgsSeed = (userId) => {
   });
 };
 
+const headlineImageSeed = (userId, date, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl:
+              'https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,',
+            createdAt: date,
+          };
+        },
+      },
+    },
+  });
+};
+
+const headlineFileSeed = (userId, date, headlineId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refferenceId: headlineId,
+            fileUrl: '',
+            createdAt: date,
+            type: 'Headline',
+            dependentData(fileId) {
+              headlineImageSeed(userId, date, fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
+const headlinesSeed = (userId) => {
+  seeder(Headlines, {
+    seedIfExistingData: false,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 2,
+        seed(iteration) {
+          const date = new Date().toISOString();
+          return {
+            isPublic: false,
+            createdAt: date,
+            updatedAt: date,
+            owner: userId,
+            name: `Headline #${iteration + 1}`,
+            description: `This is the body of headline #${iteration + 1}`,
+            dependentData(headlineId) {
+              headlineFileSeed(userId, date, headlineId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
+const categoryImageSeed = (userId, date, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl:
+              'https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,',
+            createdAt: date,
+          };
+        },
+      },
+    },
+  });
+};
+
+const categoryFileSeed = (userId, date, categoryId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refferenceId: categoryId,
+            fileUrl: '',
+            createdAt: date,
+            type: 'Category',
+            dependentData(fileId) {
+              categoryImageSeed(userId, date, fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
+const categoriesSeed = (userId) => {
+  const categoryList = [
+    'Hobby and Lifestyle',
+    'Dance',
+    'Knowledge and Education',
+    'Reparation',
+    'All About Music',
+    'Animal and Pets Lover',
+    'Event and Entertainment',
+    'Home and Utilities',
+    'Art and Craft',
+    'Beauty and Health',
+    'Business Professional',
+    'Martial Arts and Self Defense',
+    'Sports',
+  ];
+  let count = 0;
+  seeder(Categories, {
+    seedIfExistingData: false,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 13,
+        seed() {
+          const date = new Date().toISOString();
+          const arrayCategory = categoryList[count];
+          let ctgryId = arrayCategory.replace(' ', '_').toLowerCase();
+          ctgryId = ctgryId.replace(' ', '_').toLowerCase();
+          ctgryId = ctgryId.replace(' ', '_').toLowerCase();
+          ctgryId = ctgryId.replace(' ', '_').toLowerCase();
+          count += 1;
+          return {
+            isPublic: false,
+            createdAt: date,
+            updatedAt: date,
+            _id: ctgryId,
+            name: arrayCategory,
+            description: `This is the body of category #${arrayCategory}`,
+            type: 'Product',
+            dependentData(categoryId) {
+              categoryFileSeed(userId, date, categoryId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
 seeder(Meteor.users, {
   seedIfExistingData: true,
   environments: ['development', 'staging'],
@@ -231,6 +415,8 @@ seeder(Meteor.users, {
         dependentData(userId) {
           documentsSeed(userId);
           orgsSeed(userId);
+          headlinesSeed(userId);
+          categoriesSeed(userId);
         },
       },
     ],
@@ -251,6 +437,8 @@ seeder(Meteor.users, {
           dependentData(userId) {
             documentsSeed(userId);
             orgsSeed(userId);
+            headlinesSeed(userId);
+            categoriesSeed(userId);
           },
         };
       },

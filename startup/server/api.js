@@ -44,12 +44,21 @@ import LocationTypes from '../../api/Locations/types';
 import LocationQueries from '../../api/Locations/queries';
 import LocationMutations from '../../api/Locations/mutations';
 
+import HeadlineTypes from '../../api/Headlines/types';
+import HeadlineQueries from '../../api/Headlines/queries';
+import HeadlineMutations from '../../api/Headlines/mutations';
+
+import CategoryTypes from '../../api/Categories/types';
+import CategoryQueries from '../../api/Categories/queries';
+import CategoryMutations from '../../api/Categories/mutations';
+
 import '../../api/Documents/server/indexes';
 import '../../api/Products/server/indexes';
 import '../../api/Orgs/server/indexes';
 import '../../api/Files/server/indexes';
 import '../../api/Images/server/indexes';
 import '../../api/Locations/server/indexes';
+import '../../api/Headlines/server/indexes';
 import '../../api/webhooks';
 
 const schema = {
@@ -64,6 +73,8 @@ const schema = {
     ${FileTypes}
     ${ImageTypes}
     ${LocationTypes}
+    ${HeadlineTypes}
+    ${CategoryTypes}
 
     type Query {
       documents: [Document]
@@ -83,6 +94,10 @@ const schema = {
       image(_id: String): Image
       locations: [Location]
       location(_id: String): Location
+      headlines: [Headline]
+      headline(_id: String): Headline
+      categories: [Category]
+      category(_id: String): Category
     }
 
     type Mutation {
@@ -115,6 +130,12 @@ const schema = {
       addLocation(address: String, postcode: String): Location
       updateLocation(_id: String!, address: String, postcode: String): Location
       removeLocation(_id: String!): Location
+      addHeadline(name: String, description: String): Headline
+      updateHeadline(_id: String!, name: String, description: String): Headline
+      removeHeadline(_id: String!): Headline
+      addCategory(name: String, description: String): Category
+      updateCategory(_id: String!, name: String, description: String): Category
+      removeCategory(_id: String!): Category
     }
 
     type Subscription {
@@ -133,6 +154,8 @@ const schema = {
       ...FileQueries,
       ...ImageQueries,
       ...LocationQueries,
+      ...HeadlineQueries,
+      ...CategoryQueries,
     },
     Mutation: {
       ...DocumentMutations,
@@ -145,6 +168,8 @@ const schema = {
       ...FileMutations,
       ...ImageMutations,
       ...LocationMutations,
+      ...HeadlineMutations,
+      ...CategoryMutations,
     },
     Subscription: {
       ...CommentSubscriptions,
@@ -166,6 +191,12 @@ const schema = {
     },
     ProductReview: {
       user: UserQueries.user,
+    },
+    Headline: {
+      files: FileQueries.files,
+    },
+    Category: {
+      files: FileQueries.files,
     },
     File: {
       images: ImageQueries.images,

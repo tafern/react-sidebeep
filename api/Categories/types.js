@@ -1,14 +1,12 @@
 export default `
-  type Product {
+  type Category {
     _id: String
-    orgId: String
-    isPublic: Boolean
     name: String
     description: String
     files: [File]
-    category: [Category]
+    type: String,
+	  status: String,
     createdAt: String
     updatedAt: String
-    productReviews: [ProductReview]
   }
 `;
