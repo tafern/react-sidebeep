@@ -154,7 +154,13 @@ const productsSeed = (userId, date, organizationId) => {
             orgId: organizationId,
             name: `Product #${iteration + 1}`,
             description: `This is the body of product #${iteration + 1}`,
-            category: [ctgryId],
+            price: Math.floor(Math.random() * (50000 - 50 + 1)) + 500000,
+            categories: [
+              {
+                _id: ctgryId,
+                name: arrayCategory,
+              },
+            ],
             dependentData(productId) {
               productReviewsSeed(userId, date, productId);
               productFileSeed(userId, date, productId);

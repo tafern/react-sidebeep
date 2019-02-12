@@ -5,8 +5,12 @@ export default `
     isPublic: Boolean
     name: String
     description: String
+    price: Int
+    locations: [Location]
     files: [File]
-    category: [Category]
+    categories: [Category]
+    type: String,
+	  status: String,
     createdAt: String
     updatedAt: String
     productReviews: [ProductReview]
