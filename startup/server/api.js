@@ -21,10 +21,10 @@ import ProductTypes from '../../api/Products/types';
 import ProductQueries from '../../api/Products/queries';
 import ProductMutations from '../../api/Products/mutations';
 
-import ProductReviewTypes from '../../api/ProductReviews/types';
-import ProductReviewQueries from '../../api/ProductReviews/queries';
-import ProductReviewMutations from '../../api/ProductReviews/mutations';
-import ProductReviewSubscriptions from '../../api/ProductReviews/subscriptions';
+import ReviewTypes from '../../api/Reviews/types';
+import ReviewQueries from '../../api/Reviews/queries';
+import ReviewMutations from '../../api/Reviews/mutations';
+import ReviewSubscriptions from '../../api/Reviews/subscriptions';
 
 import OAuthQueries from '../../api/OAuth/queries';
 
@@ -44,12 +44,26 @@ import LocationTypes from '../../api/Locations/types';
 import LocationQueries from '../../api/Locations/queries';
 import LocationMutations from '../../api/Locations/mutations';
 
+import HeadlineTypes from '../../api/Headlines/types';
+import HeadlineQueries from '../../api/Headlines/queries';
+import HeadlineMutations from '../../api/Headlines/mutations';
+
+import CategoryTypes from '../../api/Categories/types';
+import CategoryQueries from '../../api/Categories/queries';
+import CategoryMutations from '../../api/Categories/mutations';
+
+import PostTypes from '../../api/Posts/types';
+import PostQueries from '../../api/Posts/queries';
+import PostMutations from '../../api/Posts/mutations';
+
 import '../../api/Documents/server/indexes';
 import '../../api/Products/server/indexes';
 import '../../api/Orgs/server/indexes';
 import '../../api/Files/server/indexes';
 import '../../api/Images/server/indexes';
 import '../../api/Locations/server/indexes';
+import '../../api/Headlines/server/indexes';
+import '../../api/Posts/server/indexes';
 import '../../api/webhooks';
 
 const schema = {
@@ -59,11 +73,14 @@ const schema = {
     ${CommentTypes}
     ${UserSettingsTypes}
     ${ProductTypes}
-    ${ProductReviewTypes}
+    ${ReviewTypes}
     ${OrgTypes}
     ${FileTypes}
     ${ImageTypes}
     ${LocationTypes}
+    ${HeadlineTypes}
+    ${CategoryTypes}
+    ${PostTypes}
 
     type Query {
       documents: [Document]
@@ -83,6 +100,12 @@ const schema = {
       image(_id: String): Image
       locations: [Location]
       location(_id: String): Location
+      headlines: [Headline]
+      headline(_id: String): Headline
+      categories: [Category]
+      category(_id: String): Category
+      posts: [Post]
+      post(_id: String): Post
     }
 
     type Mutation {
@@ -101,8 +124,8 @@ const schema = {
       addProduct(name: String, description: String): Product
       updateProduct(_id: String!, name: String, description: String, isPublic: Boolean): Product
       removeProduct(_id: String!): Product
-      addProductReview(productId: String!, productReview: String!): ProductReview
-      removeProductReview(productReviewId: String!): ProductReview
+      addReview(productId: String!, review: String!): Review
+      removeReview(reviewId: String!): Review
       addOrg(name: String, description: String): Org
       updateOrg(_id: String!, name: String, description: String): Org
       removeOrg(_id: String!): Org
@@ -115,11 +138,20 @@ const schema = {
       addLocation(address: String, postcode: String): Location
       updateLocation(_id: String!, address: String, postcode: String): Location
       removeLocation(_id: String!): Location
+      addHeadline(name: String, description: String): Headline
+      updateHeadline(_id: String!, name: String, description: String): Headline
+      removeHeadline(_id: String!): Headline
+      addCategory(name: String, description: String): Category
+      updateCategory(_id: String!, name: String, description: String): Category
+      removeCategory(_id: String!): Category
+      addPost(name: String, description: String): Post
+      updatePost(_id: String!, name: String, description: String): Post
+      removePost(_id: String!): Post
     }
 
     type Subscription {
       commentAdded(documentId: String!): Comment
-      productReviewAdded(productId: String!): ProductReview
+      reviewAdded(productId: String!): Review
     }
   `,
   resolvers: {
@@ -133,6 +165,9 @@ const schema = {
       ...FileQueries,
       ...ImageQueries,
       ...LocationQueries,
+      ...HeadlineQueries,
+      ...CategoryQueries,
+      ...PostQueries,
     },
     Mutation: {
       ...DocumentMutations,
@@ -140,15 +175,18 @@ const schema = {
       ...UserMutations,
       ...UserSettingsMutations,
       ...ProductMutations,
-      ...ProductReviewMutations,
+      ...ReviewMutations,
       ...OrgMutations,
       ...FileMutations,
       ...ImageMutations,
       ...LocationMutations,
+      ...HeadlineMutations,
+      ...CategoryMutations,
+      ...PostMutations,
     },
     Subscription: {
       ...CommentSubscriptions,
-      ...ProductReviewSubscriptions,
+      ...ReviewSubscriptions,
     },
     Document: {
       comments: CommentQueries.comments,
@@ -161,11 +199,21 @@ const schema = {
       files: FileQueries.files,
     },
     Product: {
-      productReviews: ProductReviewQueries.productReviews,
+      reviews: ReviewQueries.reviews,
       files: FileQueries.files,
     },
-    ProductReview: {
+    Review: {
       user: UserQueries.user,
+    },
+    Headline: {
+      files: FileQueries.files,
+    },
+    Category: {
+      files: FileQueries.files,
+    },
+    Post: {
+      user: UserQueries.user,
+      files: FileQueries.files,
     },
     File: {
       images: ImageQueries.images,
