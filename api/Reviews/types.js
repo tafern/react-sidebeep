@@ -1,9 +1,9 @@
 export default `
-  type ProductReview {
+  type Review {
     _id: String
     user: User
     productId: String
-    productReview: String
+    review: String
     createdAt: String
   }
 `;

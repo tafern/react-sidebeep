@@ -15,6 +15,6 @@ export default `
 	  status: String,
     createdAt: String
     updatedAt: String
-    productReviews: [ProductReview]
+    reviews: [Review]
   }
 `;

@@ -4,12 +4,13 @@ import Documents from '../../api/Documents/Documents';
 import Comments from '../../api/Comments/Comments';
 import Products from '../../api/Products/Products';
 import Files from '../../api/Files/Files';
-import ProductReviews from '../../api/ProductReviews/ProductReviews';
+import Reviews from '../../api/Reviews/Reviews';
 import Orgs from '../../api/Orgs/Orgs';
 import Images from '../../api/Images/Images';
 import Headlines from '../../api/Headlines/Headlines';
 import Categories from '../../api/Categories/Categories';
 import Locations from '../../api/Locations/Locations';
+import Posts from '../../api/Posts/Posts';
 
 const commentsSeed = (userId, date, documentId) => {
   seeder(Comments, {
@@ -57,18 +58,18 @@ const documentsSeed = (userId) => {
   });
 };
 
-const productReviewsSeed = (userId, date, productId) => {
-  seeder(ProductReviews, {
+const reviewsSeed = (userId, date, productId) => {
+  seeder(Reviews, {
     seedIfExistingData: true,
     environments: ['development', 'staging'],
     data: {
       dynamic: {
         count: 3,
-        seed(productReviewIteration, faker) {
+        seed(reviewIteration, faker) {
           return {
             userId,
             productId,
-            productReview: faker.hacker.phrase(),
+            review: faker.hacker.phrase(),
             createdAt: date,
           };
         },
@@ -120,7 +121,7 @@ const productPortfolioFileSeed = (userId, date, productId) => {
   });
 };
 
-const productCoverImageSeed = (userId, date, idOfFile) => {
+const imageSeed = (userId, date, idOfFile) => {
   seeder(Images, {
     seedIfExistingData: true,
     environments: ['development', 'staging'],
@@ -154,7 +155,7 @@ const productCoverFileSeed = (userId, date, productId) => {
             createdAt: date,
             type: 'ProductCover',
             dependentData(fileId) {
-              productCoverImageSeed(userId, date, fileId);
+              imageSeed(userId, date, fileId);
             },
           };
         },
@@ -208,9 +209,85 @@ const productsSeed = (userId, date, organizationId) => {
               },
             ],
             dependentData(productId) {
-              productReviewsSeed(userId, date, productId);
+              reviewsSeed(userId, date, productId);
               productCoverFileSeed(userId, date, productId);
               productPortfolioFileSeed(userId, date, productId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
+const postCoverFileSeed = (userId, date, postId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refferenceId: postId,
+            fileUrl: '',
+            createdAt: date,
+            type: 'PostCover',
+            dependentData(fileId) {
+              imageSeed(userId, date, fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
+const postsSeed = (userId, date) => {
+  const categoryList = [
+    'Hobby and Lifestyle',
+    'Dance',
+    'Knowledge and Education',
+    'Reparation',
+    'All About Music',
+    'Animal and Pets Lover',
+    'Event and Entertainment',
+    'Home and Utilities',
+    'Art and Craft',
+    'Beauty and Health',
+    'Business Professional',
+    'Martial Arts and Self Defense',
+    'Sports',
+  ];
+  seeder(Posts, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 3,
+        seed(iteration) {
+          const arrayCategory = categoryList[Math.floor(Math.random() * categoryList.length)];
+          let ctgryId = arrayCategory.replace(' ', '_').toLowerCase();
+          ctgryId = ctgryId.replace(' ', '_').toLowerCase();
+          ctgryId = ctgryId.replace(' ', '_').toLowerCase();
+          ctgryId = ctgryId.replace(' ', '_').toLowerCase();
+          return {
+            isPublic: false,
+            createdAt: date,
+            updatedAt: date,
+            userId,
+            title: `Post #${iteration + 1}`,
+            synopsis: `Post Synopsis #${iteration + 1}`,
+            description: `This is the body of Post #${iteration + 1}`,
+            viewCount: Math.floor(Math.random() * (514 - 50 + 1)) + 200,
+            categories: [
+              {
+                _id: ctgryId,
+                name: arrayCategory,
+              },
+            ],
+            dependentData(postId) {
+              postCoverFileSeed(userId, date, postId);
             },
           };
         },
@@ -506,6 +583,7 @@ seeder(Meteor.users, {
           orgsSeed(userId);
           headlinesSeed(userId);
           categoriesSeed(userId);
+          postsSeed(userId);
         },
       },
     ],
@@ -528,6 +606,7 @@ seeder(Meteor.users, {
             orgsSeed(userId);
             headlinesSeed(userId);
             categoriesSeed(userId);
+            postsSeed(userId);
           },
         };
       },
