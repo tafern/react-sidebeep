@@ -37,7 +37,13 @@ const CategoryWrapper = styled.div`
   margin: 25px 0;
   text-align: center;
 `;
-const CategoryLink = styled(Link)``;
+const CategoryLink = styled(Link)`
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    text-decoration: none;
+  }
+`;
 const IconCategory = styled.i`
   color: ${SB_GREEN};
   font-size: 50px;

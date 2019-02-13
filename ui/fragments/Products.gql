@@ -3,7 +3,14 @@ fragment ProductAttributes on Product {
   isPublic
   name
   description
-  owner
+  files {
+    _id
+    type
+    images{
+      _id
+      imgUrl
+    }
+  }
   updatedAt
   createdAt
 }

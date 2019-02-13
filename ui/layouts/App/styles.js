@@ -6,7 +6,7 @@ const App = styled.div`
 
   > .container {
     margin-bottom: 80px;
-    padding-bottom: 20px;
+    padding-bottom: 20px !important;
   }
 
   .verify-email {

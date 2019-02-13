@@ -1,36 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Slider from 'react-slick';
-import Styles from './styles';
-import { timeago } from '../../../modules/dates';
-import ProductDetail from './ProductDetail';
+import { graphql } from 'react-apollo';
+import ProductItem from '../../components/ProductItem';
 import BlankState from '../../components/BlankState';
+import { products as productsQuery } from '../../queries/Products.gql';
+import Styles from './styles';
 
-const settings = {
-  dots: true,
-  infinite: true,
-  nextArrow: <Styles.ArrowIconNext src="/img/icons/sb-arrow-next.png" />,
-  prevArrow: <Styles.ArrowIconPrev src="/img/icons/sb-arrow-prev.png" />,
-  speed: 500,
-  slidesToShow: 5,
-  slidesToScroll: 5,
-};
 const Products = ({ data }) => (
-  <Styles.Wrapper>
-    {data.products.length > 0 ? (
-      <Slider {...settings}>
+  <Styles.GridWrapper className="clearfix">
+    {/* <TotalCountSearch>
+        {searchKeyword
+          ? countPage > 0 ? `( ${countPage} Result Search )` : ''
+          : countPage > 0 ? `( ${countPage} Available Services )` : ''}
+      </TotalCountSearch> */}
+    {data.products && data.products !== undefined ? (
+      <div>
         {data.products.map((item) => (
-          <div key={item._id}>
-            <ProductDetail
+          <Styles.Block key={item._id}>
+            <ProductItem
               productName={item.name}
-              updateAt={timeago(item.updatedAt)}
+              updatedAt={item.updatedAt}
               productDescription={item.description}
+              files={item.files}
               isPublic={item.isPublic}
               id={item._id}
             />
-          </div>
+          </Styles.Block>
         ))}
-      </Slider>
+      </div>
     ) : (
       <BlankState
         icon={{ style: 'solid', symbol: 'file-alt' }}
@@ -38,11 +35,11 @@ const Products = ({ data }) => (
         subtitle="Add your first product by clicking the button below."
       />
     )}
-  </Styles.Wrapper>
+  </Styles.GridWrapper>
 );
 
 Products.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default Products;
+export default graphql(productsQuery)(Products);

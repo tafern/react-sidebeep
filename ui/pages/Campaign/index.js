@@ -24,32 +24,32 @@ class Campaign extends React.Component {
       <Carousel activeIndex={index} direction={direction} onSelect={this.handleSelect}>
         <Carousel.Item>
           <Link to={`/campaign/${1}`}>
-            <Styles.CampaignImage src="/banner1.jpg" alt="First slide" />
+            <Styles.CampaignImage className="d-block w-100" src="/banner1.jpg" alt="First slide" />
           </Link>
         </Carousel.Item>
         <Carousel.Item>
           <Link to={`/campaign/${2}`}>
-            <Styles.CampaignImage src="/banner2.jpg" alt="First slide" />
+            <Styles.CampaignImage className="d-block w-100" src="/banner2.jpg" alt="First slide" />
           </Link>
         </Carousel.Item>
         <Carousel.Item>
           <Link to={`/campaign/${3}`}>
-            <Styles.CampaignImage src="/banner3.jpg" alt="First slide" />
+            <Styles.CampaignImage className="d-block w-100" src="/banner3.jpg" alt="First slide" />
           </Link>
         </Carousel.Item>
         <Carousel.Item>
           <Link to={`/campaign/${4}`}>
-            <Styles.CampaignImage src="/banner4.jpg" alt="First slide" />
+            <Styles.CampaignImage className="d-block w-100" src="/banner4.jpg" alt="First slide" />
           </Link>
         </Carousel.Item>
         <Carousel.Item>
           <Link to={`/campaign/${5}`}>
-            <Styles.CampaignImage src="/banner5.jpg" alt="First slide" />
+            <Styles.CampaignImage className="d-block w-100" src="/banner5.jpg" alt="First slide" />
           </Link>
         </Carousel.Item>
         <Carousel.Item>
           <Link to={`/campaign/${6}`}>
-            <Styles.CampaignImage src="/banner6.png" alt="First slide" />
+            <Styles.CampaignImage className="d-block w-100" src="/banner6.png" alt="First slide" />
           </Link>
         </Carousel.Item>
       </Carousel>

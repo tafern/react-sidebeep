@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
-export const SB_GREEN = '#005E5F';
-export const SB_DARK_GREEN = '#004545';
+export const SB_GREEN = '#00B37E';
+export const SB_DARK_GREEN = '#00CF84';
 export const SB_GREEN_OLD = '#20E16D';
 export const SB_DARK_GREEN_OLD = '#32CD33';
 export const SB_PURPLE = '#404269';

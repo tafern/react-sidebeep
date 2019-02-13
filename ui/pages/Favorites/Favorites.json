@@ -1,0 +1,175 @@
+{
+  "status": "success",
+  "meta": {
+    "page": 1,
+    "per_page": 20,
+    "total_pages": 1,
+    "total_count": 2
+  },
+  "data": {
+    "favorites": [
+      {
+        "_id": "NRxwp77TbfrFfqk28",
+        "name": "Product #1",
+        "description": "This is the body of product #1",
+        "files": [
+          {
+            "_id": "uZbg8hJeD3fTecbXP",
+            "type": "Product",
+            "images": [
+              {
+                "_id": "KS2XgWne7Tqp3sNnN",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "rHixR4qukjnufprkY",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "f9c5oCFq4rrWkEqAh",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              }
+            ]
+          }
+        ],
+        "updatedAt": "2019-02-12T05:44:36.192Z",
+        "createdAt": "2019-02-12T05:44:36.192Z"
+      },
+      {
+        "_id": "P352N89YCmotsf4EJ",
+        "name": "Product #2",
+        "description": "This is the body of product #2",
+        "files": [
+          {
+            "_id": "7RBMdhHrj43WzDdCB",
+            "type": "Product",
+            "images": [
+              {
+                "_id": "q7KxWZ9zphrbCwupF",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "roLEzLg4TmiQRYpsr",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "mX6PncXafJzWAqssr",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              }
+            ]
+          }
+        ],
+        "updatedAt": "2019-02-12T05:44:36.192Z",
+        "createdAt": "2019-02-12T05:44:36.192Z"
+      },
+      {
+        "_id": "GwMeKn2k5YupKcZ72",
+        "name": "Product #3",
+        "description": "This is the body of product #3",
+        "files": [
+          {
+            "_id": "csZ3Q3qJYzyf6ppru",
+            "type": "Product",
+            "images": [
+              {
+                "_id": "B7dZx39FBpWY5pprQ",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "yRKXWo9ycYbqCAYse",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "psfXnfEZ9kJ3rCWq3",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              }
+            ]
+          }
+        ],
+        "updatedAt": "2019-02-12T05:44:36.192Z",
+        "createdAt": "2019-02-12T05:44:36.192Z"
+      },
+      {
+        "_id": "tBKvxXCFELRcMG6ib",
+        "name": "Product #1",
+        "description": "This is the body of product #1",
+        "files": [
+          {
+            "_id": "m3DE8gZX3v4PHh3qM",
+            "type": "Product",
+            "images": [
+              {
+                "_id": "cTxrkwic9gvwtLWov",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "kpancLg8ScJm2C5MH",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "tDcikk438SrodxbxE",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              }
+            ]
+          }
+        ],
+        "updatedAt": "2019-02-12T05:44:36.258Z",
+        "createdAt": "2019-02-12T05:44:36.258Z"
+      },
+      {
+        "_id": "LMwABdCpkzNWDqG57",
+        "name": "Product #2",
+        "description": "This is the body of product #2",
+        "files": [
+          {
+            "_id": "ZtBNc9eyPhsaCRTry",
+            "type": "Product",
+            "images": [
+              {
+                "_id": "BtSbzWJy8AmDytpJo",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "YACQXQfsf5FdeZeiZ",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "KitrmYFs34o2WxZ5R",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              }
+            ]
+          }
+        ],
+        "updatedAt": "2019-02-12T05:44:36.258Z",
+        "createdAt": "2019-02-12T05:44:36.258Z"
+      },
+      {
+        "_id": "cYbejtLqpoaxsn9q6",
+        "name": "Product #3",
+        "description": "This is the body of product #3",
+        "files": [
+          {
+            "_id": "XJkwiL5oSijx3eMuf",
+            "type": "Product",
+            "images": [
+              {
+                "_id": "oCNfn5pwHHfgXWJxf",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "eGncz8puZAYsWauf8",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              },
+              {
+                "_id": "64HgBXn9S8bvg3rsy",
+                "imgUrl": "https://api.sidebeep.com/files/images/20296705-d354-424a-99d3-b259da56e833/c_fit,"
+              }
+            ]
+          }
+        ],
+        "updatedAt": "2019-02-12T05:44:36.258Z",
+        "createdAt": "2019-02-12T05:44:36.258Z"
+      }
+    ]
+  }
+}

@@ -32,7 +32,7 @@ class Signup extends React.Component {
         } else {
           Meteor.call('users.sendVerificationEmail');
           Bert.alert('HomePage!', 'success');
-          history.push('/documents');
+          history.push('/');
         }
       },
     );

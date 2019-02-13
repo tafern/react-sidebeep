@@ -21,7 +21,7 @@ const SEO = ({
   images,
   path,
   contentType,
-  published,
+  // published,
   updated,
   category,
   tags,
@@ -61,7 +61,7 @@ const SEO = ({
 
     <meta name="fb:app_id" content="196001354345637" />
 
-    {published && <meta name="article:published_time" content={published} />}
+    {/* {published && <meta name="article:published_time" content={published} />} */}
     {updated && <meta name="article:modified_time" content={updated} />}
     {category && <meta name="article:section" content={category} />}
     {tags && <meta name="article:tag" content={tags} />}
@@ -84,7 +84,7 @@ SEO.propTypes = {
   description: PropTypes.string.isRequired,
   path: PropTypes.string,
   contentType: PropTypes.string.isRequired,
-  published: PropTypes.string.isRequired,
+  // published: PropTypes.string.isRequired,
   updated: PropTypes.string,
   category: PropTypes.string,
   tags: PropTypes.array,

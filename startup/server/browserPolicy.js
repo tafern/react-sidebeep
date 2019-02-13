@@ -1,5 +1,8 @@
 import { BrowserPolicy } from 'meteor/browser-policy-common';
 
+// Api Sidebeep
+BrowserPolicy.content.allowOriginForAll('api.sidebeep.com');
+
 // Bootstrap
 BrowserPolicy.content.allowOriginForAll('*.bootstrapcdn.com');
 

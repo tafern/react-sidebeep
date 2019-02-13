@@ -13,35 +13,45 @@ const AuthenticatedNavigation = ({ name, history, userId }) => (
           Documents
         </NavItem>
       </LinkContainer>
-      <LinkContainer to="/products">
-        <NavItem eventKey={1} href="/products">
-          Products
+      <LinkContainer to="/favorites">
+        <NavItem eventKey={2} href="/favorites">
+          Favorites
         </NavItem>
       </LinkContainer>
       {Roles.userIsInRole(userId, 'admin') && (
-        <NavDropdown eventKey={2} title="Admin" id="admin-nav-dropdown">
+        <NavDropdown eventKey={3} title="Chat" id="admin-nav-dropdown">
           <LinkContainer exact to="/admin/users">
-            <NavItem eventKey={2.1} href="/admin/users">
+            <NavItem eventKey={3.1} href="/admin/users">
               Users
             </NavItem>
           </LinkContainer>
           <LinkContainer exact to="/admin/users/settings">
-            <NavItem eventKey={2.2} href="/admin/users/settings">
+            <NavItem eventKey={3.2} href="/admin/users/settings">
               User Settings
             </NavItem>
           </LinkContainer>
         </NavDropdown>
       )}
+      <LinkContainer to="/notifications">
+        <NavItem eventKey={4} href="/notifications">
+          Notifications
+        </NavItem>
+      </LinkContainer>
+      <LinkContainer to="/orders">
+        <NavItem eventKey={4} href="/orders">
+          Orders
+        </NavItem>
+      </LinkContainer>
     </Nav>
     <Nav pullRight>
-      <NavDropdown eventKey={2} title={name} data-test="user-nav-dropdown" id="user-nav-dropdown">
+      <NavDropdown eventKey={5} title={name} data-test="user-nav-dropdown" id="user-nav-dropdown">
         <LinkContainer to="/profile">
-          <NavItem eventKey={2.1} href="/profile">
+          <NavItem eventKey={5.1} href="/profile">
             Profile
           </NavItem>
         </LinkContainer>
         <MenuItem divider />
-        <MenuItem eventKey={2.2} onClick={() => history.push('/logout')}>
+        <MenuItem eventKey={5.2} onClick={() => history.push('/logout')}>
           Logout
         </MenuItem>
       </NavDropdown>

@@ -16,6 +16,9 @@ import Category from '../../pages/Category';
 import Products from '../../pages/Products';
 import ViewProduct from '../../pages/ViewProduct';
 import EditProduct from '../../pages/EditProduct';
+import Favorites from '../../pages/Favorites';
+import Notifications from '../../pages/Notifications';
+import Orders from '../../pages/Orders';
 
 import Guide from '../../pages/Guide';
 import FixFlexGuide from '../../pages/Guide/FixFlexGuide';
@@ -94,16 +97,16 @@ class App extends React.Component {
           <Switch>
             {/* New Sidebeep */}
             <Route exact name="welcome" path="/" component={HomePage} />
-            <Authenticated
-              exact
-              path="/products"
-              component={Products}
-              setAfterLoginPath={setAfterLoginPath}
-              {...props}
-              {...state}
-            />
-            <Route exact name="category" path="/category" component={Category} />
-            <Route exact path="/product/view/:_id" component={ViewProduct} />
+            <Route name="category" path="/category" component={Category} />
+            <Route name="Products" path="/products" component={Products} />
+            <Route exact path="/product/:_id" component={ViewProduct} />
+            <Route name="campaign" path="/campaign" component={Campaign} />
+            <Route name="campaignDetail" path="/campaign/:id" component={CampaignDetail} />
+            <Route name="forgot-password" path="/forgot-password" component={ForgotPassword} />
+            <Public path="/signup" component={Signup} {...props} {...state} />
+            <Public path="/login" component={Login} {...props} {...state} />
+            <Public path="/guide" component={Guide} {...props} {...state} />
+            <Public path="/guide/fix-and-flex" component={FixFlexGuide} {...props} {...state} />
             <Authenticated
               exact
               path="/products/:_id/edit"
@@ -112,14 +115,30 @@ class App extends React.Component {
               {...props}
               {...state}
             />
-            <Route exact name="campaign" path="/campaign" component={Campaign} />
-            <Route exact name="campaignDetail" path="/campaign/:id" component={CampaignDetail} />
-            <Public path="/signup" component={Signup} {...props} {...state} />
-            <Public path="/login" component={Login} {...props} {...state} />
-            <Public path="/guide" component={Guide} {...props} {...state} />
-            <Public path="/guide/fix-and-flex" component={FixFlexGuide} {...props} {...state} />
-
-            <Route name="forgot-password" path="/forgot-password" component={ForgotPassword} />
+            <Authenticated
+              exact
+              path="/favorites"
+              component={Favorites}
+              setAfterLoginPath={setAfterLoginPath}
+              {...props}
+              {...state}
+            />
+            <Authenticated
+              exact
+              path="/notifications"
+              component={Notifications}
+              setAfterLoginPath={setAfterLoginPath}
+              {...props}
+              {...state}
+            />
+            <Authenticated
+              exact
+              path="/orders"
+              component={Orders}
+              setAfterLoginPath={setAfterLoginPath}
+              {...props}
+              {...state}
+            />
 
             {/* Pup */}
             <Authenticated

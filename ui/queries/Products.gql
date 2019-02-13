@@ -6,31 +6,27 @@ query products {
     isPublic
     name
     description
+    files {
+      _id
+      type
+      images{
+        _id
+        imgUrl
+      }
+    }
     updatedAt
     createdAt
-  }
-}
-
-query editProduct($_id: String) {
-  product(_id: $_id) {
-    ...ProductAttributes
   }
 }
 
 query product($_id: String) {
   product(_id: $_id) {
     ...ProductAttributes
-    comments {
-      _id
-      comment
-      createdAt
-      user {
-        _id
-        name {
-          first
-          last
-        }
-      }
-    }
+  }
+}
+
+query editProduct($_id: String) {
+  product(_id: $_id) {
+    ...ProductAttributes
   }
 }

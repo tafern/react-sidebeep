@@ -9,5 +9,5 @@ test('should allow users to login and see their documents', async (browser) => {
     browser,
   });
 
-  await browser.expect(getPageUrl()).contains('/documents');
+  await browser.expect(getPageUrl()).contains('/');
 });

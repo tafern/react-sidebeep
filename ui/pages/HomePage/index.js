@@ -5,7 +5,7 @@ import { graphql } from 'react-apollo';
 import { Row, Col } from 'react-bootstrap';
 import Styles from './styles';
 import Campaign from '../Campaign';
-import Products from '../Products';
+import ProductList from '../ProductList';
 import Partner from '../Partner';
 import NewsInfo from '../NewsInfo';
 import { products as productQuery } from '../../queries/Products.gql';
@@ -23,12 +23,12 @@ const HomePage = ({ data }) => (
         <Styles.Category>
           <Row>
             <Col xs={3} md={3}>
-              <Styles.CategoryWrapper>
-                <Styles.CategoryLink to="/category">
+              <Styles.CategoryLink to="/category">
+                <Styles.CategoryWrapper>
                   <Styles.IconCategory className="icon ion-md-construct" />
                   <p>Repair</p>
-                </Styles.CategoryLink>
-              </Styles.CategoryWrapper>
+                </Styles.CategoryWrapper>
+              </Styles.CategoryLink>
             </Col>
             <Col xs={3} md={3}>
               <Styles.CategoryWrapper>
@@ -94,7 +94,7 @@ const HomePage = ({ data }) => (
       <Styles.Wrapper className="clearfix">
         <Styles.ProductTitle className="pull-left">Services Populer</Styles.ProductTitle>
         <Styles.WrapperViewAll className="pull-right">
-          <Link className="underLinkView" to="/populer">
+          <Link className="underLinkView" to="/products">
             View all
           </Link>
         </Styles.WrapperViewAll>
@@ -103,7 +103,7 @@ const HomePage = ({ data }) => (
         Products that are mostly orders by our customers
       </Styles.ProductDescription>
       {/* Products */}
-      <Products data={data} />
+      <ProductList data={data} />
     </Styles.Products>
     <Styles.News>
       <Styles.Wrapper>
@@ -122,7 +122,7 @@ const HomePage = ({ data }) => (
         </Styles.WrapperViewAll>
       </Styles.Wrapper>
       {/* Products */}
-      <Products data={data} />
+      <ProductList data={data} />
     </Styles.Products>
     <Styles.MediaPartner>
       <Styles.Wrapper>
