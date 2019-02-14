@@ -164,7 +164,7 @@ const productCoverFileSeed = (userId, date, productId) => {
   });
 };
 
-const productsSeed = (userId, date, orgId) => {
+const productsSeed = (userId) => {
   const categoryList = [
     'Hobby and Lifestyle',
     'Dance',
@@ -187,6 +187,7 @@ const productsSeed = (userId, date, orgId) => {
       dynamic: {
         count: 3,
         seed(iteration) {
+          const date = new Date().toISOString();
           const arrayCategory = categoryList[Math.floor(Math.random() * categoryList.length)];
           let ctgryId = arrayCategory.replace(' ', '_').toLowerCase();
           ctgryId = ctgryId.replace(' ', '_').toLowerCase();
@@ -196,7 +197,7 @@ const productsSeed = (userId, date, orgId) => {
             isPublic: false,
             createdAt: date,
             updatedAt: date,
-            orgId,
+            userId,
             name: `Product #${iteration + 1}`,
             description: `This is the body of product #${iteration + 1}`,
             price: Math.floor(Math.random() * (50000 - 50 + 1)) + 500000,
@@ -391,7 +392,6 @@ const orgsSeed = (userId) => {
             name: `Store #${iteration + 1}`,
             description: `This is the body of store #${iteration + 1}`,
             dependentData(orgId) {
-              productsSeed(userId, date, orgId);
               orgFileSeed(userId, date, orgId);
               locationsSeed(userId, date, orgId);
             },
@@ -563,6 +563,29 @@ const categoriesSeed = (userId) => {
   });
 };
 
+const userDisplayPictureFileSeed = (userId, date) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refferenceId: userId,
+            fileUrl: '',
+            createdAt: date,
+            type: 'ProfilePicture',
+            dependentData(fileId) {
+              imageSeed(userId, date, fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
 seeder(Meteor.users, {
   seedIfExistingData: true,
   environments: ['development', 'staging'],
@@ -580,17 +603,16 @@ seeder(Meteor.users, {
         roles: ['admin'],
         dependentData(userId) {
           documentsSeed(userId);
-          orgsSeed(userId);
-          headlinesSeed(userId);
-          categoriesSeed(userId);
-          postsSeed(userId);
+          userDisplayPictureFileSeed(userId);
         },
       },
     ],
     dynamic: {
-      count: 2,
+      count: 10,
       seed(iteration, faker) {
         const userCount = iteration + 1;
+        const roles = ['sider', 'beeper', 'user'];
+        const role = roles[Math.floor(Math.random() * roles.length)];
         return {
           email: `user+${userCount}@test.com`,
           password: 'password',
@@ -600,13 +622,15 @@ seeder(Meteor.users, {
               last: faker.name.lastName(),
             },
           },
-          roles: ['user'],
+          roles: [role],
           dependentData(userId) {
+            userDisplayPictureFileSeed(userId);
             documentsSeed(userId);
             orgsSeed(userId);
             headlinesSeed(userId);
             categoriesSeed(userId);
             postsSeed(userId);
+            productsSeed(userId);
           },
         };
       },

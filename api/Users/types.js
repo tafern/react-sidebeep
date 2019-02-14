@@ -34,6 +34,7 @@ export default `
     username: String
     emailAddress: String
     oAuthProvider: String
+    files: [File]
     roles: [Role]
     settings: [UserSetting] # From /api/UserSettings/types.js
   }

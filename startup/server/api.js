@@ -56,6 +56,14 @@ import PostTypes from '../../api/Posts/types';
 import PostQueries from '../../api/Posts/queries';
 import PostMutations from '../../api/Posts/mutations';
 
+import TrxTypes from '../../api/Trxs/types';
+import TrxQueries from '../../api/Trxs/queries';
+import TrxMutations from '../../api/Trxs/mutations';
+
+import TrxItemTypes from '../../api/TrxItems/types';
+import TrxItemQueries from '../../api/TrxItems/queries';
+import TrxItemMutations from '../../api/TrxItems/mutations';
+
 import '../../api/Documents/server/indexes';
 import '../../api/Products/server/indexes';
 import '../../api/Orgs/server/indexes';
@@ -64,6 +72,8 @@ import '../../api/Images/server/indexes';
 import '../../api/Locations/server/indexes';
 import '../../api/Headlines/server/indexes';
 import '../../api/Posts/server/indexes';
+import '../../api/Trxs/server/indexes';
+import '../../api/TrxItems/server/indexes';
 import '../../api/webhooks';
 
 const schema = {
@@ -81,6 +91,8 @@ const schema = {
     ${HeadlineTypes}
     ${CategoryTypes}
     ${PostTypes}
+    ${TrxTypes}
+    ${TrxItemTypes}
 
     type Query {
       documents: [Document]
@@ -106,6 +118,10 @@ const schema = {
       category(_id: String): Category
       posts: [Post]
       post(_id: String): Post
+      trxs: [Trx]
+      trx(_id: String): Trx
+      trxItems: [TrxItem]
+      trxItem(_id: String): TrxItem
     }
 
     type Mutation {
@@ -147,6 +163,18 @@ const schema = {
       addPost(name: String, description: String): Post
       updatePost(_id: String!, name: String, description: String): Post
       removePost(_id: String!): Post
+      addTrx(buyer: String!, seller: String!, subTotal: String, total: String): Trx
+      updateTrx(_id: String!, buyer: String, seller: String, subTotal: String, total: String): Trx
+      removeTrx(_id: String!): Trx
+      addTrxItem(
+        trxId: String
+        buyer: String!
+        seller: String!
+        productId: String!
+        qty: String!
+      ): TrxItem
+      updateTrxItem(_id: String!, qty: String!): TrxItem
+      removeTrxItem(_id: String!): TrxItem
     }
 
     type Subscription {
@@ -168,6 +196,8 @@ const schema = {
       ...HeadlineQueries,
       ...CategoryQueries,
       ...PostQueries,
+      ...TrxQueries,
+      ...TrxItemQueries,
     },
     Mutation: {
       ...DocumentMutations,
@@ -183,6 +213,8 @@ const schema = {
       ...HeadlineMutations,
       ...CategoryMutations,
       ...PostMutations,
+      ...TrxMutations,
+      ...TrxItemMutations,
     },
     Subscription: {
       ...CommentSubscriptions,
@@ -202,7 +234,7 @@ const schema = {
     Product: {
       reviews: ReviewQueries.reviews,
       files: FileQueries.files,
-      org: OrgQueries.org,
+      user: UserQueries.user,
     },
     Review: {
       user: UserQueries.user,
@@ -212,6 +244,15 @@ const schema = {
     },
     Category: {
       files: FileQueries.files,
+    },
+    Trx: {
+      trxItems: TrxItemQueries.trxItems,
+      buyer: UserQueries.user,
+      seller: UserQueries.user,
+    },
+    TrxItem: {
+      trx: TrxQueries.trx,
+      product: ProductQueries.product,
     },
     Post: {
       user: UserQueries.user,

@@ -1,7 +1,7 @@
 export default `
   type Product {
     _id: String
-    org: Org
+    user: User
     isPublic: Boolean
     name: String
     description: String
