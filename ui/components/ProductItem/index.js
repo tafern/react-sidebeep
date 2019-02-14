@@ -7,7 +7,7 @@ const ProductItem = ({ id, isPublic, productName, productDescription, files, upd
   <Styles.ProductItemWrapper to={`/product/${id}`}>
     <Styles.HeaderContentWrapper>
       {files.map((item) => {
-        if (item.type === 'Product') {
+        if (item.type === 'ProductCover') {
           return (
             <div key={item._id}>
               <Styles.ProductImage src={item.images[0].imgUrl} alt="imgProduct" />

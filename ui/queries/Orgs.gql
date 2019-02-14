@@ -1,0 +1,35 @@
+#import "../fragments/Orgs.gql"
+
+query orgs {
+  orgs {
+    _id
+    name
+    description
+    createdAt
+    status
+    phones
+    products {
+      _id
+    }
+    files {
+      _id
+      type
+      images {
+        _id
+        imgUrl
+      }
+    }
+  }
+}
+
+query org($_id: String) {
+  org(_id: $_id) {
+    ...OrgAttributes
+  }
+}
+
+query editOrg($_id: String) {
+  org(_id: $_id) {
+    ...OrgAttributes
+  }
+}

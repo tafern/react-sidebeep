@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { graphql } from 'react-apollo';
+import { Link, withRouter } from 'react-router-dom';
+import { compose, graphql } from 'react-apollo';
 import { Row, Col } from 'react-bootstrap';
 import Styles from './styles';
 import Campaign from '../Campaign';
+import OrgList from '../OrgList';
 import ProductList from '../ProductList';
 import Partner from '../Partner';
 import NewsInfo from '../NewsInfo';
+import { orgs as orgQuery } from '../../queries/Orgs.gql';
 import { products as productQuery } from '../../queries/Products.gql';
 
-const HomePage = ({ data }) => (
+const HomePage = ({ orgDataQuery, productDataQuery }) => (
   <div>
+    {console.log('orgData', orgDataQuery)}
+    {console.log('productData', productDataQuery)}
     <Row>
       <Col md={7}>
         <Styles.HomePage>
@@ -92,18 +96,18 @@ const HomePage = ({ data }) => (
     </Row>
     <Styles.Products>
       <Styles.Wrapper className="clearfix">
-        <Styles.ProductTitle className="pull-left">Services Populer</Styles.ProductTitle>
+        <Styles.ProductTitle className="pull-left">All Siders</Styles.ProductTitle>
         <Styles.WrapperViewAll className="pull-right">
-          <Link className="underLinkView" to="/products">
+          <Link className="underLinkView" to="/orgs">
             View all
           </Link>
         </Styles.WrapperViewAll>
       </Styles.Wrapper>
       <Styles.ProductDescription>
-        Products that are mostly orders by our customers
+        Services that are mostly orders by our customers
       </Styles.ProductDescription>
-      {/* Products */}
-      <ProductList data={data} />
+      {/* Orgs */}
+      <OrgList data={orgDataQuery} />
     </Styles.Products>
     <Styles.News>
       <Styles.Wrapper>
@@ -122,7 +126,7 @@ const HomePage = ({ data }) => (
         </Styles.WrapperViewAll>
       </Styles.Wrapper>
       {/* Products */}
-      <ProductList data={data} />
+      <ProductList data={productDataQuery} />
     </Styles.Products>
     <Styles.MediaPartner>
       <Styles.Wrapper>
@@ -134,6 +138,14 @@ const HomePage = ({ data }) => (
   </div>
 );
 HomePage.propTypes = {
-  data: PropTypes.object.isRequired,
+  orgDataQuery: PropTypes.object.isRequired,
+  productDataQuery: PropTypes.object.isRequired,
 };
-export default graphql(productQuery)(HomePage);
+export default compose(
+  graphql(orgQuery, {
+    name: 'orgDataQuery',
+  }),
+  graphql(productQuery, {
+    name: 'productDataQuery',
+  }),
+)(withRouter(HomePage));

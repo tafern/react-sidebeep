@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { SB_DARK_GREY, SB_PURPLE } from '../../../modules/styleConstants';
 
-const ProductItemWrapper = styled(Link)`
+const OrgItemWrapper = styled(Link)`
   width: 100%;
   padding: 8px;
   display: inline-block;
@@ -19,7 +19,7 @@ const ProductItemWrapper = styled(Link)`
     color: ${SB_PURPLE};
   }
 `;
-const ProductImage = styled.img`
+const OrgImage = styled.img`
   background-size: 100% 100%;
   height: 200px;
   @media (max-width: 380px) {
@@ -41,17 +41,17 @@ const ItemWrapper = styled.div`
     padding: 5px 0;
   }
 `;
-const ProductName = styled.div`
+const OrgName = styled.div`
   margin-top: 5px;
 `;
-const ProductPrice = styled.div``;
-const ProductRating = styled.div``;
+const OrgPrice = styled.div``;
+const OrgRating = styled.div``;
 export default {
-  ProductItemWrapper,
-  ProductImage,
+  OrgItemWrapper,
+  OrgImage,
   HeaderContentWrapper,
   ItemWrapper,
-  ProductName,
-  ProductPrice,
-  ProductRating,
+  OrgName,
+  OrgPrice,
+  OrgRating,
 };

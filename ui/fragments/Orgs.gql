@@ -1,0 +1,19 @@
+fragment OrgAttributes on Org {
+  _id
+  name
+  description
+  createdAt
+  status
+  phones
+  products {
+    _id
+  }
+  files {
+    _id
+    type
+    images {
+      _id
+      imgUrl
+    }
+  }
+}
