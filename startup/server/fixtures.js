@@ -164,7 +164,7 @@ const productCoverFileSeed = (userId, date, productId) => {
   });
 };
 
-const productsSeed = (userId, date, organizationId) => {
+const productsSeed = (userId, date, orgId) => {
   const categoryList = [
     'Hobby and Lifestyle',
     'Dance',
@@ -196,7 +196,7 @@ const productsSeed = (userId, date, organizationId) => {
             isPublic: false,
             createdAt: date,
             updatedAt: date,
-            orgId: organizationId,
+            orgId,
             name: `Product #${iteration + 1}`,
             description: `This is the body of product #${iteration + 1}`,
             price: Math.floor(Math.random() * (50000 - 50 + 1)) + 500000,

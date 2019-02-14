@@ -196,11 +196,13 @@ const schema = {
     },
     Org: {
       products: ProductQueries.products,
+      locations: LocationQueries.locations,
       files: FileQueries.files,
     },
     Product: {
       reviews: ReviewQueries.reviews,
       files: FileQueries.files,
+      org: OrgQueries.org,
     },
     Review: {
       user: UserQueries.user,
