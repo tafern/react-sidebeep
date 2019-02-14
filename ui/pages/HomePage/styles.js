@@ -50,7 +50,7 @@ const IconCategory = styled.i`
 `;
 const Products = styled.div`
   background: #fff;
-  padding: 5px 20px 10px 20px !important;
+  padding: 5px 15px 10px 15px !important;
   border: 1px solid #e0e0e0;
   margin: 10px auto !important;
   border-radius: 5px;

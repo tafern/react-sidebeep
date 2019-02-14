@@ -13,6 +13,8 @@ import Campaign from '../../pages/Campaign';
 import CampaignDetail from '../../pages/Campaign/CampaignDetail';
 
 import Category from '../../pages/Category';
+import Orgs from '../../pages/Orgs';
+import ViewOrg from '../../pages/ViewOrg';
 import Products from '../../pages/Products';
 import ViewProduct from '../../pages/ViewProduct';
 import EditProduct from '../../pages/EditProduct';
@@ -98,6 +100,8 @@ class App extends React.Component {
             {/* New Sidebeep */}
             <Route exact name="welcome" path="/" component={HomePage} />
             <Route name="category" path="/category" component={Category} />
+            <Route name="Orgs" path="/orgs" component={Orgs} />
+            <Route exact path="/org/:_id" component={ViewOrg} />
             <Route name="Products" path="/products" component={Products} />
             <Route exact path="/product/:_id" component={ViewProduct} />
             <Route name="campaign" path="/campaign" component={Campaign} />
