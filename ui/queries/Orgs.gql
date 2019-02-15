@@ -10,6 +10,19 @@ query orgs {
     phones
     products {
       _id
+      isPublic
+      name
+      description
+      files {
+        _id
+        type
+        images{
+          _id
+          imgUrl
+        }
+      }
+      updatedAt
+      createdAt
     }
     files {
       _id

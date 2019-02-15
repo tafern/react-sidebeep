@@ -14,8 +14,6 @@ import { products as productQuery } from '../../queries/Products.gql';
 
 const HomePage = ({ orgDataQuery, productDataQuery }) => (
   <div>
-    {console.log('orgData', orgDataQuery)}
-    {console.log('productData', productDataQuery)}
     <Row>
       <Col md={7}>
         <Styles.HomePage>
@@ -96,7 +94,7 @@ const HomePage = ({ orgDataQuery, productDataQuery }) => (
     </Row>
     <Styles.Products>
       <Styles.Wrapper className="clearfix">
-        <Styles.ProductTitle className="pull-left">All Siders</Styles.ProductTitle>
+        <Styles.ProductTitle className="pull-left">Service Populer</Styles.ProductTitle>
         <Styles.WrapperViewAll className="pull-right">
           <Link className="underLinkView" to="/orgs">
             View all

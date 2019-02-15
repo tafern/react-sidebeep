@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { Roles } from 'meteor/alanning:roles';
+import Styles from './styles';
 
 const AuthenticatedNavigation = ({ name, history, userId }) => (
   <div>
@@ -38,20 +39,25 @@ const AuthenticatedNavigation = ({ name, history, userId }) => (
         </NavItem>
       </LinkContainer>
       <LinkContainer to="/orders">
-        <NavItem eventKey={4} href="/orders">
+        <NavItem eventKey={5} href="/orders">
           Orders
         </NavItem>
       </LinkContainer>
     </Nav>
     <Nav pullRight>
-      <NavDropdown eventKey={5} title={name} data-test="user-nav-dropdown" id="user-nav-dropdown">
+      <LinkContainer to="/cart">
+        <NavItem eventKey={6} href="/cart">
+          <Styles.IconCart className="icon ion-md-basket" />
+        </NavItem>
+      </LinkContainer>
+      <NavDropdown eventKey={7} title={name} data-test="user-nav-dropdown" id="user-nav-dropdown">
         <LinkContainer to="/profile">
-          <NavItem eventKey={5.1} href="/profile">
+          <NavItem eventKey={7.1} href="/profile">
             Profile
           </NavItem>
         </LinkContainer>
         <MenuItem divider />
-        <MenuItem eventKey={5.2} onClick={() => history.push('/logout')}>
+        <MenuItem eventKey={7.2} onClick={() => history.push('/logout')}>
           Logout
         </MenuItem>
       </NavDropdown>

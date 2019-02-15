@@ -1,0 +1,13 @@
+fragment TrxAttributes on Trx {
+  _id
+  currency
+  buyer
+  seller
+  trxItems {
+    _id
+    product {
+      _id
+      name
+    }
+  }
+}

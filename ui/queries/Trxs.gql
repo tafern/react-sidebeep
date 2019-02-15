@@ -1,0 +1,20 @@
+#import "../fragments/Trxs.gql"
+
+query trxs {
+ trxs {
+   currency
+   buyer
+   seller
+   trxItems {
+     _id
+     product {
+       name
+     }
+   }
+ }
+}
+query trx($_id: String) {
+  trx(_id: $_id) {
+    ...TrxAttributes
+  }
+}
