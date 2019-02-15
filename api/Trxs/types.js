@@ -1,8 +1,8 @@
 export default `
   type Trx {
     _id: String
-    buyer: User
-    seller: User
+    buyer: String
+    seller: String
     trxItems: [TrxItem]
     currency: String
     subTotal: String

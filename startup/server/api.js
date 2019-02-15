@@ -122,6 +122,7 @@ const schema = {
       trx(_id: String): Trx
       trxItems: [TrxItem]
       trxItem(_id: String): TrxItem
+      buyer(_id: String): User
     }
 
     type Mutation {
@@ -241,6 +242,7 @@ const schema = {
     },
     Trx: {
       trxItems: TrxItemQueries.trxItems,
+      buyer: TrxQueries.buyer,
     },
     TrxItem: {
       trx: TrxQueries.trx,

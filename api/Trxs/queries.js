@@ -1,4 +1,5 @@
 import Trx from './Trxs';
+import queryUser from '../Users/actions/queryUser';
 
 export default {
   trxs: () => Trx.find({}),
@@ -6,12 +7,11 @@ export default {
     Trx.findOne({
       $or: [{ _id: args._id }],
     }),
-  // buyer: (parent, args) =>
-  //   Users.findOne({
-  //     $or: [{ _id: args._id }],
-  //   }),
-  // seller: (parent, args) =>
-  //   Users.findOne({
-  //     $or: [{ _id: args._id }],
-  //   }),
+  buyer: (parent, args) => {
+    console.log('args', args);
+    const data = queryUser({ userIdToQuery: args._id });
+    data.then((result) => {
+      console.log('final : ', result);
+    });
+  },
 };

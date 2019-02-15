@@ -15,7 +15,6 @@ export default {
 
     const userBuyer = Meteor.users.findOne(args.buyer);
     if (!userBuyer) throw new Error('Sorry, buyer that you search not found.');
-    console.log('userBuyer', userBuyer);
 
     const userSeller = Meteor.users.findOne({ _id: product.userId });
     if (!userSeller) throw new Error('Sorry, seller that you search not found.');
@@ -26,8 +25,8 @@ export default {
 
     if (!checkTrx) {
       const trxId = Trxs.insert({
-        buyer: userBuyer,
-        seller: userSeller,
+        buyer: userBuyer._id,
+        seller: userSeller._id,
         currency: 'IDR',
         createdAt: date,
         updatedAt: date,
@@ -44,7 +43,7 @@ export default {
       doc = TrxItems.findOne(trxItemId);
     } else {
       const trxItemId = TrxItems.insert({
-        trxId: args.trxId,
+        trxId: checkTrx._id,
         productId: product._id,
         unitPrice: product.price,
         qty: args.qty,
