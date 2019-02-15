@@ -9,6 +9,7 @@ export default `
     total: String
     type: String
     status: String
+    owner: String
     createdAt: String
     updatedAt: String
   }

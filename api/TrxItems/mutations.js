@@ -1,23 +1,33 @@
+import { Meteor } from 'meteor/meteor';
 import TrxItems from './TrxItems';
 import Trxs from '../Trxs/Trxs';
 import Products from '../Products/Products';
 
 export default {
   addTrxItem: (root, args) => {
+    // if (!context.user) throw new Error('Sorry, you must be logged in to add a new trx.');
+
+    let doc = null;
     const date = new Date().toISOString();
 
     const product = Products.findOne({ _id: args.productId });
     if (!product) throw new Error('Sorry, product you search not found.');
 
+    const userBuyer = Meteor.users.findOne(args.buyer);
+    if (!userBuyer) throw new Error('Sorry, buyer that you search not found.');
+    console.log('userBuyer', userBuyer);
+
+    const userSeller = Meteor.users.findOne({ _id: product.userId });
+    if (!userSeller) throw new Error('Sorry, seller that you search not found.');
+
     const checkTrx = Trxs.findOne({
       $or: [{ _id: args._id }, { buyer: args.buyer, seller: args.seller, status: 'Open' }],
     });
-    let doc = null;
 
     if (!checkTrx) {
       const trxId = Trxs.insert({
-        buyer: args.buyer,
-        seller: args.seller,
+        buyer: userBuyer,
+        seller: userSeller,
         currency: 'IDR',
         createdAt: date,
         updatedAt: date,
@@ -27,14 +37,14 @@ export default {
         productId: product._id,
         unitPrice: product.price,
         qty: args.qty,
-        status: 'Open',
+        status: 'open',
         createdAt: date,
         updatedAt: date,
       });
       doc = TrxItems.findOne(trxItemId);
     } else {
       const trxItemId = TrxItems.insert({
-        trxId: checkTrx._id,
+        trxId: args.trxId,
         productId: product._id,
         unitPrice: product.price,
         qty: args.qty,

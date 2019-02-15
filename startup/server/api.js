@@ -166,15 +166,9 @@ const schema = {
       addTrx(buyer: String!, seller: String!, subTotal: String, total: String): Trx
       updateTrx(_id: String!, buyer: String, seller: String, subTotal: String, total: String): Trx
       removeTrx(_id: String!): Trx
-      addTrxItem(
-        trxId: String
-        buyer: String!
-        seller: String!
-        productId: String!
-        qty: String!
-      ): TrxItem
-      updateTrxItem(_id: String!, qty: String!): TrxItem
-      removeTrxItem(_id: String!): TrxItem
+      addTrxItem(trxId: String, buyer: String!, productId: String!, qty: String!): TrxItem
+      updateTrxItem(id: String!, qty: String!): TrxItem
+      removeTrxItem(id: String!): TrxItem
     }
 
     type Subscription {
@@ -247,8 +241,6 @@ const schema = {
     },
     Trx: {
       trxItems: TrxItemQueries.trxItems,
-      buyer: UserQueries.user,
-      seller: UserQueries.user,
     },
     TrxItem: {
       trx: TrxQueries.trx,
