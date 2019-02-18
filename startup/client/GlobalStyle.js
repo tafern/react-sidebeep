@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { SB_DARK_GREEN } from '../../modules/styleConstants';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -50,6 +51,14 @@ const GlobalStyle = createGlobalStyle`
     border-left: none;
     border-right: none;
     border-top: none;
+  }
+  
+  .navbar-default {
+    border-color: ${SB_DARK_GREEN};
+  }
+  
+  .navbar-default li.active > a {
+    background-color: ${SB_DARK_GREEN} !important;
   }
 
   form label {

@@ -9,14 +9,14 @@ const settings = {
   dots: false,
   speed: 500,
   arrows: true,
-  nextArrow: <Styles.ArrowIconNext src="/img/icons/sb-arrow-next.png" />,
-  prevArrow: <Styles.ArrowIconPrev src="/img/icons/sb-arrow-prev.png" />,
+  nextArrow: <Styles.ArrowIconNext src="/img/icons/next-button-banner.png" />,
+  prevArrow: <Styles.ArrowIconPrev src="/img/icons/back-button-banner.png" />,
   autoplay: false,
   infinite: true,
   pauseOnHover: true,
   autoplaySpeed: 4000,
-  slidesToShow: 5,
-  slidesToScroll: 5,
+  slidesToShow: 4,
+  slidesToScroll: 4,
   swipeToSlide: true,
   responsive: [
     {

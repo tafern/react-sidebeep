@@ -1,111 +1,95 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
-import { compose, graphql } from 'react-apollo';
-import { Row, Col } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import { graphql } from 'react-apollo';
+import { Row } from 'react-bootstrap';
 import Styles from './styles';
 import Campaign from '../Campaign';
-import OrgList from '../OrgList';
 import ProductList from '../ProductList';
 import Partner from '../Partner';
 import NewsInfo from '../NewsInfo';
-import { orgs as orgQuery } from '../../queries/Orgs.gql';
 import { products as productQuery } from '../../queries/Products.gql';
 
-const HomePage = ({ orgDataQuery, productDataQuery }) => (
+const HomePage = ({ productDataQuery }) => (
   <div>
+    {/* Capaign Banner */}
     <Row>
-      <Col md={7}>
+      <Styles.HeaderCampaign md={8}>
         <Styles.HomePage>
-          {/* Capaign Banner */}
           <Campaign />
         </Styles.HomePage>
-      </Col>
-      <Col md={5}>
-        <Styles.Category>
-          <Row>
-            <Col xs={3} md={3}>
-              <Styles.CategoryLink to="/category">
-                <Styles.CategoryWrapper>
-                  <Styles.IconCategory className="icon ion-md-construct" />
-                  <p>Repair</p>
-                </Styles.CategoryWrapper>
-              </Styles.CategoryLink>
-            </Col>
-            <Col xs={3} md={3}>
-              <Styles.CategoryWrapper>
-                <Styles.CategoryLink to="/category">
-                  <Styles.IconCategory className="icon ion-md-home" />
-                  <p>Home</p>
-                </Styles.CategoryLink>
-              </Styles.CategoryWrapper>
-            </Col>
-            <Col xs={3} md={3}>
-              <Styles.CategoryWrapper>
-                <Styles.CategoryLink to="/category">
-                  <Styles.IconCategory className="icon ion-md-briefcase" />
-                  <p>Beauty</p>
-                </Styles.CategoryLink>
-              </Styles.CategoryWrapper>
-            </Col>
-            <Col xs={3} md={3}>
-              <Styles.CategoryWrapper>
-                <Styles.CategoryLink to="/category">
-                  <Styles.IconCategory className="icon ion-md-fitness" />
-                  <p>Health</p>
-                </Styles.CategoryLink>
-              </Styles.CategoryWrapper>
-            </Col>
-            <Col xs={3} md={3}>
-              <Styles.CategoryWrapper>
-                <Styles.CategoryLink to="/category">
-                  <Styles.IconCategory className="icon ion-md-brush" />
-                  <p>Fashion</p>
-                </Styles.CategoryLink>
-              </Styles.CategoryWrapper>
-            </Col>
-            <Col xs={3} md={3}>
-              <Styles.CategoryWrapper>
-                <Styles.CategoryLink to="/category">
-                  <Styles.IconCategory className="icon ion-md-color-palette" />
-                  <p>Art</p>
-                </Styles.CategoryLink>
-              </Styles.CategoryWrapper>
-            </Col>
-            <Col xs={3} md={3}>
-              <Styles.CategoryWrapper>
-                <Styles.CategoryLink to="/category">
-                  <Styles.IconCategory className="icon ion-md-tennisball" />
-                  <p>Hobbies</p>
-                </Styles.CategoryLink>
-              </Styles.CategoryWrapper>
-            </Col>
-            <Col xs={3} md={3}>
-              <Styles.CategoryWrapper>
-                <Styles.CategoryLink to="/category">
-                  <Styles.IconCategory className="icon ion-md-journal" />
-                  <p>Others</p>
-                </Styles.CategoryLink>
-              </Styles.CategoryWrapper>
-            </Col>
-          </Row>
-        </Styles.Category>
-      </Col>
+      </Styles.HeaderCampaign>
+      <Styles.HeaderCampaign md={4}>
+        <Styles.CampaignPromo>
+          <Styles.CampaignPromoImage src="/banner-top.jpg" alt="promo" />
+        </Styles.CampaignPromo>
+        <Styles.CampaignPromo>
+          <Styles.CampaignPromoImage src="/banner-bottom.jpg" alt="promo" />
+        </Styles.CampaignPromo>
+      </Styles.HeaderCampaign>
     </Row>
+    <Styles.Category className="clearfix">
+      <Styles.CategoryLink to="/category">
+        <Styles.CategoryWrapper>
+          <Styles.IconCategory className="icon ion-md-construct" />
+          Repair
+        </Styles.CategoryWrapper>
+      </Styles.CategoryLink>
+      <Styles.CategoryLink to="/category">
+        <Styles.CategoryWrapper>
+          <Styles.IconCategory className="icon ion-md-home" />
+          Home
+        </Styles.CategoryWrapper>
+      </Styles.CategoryLink>
+      <Styles.CategoryLink to="/category">
+        <Styles.CategoryWrapper>
+          <Styles.IconCategory className="icon ion-md-briefcase" />
+          Beauty
+        </Styles.CategoryWrapper>
+      </Styles.CategoryLink>
+      <Styles.CategoryLink to="/category">
+        <Styles.CategoryWrapper>
+          <Styles.IconCategory className="icon ion-md-fitness" />
+          Health
+        </Styles.CategoryWrapper>
+      </Styles.CategoryLink>
+      <Styles.CategoryLink to="/category">
+        <Styles.CategoryWrapper>
+          <Styles.IconCategory className="icon ion-md-brush" />
+          Fashion
+        </Styles.CategoryWrapper>
+      </Styles.CategoryLink>
+      <Styles.CategoryLink to="/category">
+        <Styles.CategoryWrapper>
+          <Styles.IconCategory className="icon ion-md-color-palette" />
+          Art
+        </Styles.CategoryWrapper>
+      </Styles.CategoryLink>
+      <Styles.CategoryLink to="/category">
+        <Styles.CategoryWrapper>
+          <Styles.IconCategory className="icon ion-md-tennisball" />
+          Hobbies
+        </Styles.CategoryWrapper>
+      </Styles.CategoryLink>
+      <Styles.CategoryLink to="/category">
+        <Styles.CategoryWrapper>
+          <Styles.IconCategory className="icon ion-md-journal" />
+          Others
+        </Styles.CategoryWrapper>
+      </Styles.CategoryLink>
+    </Styles.Category>
     <Styles.Products>
       <Styles.Wrapper className="clearfix">
-        <Styles.ProductTitle className="pull-left">Service Populer</Styles.ProductTitle>
-        <Styles.WrapperViewAll className="pull-right">
-          <Link className="underLinkView" to="/orgs">
-            View all
-          </Link>
+        <Styles.ProductTitle className="pull-left">Recommendation</Styles.ProductTitle>
+        <Styles.WrapperViewAll className="pull-right underLinkView" to="/products">
+          View all
         </Styles.WrapperViewAll>
       </Styles.Wrapper>
       <Styles.ProductDescription>
         Services that are mostly orders by our customers
       </Styles.ProductDescription>
-      {/* Orgs */}
-      <OrgList data={orgDataQuery} />
+      {/* Products */}
+      <ProductList data={productDataQuery} />
     </Styles.Products>
     <Styles.News>
       <Styles.Wrapper>
@@ -117,14 +101,12 @@ const HomePage = ({ orgDataQuery, productDataQuery }) => (
     <Styles.Products>
       <Styles.Wrapper className="clearfix">
         <Styles.ProductTitle className="pull-left">All Services</Styles.ProductTitle>
-        <Styles.WrapperViewAll className="pull-right">
-          <Link className="underLinkView" to="/products">
-            View all
-          </Link>
+        <Styles.WrapperViewAll className="pull-right underLinkView" to="/products">
+          View all
         </Styles.WrapperViewAll>
       </Styles.Wrapper>
       {/* Products */}
-      <ProductList data={productDataQuery} />
+      <ProductList data={productDataQuery} isSmall />
     </Styles.Products>
     <Styles.MediaPartner>
       <Styles.Wrapper>
@@ -136,14 +118,8 @@ const HomePage = ({ orgDataQuery, productDataQuery }) => (
   </div>
 );
 HomePage.propTypes = {
-  orgDataQuery: PropTypes.object.isRequired,
   productDataQuery: PropTypes.object.isRequired,
 };
-export default compose(
-  graphql(orgQuery, {
-    name: 'orgDataQuery',
-  }),
-  graphql(productQuery, {
-    name: 'productDataQuery',
-  }),
-)(withRouter(HomePage));
+export default graphql(productQuery, {
+  name: 'productDataQuery',
+})(withRouter(HomePage));

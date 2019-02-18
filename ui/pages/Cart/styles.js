@@ -75,3 +75,11 @@ export const CartWrapper = styled.div`
     }
   }
 `;
+export const CartBoxWrapper = styled.div``;
+export const ImageProduct = styled.img`
+  border: 1px solid var(--gray-lighter);
+  border-radius: 3px;
+  float: left;
+  width: 440px;
+  max-height: 200px;
+`;
