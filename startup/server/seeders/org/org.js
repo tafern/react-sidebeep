@@ -6,7 +6,7 @@ import Locations from '../../../../api/Locations/Locations';
 
 export const orgImageSeed = () => {
   seeder(Images, {
-    seedIfExistingData: true,
+    seedIfExistingData: false,
     environments: ['development', 'staging'],
     data: {
       static: [
@@ -57,7 +57,7 @@ export const orgImageSeed = () => {
 
 export const orgFileSeed = () => {
   seeder(Files, {
-    seedIfExistingData: true,
+    seedIfExistingData: false,
     environments: ['development', 'staging'],
     data: {
       static: [
@@ -164,7 +164,7 @@ export const orgFileSeed = () => {
 
 export const orgLocationsSeed = () => {
   seeder(Locations, {
-    seedIfExistingData: true,
+    seedIfExistingData: false,
     environments: ['development', 'staging'],
     data: {
       static: [

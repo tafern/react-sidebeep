@@ -5,7 +5,7 @@ import Headlines from '../../../../api/Headlines/Headlines';
 
 export const headlineImageSeed = () => {
   seeder(Images, {
-    seedIfExistingData: true,
+    seedIfExistingData: false,
     environments: ['development', 'staging'],
     data: {
       static: [
@@ -60,7 +60,7 @@ export const headlineImageSeed = () => {
 };
 export const headlineFileSeed = () => {
   seeder(Files, {
-    seedIfExistingData: true,
+    seedIfExistingData: false,
     environments: ['development', 'staging'],
     data: {
       static: [
