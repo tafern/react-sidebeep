@@ -26,7 +26,16 @@ const ProductItemWrapper = styled(Link)`
 `;
 const ProductImage = styled.img`
   background-size: 100% 100%;
-  height: 270px;
+  height: ${(props) => {
+    if (props.isSmall) {
+      return '178px';
+    }
+    if (props.isGrid) {
+      return '215px';
+    }
+    return '270px';
+  }};
+})};
   @media (max-width: 380px) {
     height: 145px;
   }
@@ -51,14 +60,14 @@ const SiderWrapper = styled(Link)`
   text-decoration: none;
 `;
 const SiderImage = styled.img`
-  width: 30px;
+  width: ${(props) => (props.isSmall ? '25px' : '30px')};
   float: left;
   border-radius: 50px;
 `;
 const SiderName = styled.div`
-  font-size: 12px;
-  margin: 0 30px;
-  padding: 5px;
+  font-size: ${(props) => (props.isSmall ? '10px' : '12px')};
+  margin: ${(props) => (props.isSmall ? '3px 0 0 30px' : '0 30px')};
+  padding: ${(props) => (props.isSmall ? '0' : '5px')};
   color: ${SB_GREY};
 `;
 const ProductName = styled.div`

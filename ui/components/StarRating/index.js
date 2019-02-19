@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, StarWrapper, TextReview } from './styles';
+import { Wrapper, StarWrapper } from './styles';
 
 class StarRating extends React.Component {
   renderStar(index, color) {
     const starPath =
-      color === 'green' ? '/img/icons/sb-star-green.png' : '/img/icons/sb-star-grey.png';
+      color === 'yellow' ? '/img/icons/star-new-yellow.png' : '/img/icons/sb-star-grey.png';
     return (
       <Wrapper key={index}>
         <img role="presentation" src={starPath} height={13} alt="rating" />
@@ -19,7 +19,7 @@ class StarRating extends React.Component {
     const greyStars = 5 - greenStars;
     let countDefault = 0;
     for (let i = 0; i < greenStars; i += 1) {
-      stars.push(this.renderStar(count, 'green'));
+      stars.push(this.renderStar(count, 'yellow'));
       countDefault += 1;
     }
     for (let j = 0; j < greyStars; j += 1) {
@@ -29,7 +29,6 @@ class StarRating extends React.Component {
     return (
       <div>
         <StarWrapper>{stars}</StarWrapper>
-        <TextReview>23 Reviews</TextReview>
       </div>
     );
   }

@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 import { Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { SB_MEDIUM_GREY, SB_DARK_GREY, SB_GREEN } from '../../../modules/styleConstants';
+import {
+  SB_MEDIUM_GREY,
+  SB_DARK_GREY,
+  SB_GREEN,
+  SB_DARK_GREEN,
+  SB_LIGHT_GREY,
+} from '../../../modules/styleConstants';
 
 const HomePage = styled.div`
   border-radius: 5px;
@@ -51,11 +57,10 @@ const Category = styled.div`
 `;
 const CategoryWrapper = styled.div`
   margin: 25px 0;
-  text-align: center;
   color: ${SB_GREEN};
 `;
 const CategoryLink = styled(Link)`
-  width: 12.322%;
+  width: 8%;
   float: left;
   &:hover,
   &:focus {
@@ -63,10 +68,21 @@ const CategoryLink = styled(Link)`
     text-decoration: none;
   }
 `;
+const CategoryLine = styled.div`
+  background-color: ${SB_LIGHT_GREY};
+  padding: 1px;
+  float: left;
+  height: 35px;
+  margin: 25px 28px 0 28px;
+`;
 const IconCategory = styled.i`
   color: ${SB_GREEN};
   font-size: 35px;
   margin-right: 5px;
+  float: left;
+`;
+const IconTitle = styled.div`
+  padding-top: 8px;
 `;
 const Products = styled.div`
   margin: 10px auto;
@@ -97,9 +113,11 @@ const WrapperViewAll = styled(Link)`
   padding-right: 10px;
   margin-top: 12px;
   color: ${SB_GREEN};
+  text-decoration: none;
 
-  &:hover .underLinkView {
+  &:hover {
     text-decoration: none;
+    color: ${SB_DARK_GREEN};
   }
 
   @media (max-width: 768px) {
@@ -108,15 +126,16 @@ const WrapperViewAll = styled(Link)`
   }
 `;
 const News = styled.div`
-  padding: 5px;
-  margin: 10px auto;
   border-radius: 5px;
   position: relative;
-
-  @media screen and (min-width: 768px) {
-    padding: 5px 8px 10px 8px;
-    margin: 10px 0;
-  }
+`;
+const NewsTitle = styled.div`
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding-left: 8px;
+  font-weight: 400;
+  font-size: 20px;
+  color: ${SB_DARK_GREY};
 `;
 const MediaPartner = styled.div`
   padding: 5px;
@@ -135,6 +154,18 @@ const H3 = styled.h3`
   font-weight: 400;
   font-size: 20px;
 `;
+const VideoWrapper = styled.div`
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; //16 x 9
+  position: relative;
+  .player {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 export default {
   HomePage,
@@ -145,13 +176,17 @@ export default {
   Category,
   CategoryWrapper,
   CategoryLink,
+  CategoryLine,
   IconCategory,
+  IconTitle,
   Wrapper,
   Products,
   ProductTitle,
   ProductDescription,
   WrapperViewAll,
   News,
+  NewsTitle,
   MediaPartner,
   H3,
+  VideoWrapper,
 };

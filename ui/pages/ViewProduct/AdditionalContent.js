@@ -20,71 +20,43 @@ class AdditionalContent extends React.Component {
   render() {
     return (
       <ContentWrapper>
-        {/* <FilterTabWrapper>
-          <FilterTab
-            isActive={orderStatus === REQUEST}
-            onClick={(e) => this.changeStatus(e, REQUEST)}
-          >
-            <TabContainer>
-              <TabTitle>Service Information</TabTitle>
-            </TabContainer>
-          </FilterTab>
-          <FilterTab
-            isActive={orderStatus === CONFIRMED}
-            onClick={(e) => this.changeStatus(e, CONFIRMED)}
-          >
-            <TabContainer>
-              <TabTitle>Review</TabTitle>
-            </TabContainer>
-          </FilterTab>
-          <FilterTab
-            isActive={orderStatus === FINISH}
-            onClick={(e) => this.changeStatus(e, FINISH)}
-          >
-            <TabContainer isLastTab>
-              <TabTitle>Discussion</TabTitle>
-            </TabContainer>
-          </FilterTab>
-          <div style={{ clear: 'both' }} />
-        </FilterTabWrapper>
-        <div className="clearfix" /> */}
         <FilterTabWrapper
           activeKey={this.state.eventKey}
           onSelect={this.onSetTab}
           id="noanim-tab-example"
         >
-          <FilterTab eventKey={1} title="Service Information">
+          <FilterTab eventKey={1} title="Detail Information">
             <Row>
               <Col sm={12}>
                 <ProductInformation />
               </Col>
             </Row>
           </FilterTab>
-          <FilterTab eventKey={2} title="Review (23)">
+          <FilterTab eventKey={2} title="Gallery">
             <Row>
               <Col xs={12}>
-                <ProductReview />
+                <ProductPortfolio />
               </Col>
             </Row>
           </FilterTab>
-          <FilterTab eventKey={3} title="Discussion (40)">
-            <Row>
-              <Col xs={12}>
-                <ProductDiscussion />
-              </Col>
-            </Row>
-          </FilterTab>
-          <FilterTab eventKey={4} title="Schedule">
+          <FilterTab eventKey={3} title="Working Hours">
             <Row>
               <Col xs={12}>
                 <ProductSchedule />
               </Col>
             </Row>
           </FilterTab>
-          <FilterTab eventKey={5} title="Portfolio">
+          <FilterTab eventKey={4} title="Review (23)">
             <Row>
               <Col xs={12}>
-                <ProductPortfolio />
+                <ProductReview />
+              </Col>
+            </Row>
+          </FilterTab>
+          <FilterTab eventKey={5} title="Discussion (40)">
+            <Row>
+              <Col xs={12}>
+                <ProductDiscussion />
               </Col>
             </Row>
           </FilterTab>

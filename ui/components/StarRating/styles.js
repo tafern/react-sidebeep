@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { SB_MEDIUM_GREY } from '../../../modules/styleConstants';
 
 export const Wrapper = styled.div`
   margin-right: 2px;
@@ -13,9 +12,4 @@ export const StarWrapper = styled.div`
     margin-top: 0;
     margin-left: 0px;
   }
-`;
-export const TextReview = styled.div`
-  font-size: 12px;
-  padding-top: 2px;
-  color: ${SB_MEDIUM_GREY};
 `;

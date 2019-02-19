@@ -32,56 +32,63 @@ const HomePage = ({ productDataQuery }) => (
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
           <Styles.IconCategory className="icon ion-md-construct" />
-          Repair
+          <Styles.IconTitle>Repair</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
+      <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
           <Styles.IconCategory className="icon ion-md-home" />
-          Home
+          <Styles.IconTitle>Home</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
+      <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
           <Styles.IconCategory className="icon ion-md-briefcase" />
-          Beauty
+          <Styles.IconTitle>Beauty</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
+      <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
           <Styles.IconCategory className="icon ion-md-fitness" />
-          Health
+          <Styles.IconTitle>Health</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
+      <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
           <Styles.IconCategory className="icon ion-md-brush" />
-          Fashion
+          <Styles.IconTitle>Fashion</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
+      <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
           <Styles.IconCategory className="icon ion-md-color-palette" />
-          Art
+          <Styles.IconTitle>Art</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
+      <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
           <Styles.IconCategory className="icon ion-md-tennisball" />
-          Hobbies
+          <Styles.IconTitle>Hobbies</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
+      <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
           <Styles.IconCategory className="icon ion-md-journal" />
-          Others
+          <Styles.IconTitle>Others</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
     </Styles.Category>
     <Styles.Products>
       <Styles.Wrapper className="clearfix">
         <Styles.ProductTitle className="pull-left">Recommendation</Styles.ProductTitle>
-        <Styles.WrapperViewAll className="pull-right underLinkView" to="/products">
+        <Styles.WrapperViewAll className="pull-right" to="/products">
           View all
         </Styles.WrapperViewAll>
       </Styles.Wrapper>
@@ -92,8 +99,11 @@ const HomePage = ({ productDataQuery }) => (
       <ProductList data={productDataQuery} />
     </Styles.Products>
     <Styles.News>
-      <Styles.Wrapper>
-        <Styles.H3>News</Styles.H3>
+      <Styles.Wrapper className="clearfix">
+        <Styles.NewsTitle className="pull-left">News</Styles.NewsTitle>
+        <Styles.WrapperViewAll className="pull-right underLinkView" to="/news">
+          View all
+        </Styles.WrapperViewAll>
       </Styles.Wrapper>
       {/* News */}
       <NewsInfo />
@@ -115,6 +125,17 @@ const HomePage = ({ productDataQuery }) => (
       {/* Media Partner */}
       <Partner />
     </Styles.MediaPartner>
+    {/* <Styles.VideoWrapper>
+      <iframe
+        className="player"
+        title="sidebeep-intro"
+        type="text/html"
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/wR5Irqh0BN0"
+        frameBorder="0"
+      />
+    </Styles.VideoWrapper> */}
   </div>
 );
 HomePage.propTypes = {

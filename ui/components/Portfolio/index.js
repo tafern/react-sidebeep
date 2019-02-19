@@ -10,7 +10,7 @@ class Portfolio extends React.Component {
       dots: true,
       infinite: true,
       speed: 500,
-      autoplay: true,
+      // autoplay: true,
       slidesToShow: 1,
       slidesToScroll: 1,
       swipeToSlide: true,

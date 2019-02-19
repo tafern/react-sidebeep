@@ -41,5 +41,6 @@ export const PortfolioWrapper = styled.div`
 export const PortfolioImage = styled.img`
   background-size: cover;
   margin: 0 auto;
-  width: 100%;
+  width: 92%;
+  border-radius: 3px;
 `;

@@ -1,33 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import Portfolio from '../../components/Portfolio';
-import StartRating from '../../components/StartRating';
+// import StarRating from '../../components/StarRating';
 import {
   ContentWrapper,
+  MainContentWrapper,
   PortfolioWrapper,
   ProductTitle,
+  // ProductSeenOrderWrapper,
+  // ProductSeenOrderImage,
+  // ProductSeenOrder,
+  ProductPrice,
+  ProductLocationWrapper,
+  IconImage,
+  ProductRatingWrapper,
   ProductRating,
-  ProductSeenOrderWrapper,
-  ProductSeenOrderImage,
-  ProductSeenOrder,
-  ProductDescription,
-  ProductDate,
-  ProductStatus,
-  OrderButton,
+  IconRating,
+  ProductCount,
+  ProductLocationTitle,
+  ProductLocationVisit,
+  ProductLocationDescription,
+  IconWrapper,
+  IconShare,
+  ShareTitle,
+  IconWishlist,
+  WishlistTitle,
+  ButtonChatSider,
+  ButtonShoppingCart,
+  ButtonOrder,
 } from './styles';
 
-const MainContent = ({
-  productName,
-  productDescription,
-  isPublic,
-  createdAt,
-  files,
-  addToCart,
-}) => (
+const MainContent = ({ productName, files, addToCart }) => (
   <ContentWrapper>
     <Row>
-      <Col sm={4}>
+      <MainContentWrapper sm={5}>
         <PortfolioWrapper>
           {files.map((item) => {
             if (item.type === 'ProductPortfolio') {
@@ -40,11 +47,11 @@ const MainContent = ({
             return null;
           })}
         </PortfolioWrapper>
-      </Col>
-      <Col sm={8}>
+      </MainContentWrapper>
+      <MainContentWrapper sm={7}>
         <ProductTitle>{productName}</ProductTitle>
-        <ProductRating>
-          <StartRating count={Math.floor(4.5)} />
+        {/* <ProductRating>
+          <StarRating count={Math.floor(4.5)} />
         </ProductRating>
         <ProductSeenOrderWrapper>
           <Row>
@@ -57,25 +64,46 @@ const MainContent = ({
               <ProductSeenOrder>Servis di pesan : 40</ProductSeenOrder>
             </Col>
           </Row>
-        </ProductSeenOrderWrapper>
-        <ProductDescription>{productDescription}</ProductDescription>
-        <ProductDate>{createdAt}</ProductDate>
-        <ProductStatus>{isPublic}</ProductStatus>
-        <OrderButton bsStyle="success">Order</OrderButton>
-        <OrderButton bsStyle="primary" onClick={addToCart}>
-          Add to Cart
-        </OrderButton>
-      </Col>
+        </ProductSeenOrderWrapper> */}
+        <ProductPrice>IDR 5.000.000</ProductPrice>
+        <ProductLocationWrapper>
+          <IconImage className="icon ion-md-locate" />
+          Jakarta
+        </ProductLocationWrapper>
+        <ProductRatingWrapper className="clearfix">
+          <ProductRating>
+            <IconRating className="icon ion-md-star" /> 5
+          </ProductRating>
+          <ProductCount>(22 review) | 48 orders | 70 views</ProductCount>
+        </ProductRatingWrapper>
+        <ProductLocationTitle>Service Location</ProductLocationTitle>
+        <ProductLocationVisit>Visit Sider Location</ProductLocationVisit>
+        <ProductLocationDescription>
+          Meet at meeting point [cek detail info]
+        </ProductLocationDescription>
+        <IconWrapper className="clearfix">
+          <IconShare src="/img/icons/share-green.png" alt="share" />
+          <ShareTitle>Share it</ShareTitle>
+          <IconWishlist src="/img/icons/wishlist-green.png" alt="wishlist" />
+          <WishlistTitle>Wishlist</WishlistTitle>
+        </IconWrapper>
+        <ButtonChatSider>Chat Sider</ButtonChatSider>
+        <ButtonShoppingCart onClick={addToCart}>
+          <i className="icon ion-md-cart" />
+        </ButtonShoppingCart>
+        <div>
+          <ButtonOrder bsStyle="primary" onClick={addToCart}>
+            ORDER
+          </ButtonOrder>
+        </div>
+      </MainContentWrapper>
     </Row>
   </ContentWrapper>
 );
 
 MainContent.propTypes = {
-  isPublic: PropTypes.bool.isRequired,
   productName: PropTypes.string.isRequired,
-  productDescription: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
-  createdAt: PropTypes.string.isRequired,
   addToCart: PropTypes.func.isRequired,
 };
 

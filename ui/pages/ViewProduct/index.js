@@ -2,9 +2,12 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { compose, graphql } from 'react-apollo';
+import { Sticky, StickyContainer } from 'react-sticky';
+import { Row, Col } from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';
 import MainContent from './MainContent';
 import AdditionalContent from './AdditionalContent';
+import SiderSidebar from './SiderSidebar';
 import ProductList from '../ProductList';
 import SEO from '../../components/SEO';
 import BlankState from '../../components/BlankState';
@@ -44,6 +47,9 @@ class ViewProduct extends React.Component {
       );
     }, 300);
   };
+  handleRedirectToSiderDetail = () => {
+    this.props.history.push(`/org/id`);
+  };
   render() {
     const { productDataQuery, productsDataQuery } = this.props;
     console.log('.addTrxItemDataMutation', this.props);
@@ -67,26 +73,42 @@ class ViewProduct extends React.Component {
             created={item.createdAt}
             twitter="clvrbgl"
           />
-          <MainContent
-            productName={item.name}
-            createdAt={item.createdAt}
-            productDescription={item.description}
-            files={item.files}
-            isPublic={item.isPublic}
-            addToCart={this.handleAddToCart}
-          />
-          <AdditionalContent />
-          {/* <React.Fragment>
-            <h1>{item && item.name}</h1>
-            <Styles.ProductBody
-              dangerouslySetInnerHTML={{
-                __html: parseMarkdown(item && item.description),
-              }}
-            />
-          </React.Fragment> */}
+          <Row>
+            <Col md={9}>
+              <MainContent
+                productName={item.name}
+                createdAt={item.createdAt}
+                productDescription={item.description}
+                files={item.files}
+                isPublic={item.isPublic}
+                addToCart={this.handleAddToCart}
+              />
+              <AdditionalContent />
+              {/* <React.Fragment>
+                <h1>{item && item.name}</h1>
+                <Styles.ProductBody
+                  dangerouslySetInnerHTML={{
+                    __html: parseMarkdown(item && item.description),
+                  }}
+                />
+              </React.Fragment> */}
+            </Col>
+            <Col md={3}>
+              <StickyContainer style={{ height: '100%' }}>
+                <Sticky topOffset={-105}>
+                  {({ style, isSticky }) => (
+                    <div style={style}>
+                      {isSticky ? <div style={{ height: '95px' }} /> : ''}
+                      <SiderSidebar onSiderDetailClicked={this.handleRedirectToSiderDetail} />
+                    </div>
+                  )}
+                </Sticky>
+              </StickyContainer>
+            </Col>
+          </Row>
           <Products>
-            <ProductName>Recommended for you in</ProductName>
-            <ProductList data={productsDataQuery} />
+            <ProductName>Other Service</ProductName>
+            <ProductList data={productsDataQuery} isSmall />
           </Products>
         </StyledViewProduct>
       );
