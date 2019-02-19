@@ -22,6 +22,18 @@ export default {
       userIdToQuery: userIdFromParentQuery || args._id || context.user._id,
     });
   },
+  buyer: (parent) => {
+    const userId = parent.buyer;
+    return queryUser({
+      userIdToQuery: userId,
+    });
+  },
+  seller: (parent) => {
+    const userId = parent.seller;
+    return queryUser({
+      userIdToQuery: userId,
+    });
+  },
   exportUserData: (parent, args, { user }) =>
     exportUserData({
       user,

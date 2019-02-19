@@ -6,7 +6,7 @@ export default {
     if (!context.user) throw new Error('Sorry, you must be logged in to add a new file.');
     const date = new Date().toISOString();
     const fileId = Files.insert({
-      refferenceId: args.refferenceId,
+      refId: args.refId,
       fileUrl: args.fileUrl,
       owner: context.user._id,
       createdAt: date,

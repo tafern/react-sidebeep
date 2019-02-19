@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "OI10000",
+    "fileId": "OF10000",
+    "imgUrl": "/assets/cay_cay/logo_vendor.jpg"
+  },
+  {
+    "_id": "OI20000",
+    "fileId": "OF20000",
+    "imgUrl": "/assets/kaizen/logo_vendor.jpg"
+  },
+  {
+    "_id": "OI30000",
+    "fileId": "OF30000",
+    "imgUrl": "/assets/katros_garage/logo_vendor.jpg"
+  },
+  {
+    "_id": "OI40000",
+    "fileId": "OF40000",
+    "imgUrl": "/assets/laba_laba/logo_vendor.jpg"
+  },
+  {
+    "_id": "OI50000",
+    "fileId": "OF50000",
+    "imgUrl": "/assets/les_elite/logo_vendor.jpg"
+  },
+  {
+    "_id": "OI60000",
+    "fileId": "OF60000",
+    "imgUrl": "/assets/lestari_tattoo/logo_vendor.jpg"
+  },
+  {
+    "_id": "OI70000",
+    "fileId": "OF70000",
+    "imgUrl": "/assets/mau_kemana_si/logo_vendor.jpg"
+  },
+  {
+    "_id": "OI80000",
+    "fileId": "OF80000",
+    "imgUrl": "/assets/shoes_and_care/logo_vendor.jpg"
+  }
+]
