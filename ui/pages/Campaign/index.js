@@ -42,16 +42,6 @@ class Campaign extends React.Component {
             <Styles.CampaignImage className="d-block w-100" src="/banner4.jpg" alt="First slide" />
           </Link>
         </Carousel.Item>
-        <Carousel.Item>
-          <Link to={`/campaign/${5}`}>
-            <Styles.CampaignImage className="d-block w-100" src="/banner5.jpg" alt="First slide" />
-          </Link>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Link to={`/campaign/${6}`}>
-            <Styles.CampaignImage className="d-block w-100" src="/banner6.png" alt="First slide" />
-          </Link>
-        </Carousel.Item>
       </Carousel>
     );
   }

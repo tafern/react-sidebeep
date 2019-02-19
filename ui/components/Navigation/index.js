@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Navbar } from 'react-bootstrap';
 import PublicNavigation from '../PublicNavigation';
 import AuthenticatedNavigation from '../AuthenticatedNavigation';
-import Styles from './styles';
+import { NavBar, LogoImage } from './styles';
 
 const Navigation = (props) => (
-  <Navbar collapseOnSelect>
+  <NavBar collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">
-          <Styles.LogoImage src="/img/sidebeep-logo-horizontal.png" alt="logo" />
+          <LogoImage src="/img/sidebeep-logo-horizontal.png" alt="logo" />
         </Link>
       </Navbar.Brand>
       <Navbar.Toggle />
@@ -19,7 +19,7 @@ const Navigation = (props) => (
     <Navbar.Collapse>
       {!props.authenticated ? <PublicNavigation /> : <AuthenticatedNavigation {...props} />}
     </Navbar.Collapse>
-  </Navbar>
+  </NavBar>
 );
 
 Navigation.defaultProps = {

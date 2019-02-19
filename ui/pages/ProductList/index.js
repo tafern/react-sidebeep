@@ -5,75 +5,76 @@ import Styles from './styles';
 import ProductItem from '../../components/ProductItem';
 import BlankState from '../../components/BlankState';
 
-const settings = {
-  dots: false,
-  speed: 500,
-  arrows: true,
-  nextArrow: <Styles.ArrowIconNext src="/img/icons/sb-arrow-next.png" />,
-  prevArrow: <Styles.ArrowIconPrev src="/img/icons/sb-arrow-prev.png" />,
-  autoplay: false,
-  infinite: true,
-  pauseOnHover: true,
-  autoplaySpeed: 4000,
-  slidesToShow: 5,
-  slidesToScroll: 5,
-  swipeToSlide: true,
-  responsive: [
-    {
-      breakpoint: 548,
-      settings: {
-        arrows: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+function ProductList(data) {
+  console.log('data', data);
+  const settings = {
+    dots: false,
+    speed: 500,
+    arrows: true,
+    nextArrow: <Styles.ArrowIconNext src="/img/icons/next-button-banner.png" />,
+    prevArrow: <Styles.ArrowIconPrev src="/img/icons/back-button-banner.png" />,
+    autoplay: false,
+    infinite: true,
+    pauseOnHover: true,
+    autoplaySpeed: 4000,
+    slidesToShow: data.isSmall ? 6 : 4,
+    slidesToScroll: data.isSmall ? 6 : 4,
+    swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 548,
+        settings: {
+          arrows: true,
+          infinite: true,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
       },
-    },
-    {
-      breakpoint: 744,
-      settings: {
-        arrows: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+      {
+        breakpoint: 744,
+        settings: {
+          arrows: true,
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
       },
-    },
-    {
-      breakpoint: 1128,
-      settings: {
-        arrows: true,
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+      {
+        breakpoint: 1128,
+        settings: {
+          arrows: true,
+          infinite: true,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
       },
-    },
-  ],
-};
-const ProductList = ({ data }) => (
-  <Styles.Wrapper>
-    {data.products !== undefined ? (
-      <Slider {...settings}>
-        {data.products.map((item) => (
-          <div key={item._id}>
-            <ProductItem
-              productName={item.name}
-              updatedAt={item.updatedAt}
-              productDescription={item.description}
-              files={item.files}
-              isPublic={item.isPublic}
-              id={item._id}
-            />
-          </div>
-        ))}
-      </Slider>
-    ) : (
-      <BlankState
-        icon={{ style: 'solid', symbol: 'file-alt' }}
-        title="You're plum out of products, friend!"
-        subtitle="Add your first product by clicking the button below."
-      />
-    )}
-  </Styles.Wrapper>
-);
+    ],
+  };
+  return (
+    <Styles.Wrapper>
+      {data.data.products !== undefined ? (
+        <Slider {...settings}>
+          {data.data.products.map((item) => (
+            <div key={item._id}>
+              <ProductItem
+                productName={item.name}
+                files={item.files}
+                id={item._id}
+                isSmall={data.isSmall}
+              />
+            </div>
+          ))}
+        </Slider>
+      ) : (
+        <BlankState
+          icon={{ style: 'solid', symbol: 'file-alt' }}
+          title="You're plum out of products, friend!"
+          subtitle="Add your first product by clicking the button below."
+        />
+      )}
+    </Styles.Wrapper>
+  );
+}
 
 ProductList.propTypes = {
   data: PropTypes.object.isRequired,

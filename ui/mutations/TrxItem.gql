@@ -1,0 +1,25 @@
+mutation addTrxItem($trxId: String, $buyer: String!, $productId: String!, $qty: String!) {
+  addTrxItem(trxId: $trxId, buyer: $buyer, productId: $productId, qty: $qty) {
+    _id
+    product {
+      name
+      price
+    }
+  }
+}
+
+mutation updateTrxItem($trxId: String, $buyer: String, $productId: String, $qty: String) {
+  updateTrxItem(trxId: $trxId, buyer: $buyer, productId: $productId, qty: $qty) {
+    _id
+    product {
+      name
+      price
+    }
+  }
+}
+
+mutation removeTrxItem($_id: String!) {
+  removeTrxItem(_id: $_id) {
+    _id
+  }
+}

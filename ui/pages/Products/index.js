@@ -24,6 +24,7 @@ const Products = ({ data }) => (
               files={item.files}
               isPublic={item.isPublic}
               id={item._id}
+              isGrid
             />
           </Styles.Block>
         ))}

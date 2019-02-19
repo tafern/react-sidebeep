@@ -11,7 +11,6 @@ import { Roles } from 'meteor/alanning:roles';
 import HomePage from '../../pages/HomePage';
 import Campaign from '../../pages/Campaign';
 import CampaignDetail from '../../pages/Campaign/CampaignDetail';
-
 import Category from '../../pages/Category';
 import Orgs from '../../pages/Orgs';
 import ViewOrg from '../../pages/ViewOrg';
@@ -20,6 +19,7 @@ import ViewProduct from '../../pages/ViewProduct';
 import EditProduct from '../../pages/EditProduct';
 import Favorites from '../../pages/Favorites';
 import Notifications from '../../pages/Notifications';
+import Cart from '../../pages/Cart';
 import Orders from '../../pages/Orders';
 
 import Guide from '../../pages/Guide';
@@ -139,6 +139,14 @@ class App extends React.Component {
               exact
               path="/orders"
               component={Orders}
+              setAfterLoginPath={setAfterLoginPath}
+              {...props}
+              {...state}
+            />
+            <Authenticated
+              exact
+              path="/cart"
+              component={Cart}
               setAfterLoginPath={setAfterLoginPath}
               {...props}
               {...state}

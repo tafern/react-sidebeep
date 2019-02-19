@@ -1,24 +1,17 @@
 import styled from 'styled-components';
 
-export const StyledViewOrg = styled.div`
+export const SiderInfo = styled.div``;
+export const ImageSider = styled.img`
   border: 1px solid var(--gray-lighter);
-  padding: 25px;
   border-radius: 3px;
-  max-width: 750px;
-  margin: 0 auto 20px;
-
-  h1 {
-    margin: 0 0 25px;
-    font-size: 22px;
-    line-height: 28px;
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-top: 20px;
-    padding: 50px;
-  }
+  float: left;
+  width: 440px;
+  max-height: 200px;
 `;
-
+export const SiderDescription = styled.div`
+  padding: 5px;
+  float: left;
+`;
 export const OrgBody = styled.div`
   font-size: 16px;
   line-height: 22px;
@@ -34,5 +27,29 @@ export const OrgBody = styled.div`
 
   > *:last-child {
     margin-bottom: 0;
+  }
+`;
+export const CountProductListInfo = styled.div`
+  margin: 10px;
+  font-size: 14px;
+`;
+export const GridWrapper = styled.div``;
+export const Block = styled.div`
+  float: left;
+  width: 19.3333%;
+  @media (max-width: 1198px) {
+    width: 24.333%;
+  }
+  @media (max-width: 990px) {
+    width: 33.333%;
+  }
+  @media (max-width: 744px) {
+    width: 33%;
+  }
+  @media (max-width: 638px) {
+    width: 50%;
+  }
+  @media (max-width: 478px) {
+    width: 50%;
   }
 `;

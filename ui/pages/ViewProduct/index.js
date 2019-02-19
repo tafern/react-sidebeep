@@ -1,43 +1,119 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import { graphql } from 'react-apollo';
+import { compose, graphql } from 'react-apollo';
+import { Sticky, StickyContainer } from 'react-sticky';
+import { Row, Col } from 'react-bootstrap';
+import { Bert } from 'meteor/themeteorchef:bert';
+import MainContent from './MainContent';
+import AdditionalContent from './AdditionalContent';
+import SiderSidebar from './SiderSidebar';
+import ProductList from '../ProductList';
 import SEO from '../../components/SEO';
-import parseMarkdown from '../../../modules/parseMarkdown';
 import BlankState from '../../components/BlankState';
-import { product as productQuery } from '../../queries/Products.gql';
-import Styles from './styles';
+import { product as productQuery, products as productsQuery } from '../../queries/Products.gql';
+import { addTrxItem as addTrxItemMutation } from '../../mutations/TrxItem.gql';
+import { StyledViewProduct, Products, ProductName } from './styles';
+import delay from '../../../modules/delay';
+// import parseMarkdown from '../../../modules/parseMarkdown';
 
 class ViewProduct extends React.Component {
   componentWillMount() {
-    this.props.data.refetch();
+    this.props.productDataQuery.refetch();
+    this.props.productsDataQuery.refetch();
   }
+  handleAddToCart = () => {
+    console.log('meteor', Meteor.userId());
+    delay(() => {
+      this.props.addTrxItem(
+        {
+          variables: {
+            trxId: '',
+            buyer: Meteor.userId(),
+            productId: this.props.match.params._id,
+            qty: '1',
+          },
+        },
+        (error) => {
+          console.log('error', error);
+          if (error) {
+            Bert.alert(error.reason, 'danger');
+          } else {
+            console.log('tidak error');
+            Bert.alert('Cart!', 'success');
+            this.props.history.push('/cart');
+          }
+        },
+      );
+    }, 300);
+  };
+  handleRedirectToSiderDetail = () => {
+    this.props.history.push(`/org/id`);
+  };
   render() {
-    const { data } = this.props;
-    if (!data.loading && data.product) {
+    const { productDataQuery, productsDataQuery } = this.props;
+    console.log('.addTrxItemDataMutation', this.props);
+    if (
+      !productDataQuery.loading &&
+      productDataQuery.product &&
+      !productsDataQuery.loading &&
+      productsDataQuery.products
+    ) {
+      const item = productDataQuery.product;
+      if (Meteor.isClient && Meteor.userId()) {
+        console.log('UserId', Meteor.userId());
+      }
       return (
-        <React.Fragment>
-          <Styles.StyledViewProduct>
-            <SEO
-              title={data.product && data.product.name}
-              description={data.product && data.product.description}
-              url={`product/view/${data.product && data.product._id}`}
-              contentType="article"
-              created={data.product && data.product.createdAt}
-              twitter="clvrbgl"
-            />
-            <React.Fragment>
-              <h1>{data.product && data.product.name}</h1>
-              <Styles.ProductBody
-                dangerouslySetInnerHTML={{
-                  __html: parseMarkdown(data.product && data.product.description),
-                }}
+        <StyledViewProduct>
+          <SEO
+            title={item.name}
+            description={item.description}
+            url={`product/view/${item._id}`}
+            contentType="article"
+            created={item.createdAt}
+            twitter="clvrbgl"
+          />
+          <Row>
+            <Col md={9}>
+              <MainContent
+                productName={item.name}
+                createdAt={item.createdAt}
+                productDescription={item.description}
+                files={item.files}
+                isPublic={item.isPublic}
+                addToCart={this.handleAddToCart}
               />
-            </React.Fragment>
-          </Styles.StyledViewProduct>
-        </React.Fragment>
+              <AdditionalContent />
+              {/* <React.Fragment>
+                <h1>{item && item.name}</h1>
+                <Styles.ProductBody
+                  dangerouslySetInnerHTML={{
+                    __html: parseMarkdown(item && item.description),
+                  }}
+                />
+              </React.Fragment> */}
+            </Col>
+            <Col md={3}>
+              <StickyContainer style={{ height: '100%' }}>
+                <Sticky topOffset={-105}>
+                  {({ style, isSticky }) => (
+                    <div style={style}>
+                      {isSticky ? <div style={{ height: '95px' }} /> : ''}
+                      <SiderSidebar onSiderDetailClicked={this.handleRedirectToSiderDetail} />
+                    </div>
+                  )}
+                </Sticky>
+              </StickyContainer>
+            </Col>
+          </Row>
+          <Products>
+            <ProductName>Other Service</ProductName>
+            <ProductList data={productsDataQuery} isSmall />
+          </Products>
+        </StyledViewProduct>
       );
     }
-    if (!data.loading && !data.product) {
+    if (!productDataQuery.loading && !productDataQuery.product) {
       return (
         <BlankState
           icon={{ style: 'solid', symbol: 'file-alt' }}
@@ -50,15 +126,32 @@ class ViewProduct extends React.Component {
     return null;
   }
 }
-
 ViewProduct.propTypes = {
-  data: PropTypes.object.isRequired,
+  productDataQuery: PropTypes.object.isRequired,
+  productsDataQuery: PropTypes.object.isRequired,
+  addTrxItem: PropTypes.func.isRequired,
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
-
-export default graphql(productQuery, {
-  options: ({ match }) => ({
-    variables: {
-      _id: match.params._id,
-    },
+export default compose(
+  graphql(productQuery, {
+    name: 'productDataQuery',
+    options: ({ match }) => ({
+      variables: {
+        _id: match.params._id,
+      },
+    }),
   }),
-})(ViewProduct);
+  graphql(productsQuery, {
+    name: 'productsDataQuery',
+  }),
+  graphql(addTrxItemMutation, {
+    name: 'addTrxItem',
+    options: ({ history }) => ({
+      onCompleted: () => {
+        Bert.alert('Cart!', 'success');
+        history.push('/cart');
+      },
+    }),
+  }),
+)(ViewProduct);

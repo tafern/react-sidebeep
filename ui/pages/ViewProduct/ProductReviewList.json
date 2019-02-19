@@ -1,0 +1,42 @@
+[
+  {
+    "review_id": "1",
+    "review_beeper_image": "/img/logo-sider/shoesandcare.jpg",
+    "beeper_name": "Alisqya Mahmida",
+    "review_rate": "4.5",
+    "review_created_at": "Februari 23, 2019, 10:00 AM",
+    "review_note": "Tidak ribet pesan jasa pake aplikasi sidebeep"
+  },
+  {
+    "review_id": "2",
+    "review_beeper_image": "/img/logo-sider/shoesandcare.jpg",
+    "beeper_name": "Qori Anugrah",
+    "review_rate": "3",
+    "review_created_at": "Februari 23, 2019, 10:00 AM",
+    "review_note": "Semoga sidebeep makin jawa, fast respon untuk pelayanan services nya"
+  },
+  {
+    "review_id": "3",
+    "review_beeper_image": "/img/logo-sider/shoesandcare.jpg",
+    "beeper_name": "Loli Lust",
+    "review_rate": "4",
+    "review_created_at": "Februari 23, 2019, 10:00 AM",
+    "review_note": "Tidak nyesel untuk order, nanti saya bakal order lagi"
+  },
+  {
+    "review_id": "4",
+    "review_beeper_image": "/img/logo-sider/shoesandcare.jpg",
+    "beeper_name": "Envy Kindness",
+    "review_rate": "5",
+    "review_created_at": "Februari 23, 2019, 10:00 AM",
+    "review_note": "Ramah-ramah sidernya suka banget"
+  },
+  {
+    "review_id": "5",
+    "review_beeper_image": "/img/logo-sider/shoesandcare.jpg",
+    "beeper_name": "Humallity Sangkodah",
+    "review_rate": "2.5",
+    "review_created_at": "Februari 23, 2019, 10:00 AM",
+    "review_note": "Harganya masih terjangkau, dan keren banget ini web"
+  }
+]
