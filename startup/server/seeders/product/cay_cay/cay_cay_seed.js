@@ -3,6 +3,45 @@ import Products from '../../../../../api/Products/Products';
 import Images from '../../../../../api/Images/Images';
 import Files from '../../../../../api/Files/Files';
 
+const imageSeed = (userId, imgUrl, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl,
+          };
+        },
+      },
+    },
+  });
+};
+
+export const cayCayDisplayPictureFileSeed = (userId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refId: userId,
+            refType: 'ProfilePicture',
+            dependentData(fileId) {
+              imageSeed(userId, '/assets/cay_cay/logo_vendor.jpeg', fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
 export const cayCayProductCoverImageSeed = () => {
   seeder(Images, {
     seedIfExistingData: true,
@@ -12,32 +51,32 @@ export const cayCayProductCoverImageSeed = () => {
         {
           _id: 'PRDICOVER10000ORG10000',
           fileId: 'PFPRDCOVER100000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_products/cover_product_1.jpeg',
         },
         {
           _id: 'PRDICOVER20000ORG10000',
           fileId: 'PFPRDCOVER200000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_products/cover_product_2.jpeg',
         },
         {
           _id: 'PRDICOVER30000ORG10000',
           fileId: 'PFPRDCOVER300000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_products/cover_product_3.jpeg',
         },
         {
           _id: 'PRDICOVER40000ORG10000',
           fileId: 'PFPRDCOVER400000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_products/cover_product_4.jpeg',
         },
         {
           _id: 'PRDICOVER50000ORG10000',
           fileId: 'PFPRDCOVER500000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_products/cover_product_5.jpeg',
         },
         {
           _id: 'PRDICOVER60000ORG10000',
           fileId: 'PFPRDCOVER600000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_products/cover_product_6.jpeg',
         },
       ],
     },
@@ -58,7 +97,7 @@ export const cayCayProductCoverFileSeed = () => {
             {
               _id: 'PRDI10000ORG10000',
               fileId: 'PFPRDCOVER100000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_products/cover_product_1.jpeg',
             },
           ],
         },
@@ -70,7 +109,7 @@ export const cayCayProductCoverFileSeed = () => {
             {
               _id: 'PRDI20000ORG10000',
               fileId: 'PFPRDCOVER200000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_products/cover_product_2.jpeg',
             },
           ],
         },
@@ -82,7 +121,7 @@ export const cayCayProductCoverFileSeed = () => {
             {
               _id: 'PRDI30000ORG10000',
               fileId: 'PFPRDCOVER300000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_products/cover_product_3.jpeg',
             },
           ],
         },
@@ -94,7 +133,7 @@ export const cayCayProductCoverFileSeed = () => {
             {
               _id: 'PRDI40000ORG10000',
               fileId: 'PFPRDCOVER400000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_products/cover_product_4.jpeg',
             },
           ],
         },
@@ -106,7 +145,7 @@ export const cayCayProductCoverFileSeed = () => {
             {
               _id: 'PRDI50000ORG10000',
               fileId: 'PFPRDCOVER500000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_products/cover_product_5.jpeg',
             },
           ],
         },
@@ -118,7 +157,7 @@ export const cayCayProductCoverFileSeed = () => {
             {
               _id: 'PRDI60000ORG10000',
               fileId: 'PFPRDCOVER600000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_products/cover_product_6.jpeg',
             },
           ],
         },
@@ -141,27 +180,27 @@ export const cayCayProductPortfolioImageSeed = () => {
         {
           _id: 'PRDI20000ORG10000',
           fileId: 'PFPRD200000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_portfolio/portfolio_2.jpeg',
         },
         {
           _id: 'PRDI30000ORG10000',
           fileId: 'PFPRD300000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_portfolio/portfolio_3.jpeg',
         },
         {
           _id: 'PRDI40000ORG10000',
           fileId: 'PFPRD400000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_portfolio/portfolio_4.jpeg',
         },
         {
           _id: 'PRDI50000ORG10000',
           fileId: 'PFPRD500000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_portfolio/portfolio_5.jpeg',
         },
         {
           _id: 'PRDI60000ORG10000',
           fileId: 'PFPRD600000ORG10000',
-          imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/cay_cay/_portfolio/portfolio_6.jpeg',
         },
       ],
     },
@@ -194,7 +233,7 @@ export const cayCayProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI20000ORG10000',
               fileId: 'PFPRD200000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_portfolio/portfolio_2.jpeg',
             },
           ],
         },
@@ -206,7 +245,7 @@ export const cayCayProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI30000ORG10000',
               fileId: 'PFPRD300000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_portfolio/portfolio_3.jpeg',
             },
           ],
         },
@@ -218,7 +257,7 @@ export const cayCayProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI40000ORG10000',
               fileId: 'PFPRD400000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_portfolio/portfolio_4.jpeg',
             },
           ],
         },
@@ -230,7 +269,7 @@ export const cayCayProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI50000ORG10000',
               fileId: 'PFPRD500000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_portfolio/portfolio_5.jpeg',
             },
           ],
         },
@@ -242,7 +281,7 @@ export const cayCayProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI60000ORG10000',
               fileId: 'PFPRD600000ORG10000',
-              imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/cay_cay/_portfolio/portfolio_6.jpeg',
             },
           ],
         },
@@ -272,20 +311,6 @@ export const cayCayProductsSeed = (userId) => {
               name: 'Beauty',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD100000ORG10000',
-              refId: 'PRD100000ORG10000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI10000ORG10000',
-                  fileId: 'PFPRD100000ORG10000',
-                  imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD200000ORG10000',
@@ -299,20 +324,6 @@ export const cayCayProductsSeed = (userId) => {
             {
               _id: '﻿CAT30000',
               name: 'Beauty',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD200000ORG10000',
-              refId: 'PRD200000ORG10000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI20000ORG10000',
-                  fileId: 'PFPRD200000ORG10000',
-                  imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },
@@ -330,20 +341,6 @@ export const cayCayProductsSeed = (userId) => {
               name: 'Beauty',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD300000ORG10000',
-              refId: 'PRD300000ORG10000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI30000ORG10000',
-                  fileId: 'PFPRD300000ORG10000',
-                  imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD400000ORG10000',
@@ -357,20 +354,6 @@ export const cayCayProductsSeed = (userId) => {
             {
               _id: '﻿CAT30000',
               name: 'Beauty',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD400000ORG10000',
-              refId: 'PRD400000ORG10000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI40000ORG10000',
-                  fileId: 'PFPRD400000ORG10000',
-                  imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },
@@ -388,20 +371,6 @@ export const cayCayProductsSeed = (userId) => {
               name: 'Beauty',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD500000ORG10000',
-              refId: 'PRD500000ORG10000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI50000ORG10000',
-                  fileId: 'PFPRD500000ORG10000',
-                  imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD600000ORG10000',
@@ -415,20 +384,6 @@ export const cayCayProductsSeed = (userId) => {
             {
               _id: '﻿CAT30000',
               name: 'Beauty',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD600000ORG10000',
-              refId: 'PRD600000ORG10000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI60000ORG10000',
-                  fileId: 'PFPRD600000ORG10000',
-                  imgUrl: '/assets/cay_cay/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },

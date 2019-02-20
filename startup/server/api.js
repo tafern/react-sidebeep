@@ -225,6 +225,7 @@ const schema = {
     Org: {
       products: ProductQueries.products,
       locations: LocationQueries.locations,
+      users: UserQueries.users,
       files: FileQueries.files,
     },
     Product: {

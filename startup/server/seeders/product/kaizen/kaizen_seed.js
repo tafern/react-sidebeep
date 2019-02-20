@@ -3,6 +3,45 @@ import Products from '../../../../../api/Products/Products';
 import Images from '../../../../../api/Images/Images';
 import Files from '../../../../../api/Files/Files';
 
+const imageSeed = (userId, imgUrl, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl,
+          };
+        },
+      },
+    },
+  });
+};
+
+export const kaizenDisplayPictureFileSeed = (userId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refId: userId,
+            refType: 'ProfilePicture',
+            dependentData(fileId) {
+              imageSeed(userId, '/assets/kaizen/logo_vendor.jpeg', fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
 export const kaizenProductCoverImageSeed = () => {
   seeder(Images, {
     seedIfExistingData: true,
@@ -12,12 +51,12 @@ export const kaizenProductCoverImageSeed = () => {
         {
           _id: 'PRDICOVER10000ORG20000',
           fileId: 'PFPRDCOVER100000ORG20000',
-          imgUrl: '/assets/kaizen/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/kaizen/_products/cover_product_1.jpeg',
         },
         {
           _id: 'PRDICOVER20000ORG20000',
           fileId: 'PFPRDCOVER200000ORG20000',
-          imgUrl: '/assets/kaizen/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/kaizen/_products/cover_product_2.jpeg',
         },
       ],
     },
@@ -38,7 +77,7 @@ export const kaizenProductCoverFileSeed = () => {
             {
               _id: 'PRDI10000ORG20000',
               fileId: 'PFPRDCOVER100000ORG20000',
-              imgUrl: '/assets/kaizen/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/kaizen/_products/cover_product_1.jpeg',
             },
           ],
         },
@@ -50,7 +89,7 @@ export const kaizenProductCoverFileSeed = () => {
             {
               _id: 'PRDI20000ORG20000',
               fileId: 'PFPRDCOVER200000ORG20000',
-              imgUrl: '/assets/kaizen/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/kaizen/_products/cover_product_2.jpeg',
             },
           ],
         },
@@ -73,7 +112,7 @@ export const kaizenProductPortfolioImageSeed = () => {
         {
           _id: 'PRDI20000ORG20000',
           fileId: 'PFPRD200000ORG20000',
-          imgUrl: '/assets/kaizen/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/kaizen/_portfolio/portfolio_2.jpeg',
         },
       ],
     },
@@ -106,7 +145,7 @@ export const kaizenProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI20000ORG20000',
               fileId: 'PFPRD200000ORG20000',
-              imgUrl: '/assets/kaizen/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/kaizen/_portfolio/portfolio_2.jpeg',
             },
           ],
         },
@@ -136,20 +175,6 @@ export const kaizenProductsSeed = (userId) => {
               name: 'Beauty',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD100000ORG20000',
-              refId: 'PRD100000ORG20000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI10000ORG20000',
-                  fileId: 'PFPRD100000ORG20000',
-                  imgUrl: '/assets/kaizen/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD200000ORG20000',
@@ -163,20 +188,6 @@ export const kaizenProductsSeed = (userId) => {
             {
               _id: '﻿CAT30000',
               name: 'Beauty',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD200000ORG20000',
-              refId: 'PRD200000ORG20000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI20000ORG20000',
-                  fileId: 'PFPRD200000ORG20000',
-                  imgUrl: '/assets/kaizen/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },

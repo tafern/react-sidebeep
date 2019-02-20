@@ -1,9 +1,6 @@
 import seeder from '@cleverbeagle/seeder';
 import { Meteor } from 'meteor/meteor';
-
-import Files from '../../api/Files/Files';
 import { documentsSeed } from './seeders/document';
-import imageSeed from './seeders/common';
 import { orgsSeed, orgFileSeed, orgImageSeed, orgLocationsSeed } from './seeders/org/org';
 import { headlinesSeed, headlineFileSeed, headlineImageSeed } from './seeders/headline/headline';
 import { categoriesSeed, categoryImages, categoryFile } from './seeders/category/category';
@@ -13,6 +10,7 @@ import {
   cayCayProductPortfolioImageSeed,
   cayCayProductCoverFileSeed,
   cayCayProductCoverImageSeed,
+  cayCayDisplayPictureFileSeed,
 } from './seeders/product/cay_cay/cay_cay_seed';
 import {
   kaizenProductsSeed,
@@ -20,6 +18,7 @@ import {
   kaizenProductPortfolioImageSeed,
   kaizenProductCoverFileSeed,
   kaizenProductCoverImageSeed,
+  kaizenDisplayPictureFileSeed,
 } from './seeders/product/kaizen/kaizen_seed';
 import {
   katrosGarageProductsSeed,
@@ -27,6 +26,7 @@ import {
   katrosGarageProductPortfolioImageSeed,
   katrosGarageProductCoverFileSeed,
   katrosGarageProductCoverImageSeed,
+  katrosGarageDisplayPictureFileSeed,
 } from './seeders/product/katros_garage/katros_garage_seed';
 import {
   labaLabaProductsSeed,
@@ -34,6 +34,7 @@ import {
   labaLabaProductPortfolioImageSeed,
   labaLabaProductCoverFileSeed,
   labaLabaProductCoverImageSeed,
+  labaLabaDisplayPictureFileSeed,
 } from './seeders/product/laba_laba/laba_laba_seed';
 import {
   lesEliteProductsSeed,
@@ -41,6 +42,7 @@ import {
   lesEliteProductPortfolioImageSeed,
   lesEliteProductCoverFileSeed,
   lesEliteProductCoverImageSeed,
+  lesEliteDisplayPictureFileSeed,
 } from './seeders/product/les_elite/les_elite_seed';
 import {
   lestariTattooProductsSeed,
@@ -48,6 +50,7 @@ import {
   lestariTattooProductPortfolioImageSeed,
   lestariTattooProductCoverFileSeed,
   lestariTattooProductCoverImageSeed,
+  lestariTattooDisplayPictureFileSeed,
 } from './seeders/product/lestari_tattoo/lestari_tattoo_seed';
 import {
   mauKemanaSiProductsSeed,
@@ -55,6 +58,7 @@ import {
   mauKemanaSiProductPortfolioImageSeed,
   mauKemanaSiProductCoverFileSeed,
   mauKemanaSiProductCoverImageSeed,
+  mauKemanaSiDisplayPictureFileSeed,
 } from './seeders/product/mau_kemana_si/mau_kemana_si_seed';
 import {
   shoesAndCareProductsSeed,
@@ -62,9 +66,29 @@ import {
   shoesAndCareProductPortfolioImageSeed,
   shoesAndCareProductCoverFileSeed,
   shoesAndCareProductCoverImageSeed,
+  shoesAndCareDisplayPictureFileSeed,
 } from './seeders/product/shoes_and_care/shoes_and_care_seed';
+import Files from '../../api/Files/Files';
+import Images from '../../api/Images/Images';
 
-const userDisplayPictureFileSeed = (userId, date) => {
+const userImageSeed = (userId, imgUrl, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl,
+          };
+        },
+      },
+    },
+  });
+};
+const userDisplayPictureFileSeed = (userId) => {
   seeder(Files, {
     seedIfExistingData: true,
     environments: ['development', 'staging'],
@@ -74,11 +98,9 @@ const userDisplayPictureFileSeed = (userId, date) => {
         seed() {
           return {
             refId: userId,
-            fileUrl: '',
-            createdAt: date,
             refType: 'ProfilePicture',
             dependentData(fileId) {
-              imageSeed(userId, date, fileId);
+              userImageSeed(userId, '/default_user_image.png', fileId);
             },
           };
         },
@@ -121,6 +143,7 @@ seeder(Meteor.users, {
         },
       },
       {
+        orgId: 'ORG10000',
         email: 'cay_cay@sidebeep.com',
         password: 'password',
         profile: {
@@ -131,7 +154,7 @@ seeder(Meteor.users, {
         },
         roles: ['sider'],
         dependentData(userId) {
-          userDisplayPictureFileSeed(userId);
+          cayCayDisplayPictureFileSeed(userId);
           cayCayProductsSeed(userId);
           cayCayProductPortfolioFileSeed();
           cayCayProductPortfolioImageSeed();
@@ -140,6 +163,7 @@ seeder(Meteor.users, {
         },
       },
       {
+        orgId: 'ORG20000',
         email: 'kaizen@sidebeep.com',
         password: 'password',
         profile: {
@@ -150,7 +174,7 @@ seeder(Meteor.users, {
         },
         roles: ['sider'],
         dependentData(userId) {
-          userDisplayPictureFileSeed(userId);
+          kaizenDisplayPictureFileSeed(userId);
           kaizenProductsSeed(userId);
           kaizenProductPortfolioFileSeed();
           kaizenProductPortfolioImageSeed();
@@ -159,6 +183,7 @@ seeder(Meteor.users, {
         },
       },
       {
+        orgId: 'ORG30000',
         email: 'katros_garage@sidebeep.com',
         password: 'password',
         profile: {
@@ -169,7 +194,7 @@ seeder(Meteor.users, {
         },
         roles: ['sider'],
         dependentData(userId) {
-          userDisplayPictureFileSeed(userId);
+          katrosGarageDisplayPictureFileSeed(userId);
           katrosGarageProductsSeed(userId);
           katrosGarageProductPortfolioFileSeed();
           katrosGarageProductPortfolioImageSeed();
@@ -178,6 +203,7 @@ seeder(Meteor.users, {
         },
       },
       {
+        orgId: 'ORG40000',
         email: 'laba_laba@sidebeep.com',
         password: 'password',
         profile: {
@@ -188,7 +214,7 @@ seeder(Meteor.users, {
         },
         roles: ['sider'],
         dependentData(userId) {
-          userDisplayPictureFileSeed(userId);
+          labaLabaDisplayPictureFileSeed(userId);
           labaLabaProductsSeed(userId);
           labaLabaProductPortfolioFileSeed();
           labaLabaProductPortfolioImageSeed();
@@ -197,6 +223,7 @@ seeder(Meteor.users, {
         },
       },
       {
+        orgId: 'ORG50000',
         email: 'les_elite@sidebeep.com',
         password: 'password',
         profile: {
@@ -207,7 +234,7 @@ seeder(Meteor.users, {
         },
         roles: ['sider'],
         dependentData(userId) {
-          userDisplayPictureFileSeed(userId);
+          lesEliteDisplayPictureFileSeed(userId);
           lesEliteProductsSeed(userId);
           lesEliteProductPortfolioFileSeed();
           lesEliteProductPortfolioImageSeed();
@@ -216,6 +243,7 @@ seeder(Meteor.users, {
         },
       },
       {
+        orgId: 'ORG60000',
         email: 'lestari_tattoo@sidebeep.com',
         password: 'password',
         profile: {
@@ -226,7 +254,7 @@ seeder(Meteor.users, {
         },
         roles: ['sider'],
         dependentData(userId) {
-          userDisplayPictureFileSeed(userId);
+          lestariTattooDisplayPictureFileSeed(userId);
           lestariTattooProductsSeed(userId);
           lestariTattooProductPortfolioFileSeed();
           lestariTattooProductPortfolioImageSeed();
@@ -235,6 +263,7 @@ seeder(Meteor.users, {
         },
       },
       {
+        orgId: 'ORG70000',
         email: 'mau_kemana_si@sidebeep.com',
         password: 'password',
         profile: {
@@ -245,7 +274,7 @@ seeder(Meteor.users, {
         },
         roles: ['sider'],
         dependentData(userId) {
-          userDisplayPictureFileSeed(userId);
+          mauKemanaSiDisplayPictureFileSeed(userId);
           mauKemanaSiProductsSeed(userId);
           mauKemanaSiProductPortfolioFileSeed();
           mauKemanaSiProductPortfolioImageSeed();
@@ -254,6 +283,7 @@ seeder(Meteor.users, {
         },
       },
       {
+        orgId: 'ORG80000',
         email: 'shoes_and_care@sidebeep.com',
         password: 'password',
         profile: {
@@ -264,7 +294,7 @@ seeder(Meteor.users, {
         },
         roles: ['sider'],
         dependentData(userId) {
-          userDisplayPictureFileSeed(userId);
+          shoesAndCareDisplayPictureFileSeed(userId);
           shoesAndCareProductsSeed(userId);
           shoesAndCareProductPortfolioFileSeed();
           shoesAndCareProductPortfolioImageSeed();

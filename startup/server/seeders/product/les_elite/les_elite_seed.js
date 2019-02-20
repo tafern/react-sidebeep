@@ -3,6 +3,45 @@ import Products from '../../../../../api/Products/Products';
 import Images from '../../../../../api/Images/Images';
 import Files from '../../../../../api/Files/Files';
 
+const imageSeed = (userId, imgUrl, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl,
+          };
+        },
+      },
+    },
+  });
+};
+
+export const lesEliteDisplayPictureFileSeed = (userId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refId: userId,
+            refType: 'ProfilePicture',
+            dependentData(fileId) {
+              imageSeed(userId, '/assets/les_elite/logo_vendor.jpeg', fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
 export const lesEliteProductCoverImageSeed = () => {
   seeder(Images, {
     seedIfExistingData: true,
@@ -12,37 +51,37 @@ export const lesEliteProductCoverImageSeed = () => {
         {
           _id: 'PRDICOVER10000ORG50000',
           fileId: 'PFPRDCOVER100000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_products/cover_product_1.jpeg',
         },
         {
           _id: 'PRDICOVER20000ORG50000',
           fileId: 'PFPRDCOVER200000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_products/cover_product_2.jpeg',
         },
         {
           _id: 'PRDICOVER30000ORG50000',
           fileId: 'PFPRDCOVER300000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_products/cover_product_3.jpeg',
         },
         {
           _id: 'PRDICOVER40000ORG50000',
           fileId: 'PFPRDCOVER400000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_products/cover_product_4.jpeg',
         },
         {
           _id: 'PRDICOVER50000ORG50000',
           fileId: 'PFPRDCOVER500000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_products/cover_product_5.jpeg',
         },
         {
           _id: 'PRDICOVER60000ORG50000',
           fileId: 'PFPRDCOVER600000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_products/cover_product_6.jpeg',
         },
         {
           _id: 'PRDICOVER70000ORG50000',
           fileId: 'PFPRDCOVER700000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_products/cover_product_7.jpeg',
         },
       ],
     },
@@ -63,7 +102,7 @@ export const lesEliteProductCoverFileSeed = () => {
             {
               _id: 'PRDI10000ORG50000',
               fileId: 'PFPRDCOVER100000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_products/cover_product_1.jpeg',
             },
           ],
         },
@@ -75,7 +114,7 @@ export const lesEliteProductCoverFileSeed = () => {
             {
               _id: 'PRDI20000ORG50000',
               fileId: 'PFPRDCOVER200000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_products/cover_product_2.jpeg',
             },
           ],
         },
@@ -87,7 +126,7 @@ export const lesEliteProductCoverFileSeed = () => {
             {
               _id: 'PRDI30000ORG50000',
               fileId: 'PFPRDCOVER300000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_products/cover_product_3.jpeg',
             },
           ],
         },
@@ -99,7 +138,7 @@ export const lesEliteProductCoverFileSeed = () => {
             {
               _id: 'PRDI40000ORG50000',
               fileId: 'PFPRDCOVER400000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_products/cover_product_4.jpeg',
             },
           ],
         },
@@ -111,7 +150,7 @@ export const lesEliteProductCoverFileSeed = () => {
             {
               _id: 'PRDI50000ORG50000',
               fileId: 'PFPRDCOVER500000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_products/cover_product_5.jpeg',
             },
           ],
         },
@@ -123,7 +162,7 @@ export const lesEliteProductCoverFileSeed = () => {
             {
               _id: 'PRDI60000ORG50000',
               fileId: 'PFPRDCOVER600000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_products/cover_product_6.jpeg',
             },
           ],
         },
@@ -135,7 +174,7 @@ export const lesEliteProductCoverFileSeed = () => {
             {
               _id: 'PRDI70000ORG50000',
               fileId: 'PFPRDCOVER700000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_products/cover_product_7.jpeg',
             },
           ],
         },
@@ -158,32 +197,32 @@ export const lesEliteProductPortfolioImageSeed = () => {
         {
           _id: 'PRDI20000ORG50000',
           fileId: 'PFPRD200000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_portfolio/portfolio_2.jpeg',
         },
         {
           _id: 'PRDI30000ORG50000',
           fileId: 'PFPRD300000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_portfolio/portfolio_3.jpeg',
         },
         {
           _id: 'PRDI40000ORG50000',
           fileId: 'PFPRD400000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_portfolio/portfolio_4.jpeg',
         },
         {
           _id: 'PRDI50000ORG50000',
           fileId: 'PFPRD500000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_portfolio/portfolio_5.jpeg',
         },
         {
           _id: 'PRDI60000ORG50000',
           fileId: 'PFPRD600000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_portfolio/portfolio_6.jpeg',
         },
         {
           _id: 'PRDI70000ORG50000',
           fileId: 'PFPRD700000ORG50000',
-          imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/les_elite/_portfolio/portfolio_7.jpeg',
         },
       ],
     },
@@ -216,7 +255,7 @@ export const lesEliteProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI20000ORG50000',
               fileId: 'PFPRD200000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_portfolio/portfolio_2.jpeg',
             },
           ],
         },
@@ -228,7 +267,7 @@ export const lesEliteProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI30000ORG50000',
               fileId: 'PFPRD300000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_portfolio/portfolio_3.jpeg',
             },
           ],
         },
@@ -240,7 +279,7 @@ export const lesEliteProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI40000ORG50000',
               fileId: 'PFPRD400000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_portfolio/portfolio_4.jpeg',
             },
           ],
         },
@@ -252,7 +291,7 @@ export const lesEliteProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI50000ORG50000',
               fileId: 'PFPRD500000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_portfolio/portfolio_5.jpeg',
             },
           ],
         },
@@ -264,7 +303,7 @@ export const lesEliteProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI60000ORG50000',
               fileId: 'PFPRD600000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_portfolio/portfolio_6.jpeg',
             },
           ],
         },
@@ -276,7 +315,7 @@ export const lesEliteProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI70000ORG50000',
               fileId: 'PFPRD700000ORG50000',
-              imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/les_elite/_portfolio/portfolio_7.jpeg',
             },
           ],
         },
@@ -306,20 +345,6 @@ export const lesEliteProductsSeed = (userId) => {
               name: 'Repair',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD100000ORG50000',
-              refId: 'PRD100000ORG50000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI10000ORG50000',
-                  fileId: 'PFPRD100000ORG50000',
-                  imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD200000ORG50000',
@@ -334,20 +359,6 @@ export const lesEliteProductsSeed = (userId) => {
             {
               _id: 'CAT10000',
               name: 'Repair',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD200000ORG50000',
-              refId: 'PRD200000ORG50000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI20000ORG50000',
-                  fileId: 'PFPRD200000ORG50000',
-                  imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },
@@ -366,20 +377,6 @@ export const lesEliteProductsSeed = (userId) => {
               name: 'Repair',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD300000ORG50000',
-              refId: 'PRD300000ORG50000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI30000ORG50000',
-                  fileId: 'PFPRD300000ORG50000',
-                  imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD400000ORG50000',
@@ -394,20 +391,6 @@ export const lesEliteProductsSeed = (userId) => {
             {
               _id: 'CAT10000',
               name: 'Repair',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD400000ORG50000',
-              refId: 'PRD400000ORG50000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI40000ORG50000',
-                  fileId: 'PFPRD400000ORG50000',
-                  imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },
@@ -425,20 +408,6 @@ export const lesEliteProductsSeed = (userId) => {
               name: 'Repair',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD500000ORG50000',
-              refId: 'PRD200000ORG50000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI50000ORG50000',
-                  fileId: 'PFPRD500000ORG50000',
-                  imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD600000ORG50000',
@@ -452,20 +421,6 @@ export const lesEliteProductsSeed = (userId) => {
             {
               _id: 'CAT10000',
               name: 'Repair',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD600000ORG50000',
-              refId: 'PRD600000ORG50000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI60000ORG50000',
-                  fileId: 'PFPRD600000ORG50000',
-                  imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },
@@ -482,20 +437,6 @@ export const lesEliteProductsSeed = (userId) => {
             {
               _id: 'CAT10000',
               name: 'Repair',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD700000ORG50000',
-              refId: 'PRD700000ORG50000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI70000ORG50000',
-                  fileId: 'PFPRD700000ORG50000',
-                  imgUrl: '/assets/les_elite/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },

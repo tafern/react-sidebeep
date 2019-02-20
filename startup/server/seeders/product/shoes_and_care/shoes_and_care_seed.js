@@ -3,6 +3,45 @@ import Products from '../../../../../api/Products/Products';
 import Images from '../../../../../api/Images/Images';
 import Files from '../../../../../api/Files/Files';
 
+const imageSeed = (userId, imgUrl, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl,
+          };
+        },
+      },
+    },
+  });
+};
+
+export const shoesAndCareDisplayPictureFileSeed = (userId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refId: userId,
+            refType: 'ProfilePicture',
+            dependentData(fileId) {
+              imageSeed(userId, '/assets/shoes_and_care/logo_vendor.jpeg', fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
 export const shoesAndCareProductCoverImageSeed = () => {
   seeder(Images, {
     seedIfExistingData: true,
@@ -12,17 +51,17 @@ export const shoesAndCareProductCoverImageSeed = () => {
         {
           _id: 'PRDICOVER10000ORG80000',
           fileId: 'PFPRDCOVER100000ORG80000',
-          imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/shoes_and_care/_products/cover_product_1.jpeg',
         },
         {
           _id: 'PRDICOVER20000ORG80000',
           fileId: 'PFPRDCOVER200000ORG80000',
-          imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/shoes_and_care/_products/cover_product_2.jpeg',
         },
         {
           _id: 'PRDICOVER30000ORG80000',
           fileId: 'PFPRDCOVER300000ORG80000',
-          imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/shoes_and_care/_products/cover_product_3.jpeg',
         },
       ],
     },
@@ -43,7 +82,7 @@ export const shoesAndCareProductCoverFileSeed = () => {
             {
               _id: 'PRDI10000ORG80000',
               fileId: 'PFPRDCOVER100000ORG80000',
-              imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/shoes_and_care/_products/cover_product_1.jpeg',
             },
           ],
         },
@@ -55,7 +94,7 @@ export const shoesAndCareProductCoverFileSeed = () => {
             {
               _id: 'PRDI20000ORG80000',
               fileId: 'PFPRDCOVER200000ORG80000',
-              imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/shoes_and_care/_products/cover_product_2.jpeg',
             },
           ],
         },
@@ -67,7 +106,7 @@ export const shoesAndCareProductCoverFileSeed = () => {
             {
               _id: 'PRDI30000ORG80000',
               fileId: 'PFPRDCOVER300000ORG80000',
-              imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/shoes_and_care/_products/cover_product_3.jpeg',
             },
           ],
         },
@@ -90,12 +129,12 @@ export const shoesAndCareProductPortfolioImageSeed = () => {
         {
           _id: 'PRDI20000ORG80000',
           fileId: 'PFPRD200000ORG80000',
-          imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_2.jpeg',
         },
         {
           _id: 'PRDI30000ORG80000',
           fileId: 'PFPRD300000ORG80000',
-          imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_3.jpeg',
         },
       ],
     },
@@ -128,7 +167,7 @@ export const shoesAndCareProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI20000ORG80000',
               fileId: 'PFPRD200000ORG80000',
-              imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_2.jpeg',
             },
           ],
         },
@@ -140,7 +179,7 @@ export const shoesAndCareProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI30000ORG80000',
               fileId: 'PFPRD300000ORG80000',
-              imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_3.jpeg',
             },
           ],
         },
@@ -170,20 +209,6 @@ export const shoesAndCareProductsSeed = (userId) => {
               name: 'Hobbies',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD100000ORG80000',
-              refId: 'PRD100000ORG80000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI10000ORG80000',
-                  fileId: 'PFPRD100000ORG80000',
-                  imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD200000ORG80000',
@@ -200,20 +225,6 @@ export const shoesAndCareProductsSeed = (userId) => {
               name: 'Hobbies',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD200000ORG80000',
-              refId: 'PRD200000ORG80000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI20000ORG80000',
-                  fileId: 'PFPRD200000ORG80000',
-                  imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD300000ORG80000',
@@ -228,20 +239,6 @@ export const shoesAndCareProductsSeed = (userId) => {
             {
               _id: 'CAT70000',
               name: 'Hobbies',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD300000ORG80000',
-              refId: 'PRD100000ORG80000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI30000ORG80000',
-                  fileId: 'PFPRD300000ORG80000',
-                  imgUrl: '/assets/shoes_and_care/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },

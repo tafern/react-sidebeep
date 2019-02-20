@@ -3,6 +3,45 @@ import Products from '../../../../../api/Products/Products';
 import Images from '../../../../../api/Images/Images';
 import Files from '../../../../../api/Files/Files';
 
+const imageSeed = (userId, imgUrl, idOfFile) => {
+  seeder(Images, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            fileId: idOfFile,
+            imgUrl,
+          };
+        },
+      },
+    },
+  });
+};
+
+export const mauKemanaSiDisplayPictureFileSeed = (userId) => {
+  seeder(Files, {
+    seedIfExistingData: true,
+    environments: ['development', 'staging'],
+    data: {
+      dynamic: {
+        count: 1,
+        seed() {
+          return {
+            refId: userId,
+            refType: 'ProfilePicture',
+            dependentData(fileId) {
+              imageSeed(userId, '/assets/mau_kemana_si/logo_vendor.jpeg', fileId);
+            },
+          };
+        },
+      },
+    },
+  });
+};
+
 export const mauKemanaSiProductCoverImageSeed = () => {
   seeder(Images, {
     seedIfExistingData: true,
@@ -12,27 +51,27 @@ export const mauKemanaSiProductCoverImageSeed = () => {
         {
           _id: 'PRDICOVER10000ORG70000',
           fileId: 'PFPRDCOVER100000ORG70000',
-          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/mau_kemana_si/_products/cover_product_1.jpeg',
         },
         {
           _id: 'PRDICOVER20000ORG70000',
           fileId: 'PFPRDCOVER200000ORG70000',
-          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/mau_kemana_si/_products/cover_product_2.jpeg',
         },
         {
           _id: 'PRDICOVER30000ORG70000',
           fileId: 'PFPRDCOVER300000ORG70000',
-          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/mau_kemana_si/_products/cover_product_3.jpeg',
         },
         {
           _id: 'PRDICOVER40000ORG70000',
           fileId: 'PFPRDCOVER400000ORG70000',
-          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/mau_kemana_si/_products/cover_product_4.jpeg',
         },
         {
           _id: 'PRDICOVER50000ORG70000',
           fileId: 'PFPRDCOVER500000ORG70000',
-          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/mau_kemana_si/_products/cover_product_5.jpeg',
         },
       ],
     },
@@ -53,7 +92,7 @@ export const mauKemanaSiProductCoverFileSeed = () => {
             {
               _id: 'PRDI10000ORG70000',
               fileId: 'PFPRDCOVER100000ORG70000',
-              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/mau_kemana_si/_products/cover_product_1.jpeg',
             },
           ],
         },
@@ -65,7 +104,7 @@ export const mauKemanaSiProductCoverFileSeed = () => {
             {
               _id: 'PRDI20000ORG70000',
               fileId: 'PFPRDCOVER200000ORG70000',
-              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/mau_kemana_si/_products/cover_product_2.jpeg',
             },
           ],
         },
@@ -77,7 +116,7 @@ export const mauKemanaSiProductCoverFileSeed = () => {
             {
               _id: 'PRDI30000ORG70000',
               fileId: 'PFPRDCOVER300000ORG70000',
-              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/mau_kemana_si/_products/cover_product_3.jpeg',
             },
           ],
         },
@@ -89,7 +128,7 @@ export const mauKemanaSiProductCoverFileSeed = () => {
             {
               _id: 'PRDI40000ORG70000',
               fileId: 'PFPRDCOVER400000ORG70000',
-              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/mau_kemana_si/_products/cover_product_4.jpeg',
             },
           ],
         },
@@ -101,7 +140,7 @@ export const mauKemanaSiProductCoverFileSeed = () => {
             {
               _id: 'PRDI50000ORG70000',
               fileId: 'PFPRDCOVER500000ORG70000',
-              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/mau_kemana_si/_products/cover_product_5.jpeg',
             },
           ],
         },
@@ -124,22 +163,22 @@ export const mauKemanaSiProductPortfolioImageSeed = () => {
         {
           _id: 'PRDI20000ORG70000',
           fileId: 'PFPRD200000ORG70000',
-          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_2.jpeg',
         },
         {
           _id: 'PRDI30000ORG70000',
           fileId: 'PFPRD300000ORG70000',
-          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_3.jpeg',
         },
         {
           _id: 'PRDI40000ORG70000',
           fileId: 'PFPRD400000ORG70000',
-          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_4.jpeg',
         },
         {
           _id: 'PRDI50000ORG70000',
           fileId: 'PFPRD500000ORG70000',
-          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+          imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_5.jpeg',
         },
       ],
     },
@@ -172,7 +211,7 @@ export const mauKemanaSiProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI20000ORG70000',
               fileId: 'PFPRD200000ORG70000',
-              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_2.jpeg',
             },
           ],
         },
@@ -184,7 +223,7 @@ export const mauKemanaSiProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI30000ORG70000',
               fileId: 'PFPRD300000ORG70000',
-              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_3.jpeg',
             },
           ],
         },
@@ -196,7 +235,7 @@ export const mauKemanaSiProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI40000ORG70000',
               fileId: 'PFPRD400000ORG70000',
-              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_4.jpeg',
             },
           ],
         },
@@ -208,7 +247,7 @@ export const mauKemanaSiProductPortfolioFileSeed = () => {
             {
               _id: 'PRDI50000ORG70000',
               fileId: 'PFPRD500000ORG70000',
-              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
+              imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_5.jpeg',
             },
           ],
         },
@@ -238,20 +277,6 @@ export const mauKemanaSiProductsSeed = (userId) => {
               name: 'Hobbies',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD100000ORG70000',
-              refId: 'PRD100000ORG70000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI10000ORG70000',
-                  fileId: 'PFPRD100000ORG70000',
-                  imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD200000ORG70000',
@@ -266,20 +291,6 @@ export const mauKemanaSiProductsSeed = (userId) => {
             {
               _id: 'CAT70000',
               name: 'Hobbies',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD200000ORG70000',
-              refId: 'PRD200000ORG70000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI20000ORG70000',
-                  fileId: 'PFPRD200000ORG70000',
-                  imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },
@@ -298,20 +309,6 @@ export const mauKemanaSiProductsSeed = (userId) => {
               name: 'Hobbies',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD300000ORG70000',
-              refId: 'PRD300000ORG70000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI30000ORG70000',
-                  fileId: 'PFPRD300000ORG70000',
-                  imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD400000ORG70000',
@@ -328,20 +325,6 @@ export const mauKemanaSiProductsSeed = (userId) => {
               name: 'Hobbies',
             },
           ],
-          files: [
-            {
-              _id: 'PFPRD400000ORG70000',
-              refId: 'PRD400000ORG70000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI40000ORG70000',
-                  fileId: 'PFPRD400000ORG70000',
-                  imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
-                },
-              ],
-            },
-          ],
         },
         {
           _id: 'PRD500000ORG70000',
@@ -356,20 +339,6 @@ export const mauKemanaSiProductsSeed = (userId) => {
             {
               _id: 'CAT70000',
               name: 'Hobbies',
-            },
-          ],
-          files: [
-            {
-              _id: 'PFPRD500000ORG70000',
-              refId: 'PRD500000ORG70000',
-              refType: 'Portfolio',
-              images: [
-                {
-                  _id: 'PRDI50000ORG70000',
-                  fileId: 'PFPRD500000ORG70000',
-                  imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
-                },
-              ],
             },
           ],
         },
