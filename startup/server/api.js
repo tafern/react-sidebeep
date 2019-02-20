@@ -244,6 +244,7 @@ const schema = {
     },
     User: {
       files: FileQueries.files,
+      org: OrgQueries.org,
     },
     Trx: {
       trxItems: TrxItemQueries.trxItems,

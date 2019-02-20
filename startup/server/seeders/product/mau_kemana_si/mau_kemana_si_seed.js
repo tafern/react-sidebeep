@@ -280,7 +280,7 @@ export const mauKemanaSiProductsSeed = (userId) => {
         },
         {
           _id: 'PRD200000ORG70000',
-          userId: 'USR70000',
+          userId,
           name: 'Open Trip Dieng Negeri Diatas Awan (3D2N)',
           description:
             '30-2 DESEMBER 2018 21-23 DESEMBER 2018 Meeting Point : Jakarta : Plaza Semanggi, Lobby Utara depan Maxx corner jam 19.00 Bekasi : SPBU Pertamina sebelah Giant Bekasi depan Brightmart jam 20.00 Include : 1. Transportasi Standar Pariwisata AC Jakarta - Dieng PP include driver, bbm, tol dan parkir 2. Makan 3x 3. Penginapan Homestay (sharing room, 3-4 orang/kamar) 4. Tiket Masuk Semua Destinasi (Dieng, Candi Arjuna, Kawah Sikidang, Batu Ratapan Angin, Dieng Teater, Golden Sunrise Puncak Sikunir, dan Tuk Bimo Lukar) 5. Dokumentasi 6. Tour Leader Mau Kemana Si 7. Guide Lokal Dieng . Exclude : 1. Kebutuhan pribadi 2. Makan diluar paket 3. Tips Driver Note : Untuk itinerary bisa langsung chat yaa',
@@ -296,7 +296,7 @@ export const mauKemanaSiProductsSeed = (userId) => {
         },
         {
           _id: 'PRD300000ORG70000',
-          userId: 'USR70000',
+          userId,
           name: 'Open Trip Pahawang Start Jakarta (3D2N)',
           description:
             'EVERY WEEKEND (SETIAP JUMAT-MINGGU) START JAKARTA MEETING POINT : Plaza Semanggi Lobby Utara Depan Maxx Corner jam 20.00 FASILITAS a. Transportasi AC antar jemput peserta dari MEETING POINT menuju Dermaga Ketapang Lampung Selatan (PP). b. Penginapan di Pulau Pahawang Besar (Non AC). c. Pelampung Selama Wisata. d. Perahu untuk Kegiatan Snorkeling dan Jelajah Pulau. e. Makan 4x (Prasmanan) F. Tour Leader asyik. g. Tour Guide dari Pulau Pahawang. h. Tiket Kapal Ferry Pelabuhan Merak – Bakauheni (PP). i. Asuransi Penyebrangan Merak – Bakauheni (PP). J. Air Mineral Selama Trip K.Dokumentasi Selama Wisata (Upwater & Underwater). Exclude -kebutuhan pribadi -alat snorckling (Rp.80.000) DESTINASI TRIP PULAU PAHAWANG 1. Pulau Pahawang Besar 2. Penangkaran Ikan Nemo 3. Pulau Kelagian Kecil 4. Pulau Kelagian Besar 5. Cukuh Bedil 6. Pulau Pahawang Kecil 7. Gosong Bekri 8. Pulau Balak 9. Pulau Tanjung Putus (Optional) 10. Gosong Pancong (optional) 11. Gosong Kalangan (optional)',
@@ -312,7 +312,7 @@ export const mauKemanaSiProductsSeed = (userId) => {
         },
         {
           _id: 'PRD400000ORG70000',
-          userId: 'USR70000',
+          userId,
           name: 'Open Trip Pahawang Start Merak (3D2N)',
           description:
             'EVERY WEEKEND (SETIAP JUMAT-MINGGU) START MERAK MEETING POINT : ALFAMART Pelabuhan Merak jam 23.00 FASILITAS a. Transportasi AC antar jemput peserta dari MEETING POINT menuju Dermaga Ketapang Lampung Selatan (PP). b. Penginapan di Pulau Pahawang Besar (Non AC). c. Pelampung Selama Wisata. d. Perahu untuk Kegiatan Snorkeling dan Jelajah Pulau. e. Makan 4x (Prasmanan) F. Tour Leader asyik. g. Tour Guide dari Pulau Pahawang. h. Tiket Kapal Ferry Pelabuhan Merak – Bakauheni (PP). i. Asuransi Penyebrangan Merak – Bakauheni (PP). J. Air Mineral Selama Trip K.Dokumentasi Selama Wisata (Upwater & Underwater). Exclude -kebutuhan pribadi -alat snorckling (Rp.80.000) DESTINASI TRIP PULAU PAHAWANG 1. Pulau Pahawang Besar 2. Penangkaran Ikan Nemo 3. Pulau Kelagian Kecil 4. Pulau Kelagian Besar 5. Cukuh Bedil 6. Pulau Pahawang Kecil 7. Gosong Bekri 8. Pulau Balak 9. Pulau Tanjung Putus (Optional) 10. Gosong Pancong (optional) 11. Gosong Kalangan (optional)',
@@ -328,7 +328,7 @@ export const mauKemanaSiProductsSeed = (userId) => {
         },
         {
           _id: 'PRD500000ORG70000',
-          userId: 'USR70000',
+          userId,
           name: 'Open Trip Peucang Start Jakarta (3D2N)',
           description:
             'EVERY WEEKEND (SETIAP JUMAT-MINGGU) MEETING POINT : PLAZA SEMANGGI Lobby Utara Depan Maxx Corner Jam 20.00 Include : - Transportasi dari Meeting Point PP ke Desa Sumur - makan 5x (bbq 1x) - kapal wisata 2hari - air mineral selama tour - penginapan di peucang - guide - dokumentasi Underwater dan uppwater - asuransi TNUK - semua tiket wisata - restribusi wisata #tambahan - teh gula & kopi - buah setelah snorkling 1 - dokumentasi drone - Floaties foto2 . Excluding: - canoeing sungai cigenteur (idr. 50.000/pax) - alat snorkling: Idr. 80.000/org (lengkap dengan fin) - pengeluaran pribadi - tips guide (suka rela) - hal-hal selain di atas *penginapan pasti di pulau peucangnya *dokumentasi underwater gopro hero Destinasi tujuan wisata: (tracking and hoping island) Pulau Peucang, cidaon, Karang copong, Pulau Badul, Handeleum, sungai cigenteur (spot snorkling) Ciapus, suminoh, citerjun, lagoon kobak, pulau badul, pulau oar',

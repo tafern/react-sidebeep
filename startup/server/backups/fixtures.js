@@ -1,16 +1,16 @@
 import seeder from '@cleverbeagle/seeder';
 import { Meteor } from 'meteor/meteor';
-import Documents from '../../api/Documents/Documents';
-import Comments from '../../api/Comments/Comments';
-import Products from '../../api/Products/Products';
-import Files from '../../api/Files/Files';
-import Reviews from '../../api/Reviews/Reviews';
-import Orgs from '../../api/Orgs/Orgs';
-import Images from '../../api/Images/Images';
-import Headlines from '../../api/Headlines/Headlines';
-import Categories from '../../api/Categories/Categories';
-import Locations from '../../api/Locations/Locations';
-import Posts from '../../api/Posts/Posts';
+import Documents from '../../../api/Documents/Documents';
+import Comments from '../../../api/Comments/Comments';
+import Products from '../../../api/Products/Products';
+import Files from '../../../api/Files/Files';
+import Reviews from '../../../api/Reviews/Reviews';
+import Orgs from '../../../api/Orgs/Orgs';
+import Images from '../../../api/Images/Images';
+import Headlines from '../../../api/Headlines/Headlines';
+import Categories from '../../../api/Categories/Categories';
+import Locations from '../../../api/Locations/Locations';
+import Posts from '../../../api/Posts/Posts';
 
 const commentsSeed = (userId, date, documentId) => {
   seeder(Comments, {
