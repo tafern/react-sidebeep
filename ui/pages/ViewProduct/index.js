@@ -63,6 +63,7 @@ class ViewProduct extends React.Component {
       if (Meteor.isClient && Meteor.userId()) {
         console.log('UserId', Meteor.userId());
       }
+      console.log('productDataQuery', productDataQuery);
       return (
         <StyledViewProduct>
           <SEO

@@ -36,6 +36,16 @@ const ProductImage = styled.img`
     }
     return '270px';
   }};
+  width: ${(props) => {
+    if (props.isSmall) {
+      return '180px';
+    }
+    if (props.isGrid) {
+      console.log('props', props.isGrid);
+      return '215px;';
+    }
+    return '270px';
+  }};
   @media (max-width: 380px) {
     height: 145px;
   }
@@ -76,6 +86,9 @@ const SiderName = styled.div`
 const ProductName = styled.div`
   margin-top: 5px;
   color: ${SB_MEDIUM_GREY};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 const ProductPrice = styled.div`
   color: ${SB_GREEN};

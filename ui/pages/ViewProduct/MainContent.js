@@ -36,7 +36,7 @@ const MainContent = ({ productName, files, addToCart }) => (
       <MainContentWrapper sm={5}>
         <PortfolioWrapper>
           {files.map((item) => {
-            if (item.type === 'ProductPortfolio') {
+            if (item.refType === 'Portfolio') {
               return (
                 <div key={item._id}>
                   <Portfolio className="mr-3" images={item.images} />

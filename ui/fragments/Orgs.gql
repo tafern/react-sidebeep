@@ -12,7 +12,7 @@ fragment OrgAttributes on Org {
     description
     files {
       _id
-      type
+      refType
       images{
         _id
         imgUrl
@@ -23,7 +23,7 @@ fragment OrgAttributes on Org {
   }
   files {
     _id
-    type
+    refType
     images {
       _id
       imgUrl

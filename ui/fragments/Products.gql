@@ -5,7 +5,7 @@ fragment ProductAttributes on Product {
   description
   files {
     _id
-    type
+    refType
     images{
       _id
       imgUrl

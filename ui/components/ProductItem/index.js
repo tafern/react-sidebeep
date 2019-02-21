@@ -7,7 +7,8 @@ const ProductItem = ({ id, productName, files, isSmall, isGrid }) => (
   <Styles.ProductItemWrapper to={`/product/${id}`}>
     <Styles.HeaderContentWrapper>
       {files.map((item) => {
-        if (item.type === 'ProductCover') {
+        if (item.refType === 'ProductCover') {
+          console.log('item', item);
           return (
             <div key={item._id}>
               <Styles.ProductImage
