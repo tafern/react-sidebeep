@@ -1,7 +1,7 @@
 import Files from './Files';
 
 export default {
-  files: ({ _id }) => Files.find({ refferenceId: _id }, { sort: { createdAt: 1 } }).fetch(),
+  files: ({ _id }) => Files.find({ refId: _id }, { sort: { createdAt: 1 } }).fetch(),
   file: (parent, args, context) =>
     Files.findOne({
       $or: [

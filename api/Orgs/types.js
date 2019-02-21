@@ -7,6 +7,7 @@ export default `
     files: [File]
     locations: [Location]
     products: [Product]
+    users: [User]
     type: String,
 	  status: String,
     owner: String

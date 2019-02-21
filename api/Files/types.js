@@ -1,10 +1,10 @@
 export default `
   type File {
     _id: String
-    refferenceId: String
+    refId: String
     fileUrl: String
     images: [Image]
-    type: String
+    refType: String
     status: String
     owner: String
     createdAt: String

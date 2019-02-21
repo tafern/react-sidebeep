@@ -98,6 +98,8 @@ const schema = {
       documents: [Document]
       document(_id: String): Document
       user(_id: String): User
+      buyer(_id: String): User
+      seller(_id: String): User
       users(currentPage: Int, perPage: Int, search: String): Users
       userSettings: [UserSetting]
       exportUserData: UserDataExport
@@ -122,7 +124,6 @@ const schema = {
       trx(_id: String): Trx
       trxItems: [TrxItem]
       trxItem(_id: String): TrxItem
-      buyer(_id: String): User
     }
 
     type Mutation {
@@ -146,7 +147,7 @@ const schema = {
       addOrg(name: String, description: String): Org
       updateOrg(_id: String!, name: String, description: String): Org
       removeOrg(_id: String!): Org
-      addFile(refferenceId: String, fileUrl: String): File
+      addFile(refId: String, fileUrl: String): File
       updateFile(_id: String!, fileUrl: String): File
       removeFile(_id: String!): File
       addImage(fileId: String, imgUrl: String): Image
@@ -224,6 +225,7 @@ const schema = {
     Org: {
       products: ProductQueries.products,
       locations: LocationQueries.locations,
+      users: UserQueries.users,
       files: FileQueries.files,
     },
     Product: {
@@ -240,9 +242,14 @@ const schema = {
     Category: {
       files: FileQueries.files,
     },
+    User: {
+      files: FileQueries.files,
+      org: OrgQueries.org,
+    },
     Trx: {
       trxItems: TrxItemQueries.trxItems,
-      buyer: TrxQueries.buyer,
+      buyer: UserQueries.buyer,
+      seller: UserQueries.seller,
     },
     TrxItem: {
       trx: TrxQueries.trx,

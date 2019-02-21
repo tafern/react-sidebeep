@@ -31,6 +31,7 @@ export default `
   type User {
     _id: String
     name: Name
+    org: Org
     username: String
     emailAddress: String
     oAuthProvider: String

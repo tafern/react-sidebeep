@@ -3,7 +3,10 @@ import queryUser from './actions/queryUser';
 import exportUserData from './actions/exportUserData';
 
 export default {
-  users: (parent, args, context) =>
+  users: (parent, args, context) => {
+    console.log('parent', parent);
+    console.log('args', args);
+    console.log('context', context);
     queryUsers({
       currentUser: context.user,
       search: args.search ? new RegExp(args.search, 'i') : null,
@@ -15,11 +18,24 @@ export default {
         'services.google.name': 1,
         'services.github.username': 1,
       },
-    }),
+    });
+  },
   user: (parent, args, context) => {
     const userIdFromParentQuery = parent && parent.userId;
     return queryUser({
       userIdToQuery: userIdFromParentQuery || args._id || context.user._id,
+    });
+  },
+  buyer: (parent) => {
+    const userId = parent.buyer;
+    return queryUser({
+      userIdToQuery: userId,
+    });
+  },
+  seller: (parent) => {
+    const userId = parent.seller;
+    return queryUser({
+      userIdToQuery: userId,
     });
   },
   exportUserData: (parent, args, { user }) =>
