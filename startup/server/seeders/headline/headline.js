@@ -1,7 +1,7 @@
 import seeder from '@cleverbeagle/seeder/index.min';
 import Images from '../../../../api/Images/Images';
-import Files from '../../../../api/Files/Files';
-import Headlines from '../../../../api/Headlines/Headlines';
+import Files from '../../../../api/File/File';
+import Headlines from '../../../../api/Headline/Headline';
 
 export const headlineImageSeed = () => {
   seeder(Images, {

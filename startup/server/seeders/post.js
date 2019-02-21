@@ -1,5 +1,5 @@
 import seeder from '@cleverbeagle/seeder/index.min';
-import Files from '../../../api/Files/Files';
+import Files from '../../../api/File/File';
 import Posts from '../../../api/Posts/Posts';
 import imageSeed from './common';
 

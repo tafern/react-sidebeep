@@ -1,8 +1,8 @@
 import seeder from '@cleverbeagle/seeder/index.min';
-import Orgs from '../../../../api/Orgs/Orgs';
+import Orgs from '../../../../api/Org/Org';
 import Images from '../../../../api/Images/Images';
-import Files from '../../../../api/Files/Files';
-import Locations from '../../../../api/Locations/Locations';
+import Files from '../../../../api/File/File';
+import Locations from '../../../../api/Location/Location';
 
 export const orgImageSeed = () => {
   seeder(Images, {

@@ -1,7 +1,7 @@
 import seeder from '@cleverbeagle/seeder/index.min';
 import Products from '../../../../../api/Products/Products';
 import Images from '../../../../../api/Images/Images';
-import Files from '../../../../../api/Files/Files';
+import Files from '../../../../../api/File/File';
 
 const imageSeed = (userId, imgUrl, idOfFile) => {
   seeder(Images, {

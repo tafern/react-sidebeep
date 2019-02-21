@@ -66,12 +66,12 @@ import {
   shoesAndCareProductCoverImageSeed,
   shoesAndCareDisplayPictureFileSeed,
 } from './seeders/product/shoes_and_care/shoes_and_care_seed';
-import Files from '../../api/Files/Files';
+import Files from '../../api/File/File';
 import Images from '../../api/Images/Images';
-import Headlines from '../../api/Headlines/Headlines';
-import Orgs from '../../api/Orgs/Orgs';
-import Locations from '../../api/Locations/Locations';
-import Categories from '../../api/Categories/Categories';
+import Headlines from '../../api/Headline/Headline';
+import Orgs from '../../api/Org/Org';
+import Locations from '../../api/Location/Location';
+import Categories from '../../api/Category/Category';
 
 const userImageSeed = (userId, imgUrl, idOfFile) => {
   seeder(Images, {

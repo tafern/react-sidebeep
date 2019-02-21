@@ -28,29 +28,29 @@ import ReviewSubscriptions from '../../api/Reviews/subscriptions';
 
 import OAuthQueries from '../../api/OAuth/queries';
 
-import OrgTypes from '../../api/Orgs/types';
-import OrgQueries from '../../api/Orgs/queries';
-import OrgMutations from '../../api/Orgs/mutations';
+import OrgTypes from '../../api/Org/types';
+import OrgQueries from '../../api/Org/queries';
+import OrgMutations from '../../api/Org/mutations';
 
-import FileTypes from '../../api/Files/types';
-import FileQueries from '../../api/Files/queries';
-import FileMutations from '../../api/Files/mutations';
+import FileTypes from '../../api/File/types';
+import FileQueries from '../../api/File/queries';
+import FileMutations from '../../api/File/mutations';
 
 import ImageTypes from '../../api/Images/types';
 import ImageQueries from '../../api/Images/queries';
 import ImageMutations from '../../api/Images/mutations';
 
-import LocationTypes from '../../api/Locations/types';
-import LocationQueries from '../../api/Locations/queries';
-import LocationMutations from '../../api/Locations/mutations';
+import LocationTypes from '../../api/Location/types';
+import LocationQueries from '../../api/Location/queries';
+import LocationMutations from '../../api/Location/mutations';
 
-import HeadlineTypes from '../../api/Headlines/types';
-import HeadlineQueries from '../../api/Headlines/queries';
-import HeadlineMutations from '../../api/Headlines/mutations';
+import HeadlineTypes from '../../api/Headline/types';
+import HeadlineQueries from '../../api/Headline/queries';
+import HeadlineMutations from '../../api/Headline/mutations';
 
-import CategoryTypes from '../../api/Categories/types';
-import CategoryQueries from '../../api/Categories/queries';
-import CategoryMutations from '../../api/Categories/mutations';
+import CategoryTypes from '../../api/Category/types';
+import CategoryQueries from '../../api/Category/queries';
+import CategoryMutations from '../../api/Category/mutations';
 
 import PostTypes from '../../api/Posts/types';
 import PostQueries from '../../api/Posts/queries';
@@ -66,11 +66,11 @@ import TrxItemMutations from '../../api/TrxItems/mutations';
 
 import '../../api/Documents/server/indexes';
 import '../../api/Products/server/indexes';
-import '../../api/Orgs/server/indexes';
-import '../../api/Files/server/indexes';
+import '../../api/Org/server/indexes';
+import '../../api/File/server/indexes';
 import '../../api/Images/server/indexes';
-import '../../api/Locations/server/indexes';
-import '../../api/Headlines/server/indexes';
+import '../../api/Location/server/indexes';
+import '../../api/Headline/server/indexes';
 import '../../api/Posts/server/indexes';
 import '../../api/Trxs/server/indexes';
 import '../../api/TrxItems/server/indexes';
@@ -108,18 +108,17 @@ const schema = {
       product(_id: String): Product
       orgs: [Org]
       org(_id: String): Org
-      files: [File]
+      headlineFiles: [File]
+      productFiles: [File]
       file(_id: String): File
-      images: [Image]
-      image(_id: String): Image
-      locations: [Location]
+      orgLocations: [Location]
       location(_id: String): Location
       headlines: [Headline]
       headline(_id: String): Headline
       categories: [Category]
       category(_id: String): Category
       posts: [Post]
-      post(_id: String): Post
+      post(_id: String): Posts
       trxs: [Trx]
       trx(_id: String): Trx
       trxItems: [TrxItem]
@@ -224,20 +223,20 @@ const schema = {
     },
     Org: {
       products: ProductQueries.products,
-      locations: LocationQueries.locations,
+      locations: LocationQueries.orgLocations,
       users: UserQueries.users,
       files: FileQueries.files,
     },
     Product: {
       reviews: ReviewQueries.reviews,
-      files: FileQueries.files,
+      files: FileQueries.productFiles,
       user: UserQueries.user,
     },
     Review: {
       user: UserQueries.user,
     },
     Headline: {
-      files: FileQueries.files,
+      files: FileQueries.headlineFiles,
     },
     Category: {
       files: FileQueries.files,
