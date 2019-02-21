@@ -11,6 +11,7 @@ const ProductItem = ({ id, productName, files, isSmall, isGrid }) => (
           return (
             <div key={item._id}>
               <Styles.ProductImage
+                className="mr-3"
                 src={item.images[0].imgUrl}
                 alt="imgProduct"
                 isSmall={isSmall}
@@ -28,7 +29,9 @@ const ProductItem = ({ id, productName, files, isSmall, isGrid }) => (
             src="/img/logo-sider/shoesandcare.jpg"
             alt="siderImage"
           />
-          <Styles.SiderName isSmall={isSmall}>SHOES AND CARE (SENAYAN)</Styles.SiderName>
+          <Styles.SiderName isSmall={isSmall} isGrid={isGrid}>
+            SHOES AND CARE (SENAYAN)
+          </Styles.SiderName>
         </Styles.SiderWrapper>
         <Styles.ProductName>{productName}</Styles.ProductName>
         <Styles.ProductPrice>IDR 5.000.000</Styles.ProductPrice>

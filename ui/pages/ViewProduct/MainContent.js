@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row } from 'react-bootstrap';
 import Portfolio from '../../components/Portfolio';
-// import StarRating from '../../components/StarRating';
 import {
   ContentWrapper,
   MainContentWrapper,
@@ -40,7 +39,7 @@ const MainContent = ({ productName, files, addToCart }) => (
             if (item.type === 'ProductPortfolio') {
               return (
                 <div key={item._id}>
-                  <Portfolio images={item.images} />
+                  <Portfolio className="mr-3" images={item.images} />
                 </div>
               );
             }

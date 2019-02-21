@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Grid } from 'react-bootstrap';
 
 const App = styled.div`
   visibility: ${(props) => (props.ready && !props.loading ? 'visible' : 'hidden')};
@@ -26,7 +27,11 @@ const App = styled.div`
     }
   }
 `;
+const GridWrapper = styled(Grid)`
+  margin-top: 80px;
+`;
 
 export default {
   App,
+  GridWrapper,
 };

@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
+// import SearchNavigation from '../SearchNavigation';
 import PublicNavigation from '../PublicNavigation';
 import AuthenticatedNavigation from '../AuthenticatedNavigation';
 import { NavBar, LogoImage } from './styles';
 
 const Navigation = (props) => (
-  <NavBar collapseOnSelect>
+  <NavBar collapseOnSelect fixedTop>
     <Navbar.Header>
       <Navbar.Brand>
         <Link to="/">
@@ -16,6 +17,7 @@ const Navigation = (props) => (
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
+    {/* <SearchNavigation /> */}
     <Navbar.Collapse>
       {!props.authenticated ? <PublicNavigation /> : <AuthenticatedNavigation {...props} />}
     </Navbar.Collapse>

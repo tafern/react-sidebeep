@@ -67,6 +67,7 @@ class ViewOrg extends React.Component {
                       files={item.files}
                       isPublic={item.isPublic}
                       id={item._id}
+                      isGrid
                     />
                   </Styles.Block>
                 ))}
