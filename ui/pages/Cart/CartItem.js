@@ -42,10 +42,19 @@ class CartItem extends React.Component {
     }
   }
   render() {
-    const { id, title, price, image, qty } = this.props;
+    const { id, title, price, files, qty } = this.props;
     return (
       <CartWrapper className="clearfix">
-        <ImageProduct className="mr-3" src={image} alt="Service" />
+        {files.map((item) => {
+          if (item.refType === 'ProductCover') {
+            return (
+              <div key={item._id}>
+                <ImageProduct className="mr-3" src={item.images[0].imgUrl} alt="Service" />
+              </div>
+            );
+          }
+          return null;
+        })}
         <CartBoxWrapper>
           <ProductTitle to={`/product/${id}`}>{title}</ProductTitle>
           <ProductPrice>
@@ -89,14 +98,14 @@ CartItem.defaultProps = {
   id: '',
   title: '',
   price: '',
-  image: '',
+  files: [],
   qty: 0,
 };
 CartItem.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.string,
-  image: PropTypes.string,
+  files: PropTypes.array,
   qty: PropTypes.number,
   onInputChange: PropTypes.func.isRequired,
 };

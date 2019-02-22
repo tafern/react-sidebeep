@@ -31,14 +31,13 @@ const ProductImage = styled.img`
       return '178px';
     }
     if (props.isGrid) {
-      console.log('props', props.isGrid);
       return '215px';
     }
     return '270px';
   }};
   width: ${(props) => {
     if (props.isSmall) {
-      return '180px';
+      return '178px';
     }
     if (props.isGrid) {
       console.log('props', props.isGrid);
@@ -76,6 +75,7 @@ const SiderImage = styled.img`
   width: ${(props) => (props.isSmall ? '25px' : '30px')};
   float: left;
   border-radius: 50px;
+  border: 1px solid ${SB_GREEN};
 `;
 const SiderName = styled.div`
   font-size: ${(props) => (props.isSmall || props.isGrid ? '10px' : '12px')};

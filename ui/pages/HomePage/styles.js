@@ -47,7 +47,7 @@ const LinkCampaign = styled(Link)`
   }
 `;
 const Category = styled.div`
-  padding: 5px;
+  padding: 5px 20px;
   border-radius: 5px;
   position: relative;
 
@@ -60,7 +60,7 @@ const CategoryWrapper = styled.div`
   color: ${SB_GREEN};
 `;
 const CategoryLink = styled(Link)`
-  width: 8%;
+  width: 100px;
   float: left;
   &:hover,
   &:focus {
@@ -73,7 +73,7 @@ const CategoryLine = styled.div`
   padding: 1px;
   float: left;
   height: 35px;
-  margin: 25px 28px 0 28px;
+  margin: 25px 20px 0 20px;
 `;
 const IconCategory = styled.img`
   width: 35px;

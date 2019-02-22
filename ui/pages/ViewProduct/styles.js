@@ -10,6 +10,7 @@ import {
   SB_WHITE,
   SB_LIGHT_GREY,
   SB_BLACK,
+  SB_DARK_GREEN,
 } from '../../../modules/styleConstants';
 
 export const StyledViewProduct = styled.div``;
@@ -141,6 +142,31 @@ export const ProductLocationDescription = styled.div`
   color: ${SB_GREY};
   font-size: 14px;
 `;
+export const PortfolioImage = styled.img`
+  background-size: cover;
+  margin: 0 auto;
+  width: 92%;
+  border-radius: 3px;
+`;
+export const BlockGrid = styled.div`
+  float: left;
+  width: 19.3333%;
+  @media (max-width: 1198px) {
+    width: 24.333%;
+  }
+  @media (max-width: 990px) {
+    width: 33.333%;
+  }
+  @media (max-width: 744px) {
+    width: 33%;
+  }
+  @media (max-width: 638px) {
+    width: 50%;
+  }
+  @media (max-width: 478px) {
+    width: 50%;
+  }
+`;
 export const IconWrapper = styled.div`
   margin: 15px 0;
 `;
@@ -197,8 +223,9 @@ export const ButtonOrder = styled(Button)`
   margin: 5px 0;
   border: 1px solid ${SB_GREEN};
   &:hover {
-    background-color: ${SB_WHITE};
-    color: ${SB_GREEN};
+    background-color: ${SB_DARK_GREEN};
+    border: 1px solid ${SB_DARK_GREEN};
+    color: ${SB_WHITE};
   }
 `;
 
@@ -214,11 +241,14 @@ export const SiderContainer = styled.div`
   border-radius: 5px;
   position: relative;
 `;
-export const SiderWrapper = styled.div`
+export const SiderWrapper = styled(Link)`
   margin: 10px 0 5px 0;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
 `;
 export const SiderImage = styled.img`
   width: 60px;

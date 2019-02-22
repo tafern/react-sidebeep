@@ -4,9 +4,6 @@ import exportUserData from './actions/exportUserData';
 
 export default {
   users: (parent, args, context) => {
-    console.log('parent', parent);
-    console.log('args', args);
-    console.log('context', context);
     queryUsers({
       currentUser: context.user,
       search: args.search ? new RegExp(args.search, 'i') : null,

@@ -6,12 +6,69 @@ query products {
     isPublic
     name
     description
+    price
+    viewCount
+    orderCount
+    locations {
+      _id
+      address
+      city
+      postcode
+      orgId
+      latitude
+      longitude
+      province
+    }
+    categories {
+      _id
+      name
+      description
+      files {
+        _id
+        refId
+        fileUrl
+        images {
+          _id
+          imgUrl
+        }
+      }
+    }
+    reviews {
+      _id
+      review
+      productId
+      createdAt
+      user {
+        _id
+        name {
+          first
+          last
+        }
+      }
+    }
     files {
       _id
       refType
       images{
         _id
         imgUrl
+      }
+    }
+    user {
+      _id
+      name {
+        first
+        last
+      }
+      files {
+        _id
+        images {
+          _id
+          imgUrl
+        }
+      }
+      org {
+        _id
       }
     }
     updatedAt

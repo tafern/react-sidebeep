@@ -2,13 +2,45 @@
 
 query trxs {
  trxs {
-   currency
-   buyer
-   seller
+   _id
+   subTotal
    trxItems {
      _id
      product {
+       _id
        name
+       description
+       price
+       files {
+         _id
+         refId
+         refType
+         images {
+           _id
+           imgUrl
+         }
+       }
+     }
+     unitPrice
+     currency
+     qty
+     subTotal
+     type
+     status
+   }
+   buyer {
+     _id
+     name {
+       first
+       last
+     }
+     username
+   }
+   seller {
+     _id
+     name {
+       first
+       last
      }
    }
  }

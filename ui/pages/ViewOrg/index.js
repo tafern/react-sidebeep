@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import parseMarkdown from '../../../modules/parseMarkdown';
 import SEO from '../../components/SEO';
-import ProductItem from '../../components/ProductItem';
+// import ProductItem from '../../components/ProductItem';
 import BlankState from '../../components/BlankState';
 import { org as orgQuery } from '../../queries/Orgs.gql';
 import Styles from './styles';
@@ -14,6 +14,7 @@ class ViewOrg extends React.Component {
   }
   render() {
     const { data } = this.props;
+    console.log('data', data);
     if (!data.loading && data.org) {
       return (
         <React.Fragment>
@@ -27,7 +28,7 @@ class ViewOrg extends React.Component {
           />
           <Styles.SiderInfo className="clearfix">
             {data.org.files.map((item) => {
-              if (item.refType === 'Org') {
+              if (item.refType === 'PictureProfile') {
                 return (
                   <Styles.ImageSider
                     className="mr-3"
@@ -60,7 +61,8 @@ class ViewOrg extends React.Component {
               <div>
                 {data.org.products.map((item) => (
                   <Styles.Block key={item._id}>
-                    <ProductItem
+                    {console.log('item', item.files)}
+                    {/* <ProductItem
                       productName={item.name}
                       updatedAt={item.updatedAt}
                       productDescription={item.description}
@@ -68,7 +70,7 @@ class ViewOrg extends React.Component {
                       isPublic={item.isPublic}
                       id={item._id}
                       isGrid
-                    />
+                    /> */}
                   </Styles.Block>
                 ))}
               </div>

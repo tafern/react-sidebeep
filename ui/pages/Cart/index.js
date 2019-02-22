@@ -8,6 +8,7 @@ import CartData from './Cart';
 import CartSidebar from './CartSidebar';
 import CartForm from './CartForm';
 import OtherProduct from '../OtherProduct';
+import BlankState from '../../components/BlankState';
 import { trxs as trxsQuery } from '../../queries/Trxs.gql';
 import { products as productsQuery } from '../../queries/Products.gql';
 
@@ -19,21 +20,31 @@ class Cart extends React.Component {
     return (
       <StyledCart>
         <Row>
-          <Col md={9}>
-            <CartForm data={trxsDataQuery} trxs={trxs} />
-          </Col>
-          <Col md={3}>
-            <StickyContainer style={{ height: '100%' }}>
-              <Sticky topOffset={-105}>
-                {({ style, isSticky }) => (
-                  <div style={style}>
-                    {isSticky ? <div style={{ height: '95px' }} /> : ''}
-                    <CartSidebar />
-                  </div>
-                )}
-              </Sticky>
-            </StickyContainer>
-          </Col>
+          {trxsDataQuery.trxs !== undefined && trxsDataQuery.trxs.length > 0 ? (
+            <div>
+              <Col md={9}>
+                <CartForm data={trxsDataQuery} trxs={trxs} />
+              </Col>
+              <Col md={3}>
+                <StickyContainer style={{ height: '100%' }}>
+                  <Sticky topOffset={-105}>
+                    {({ style, isSticky }) => (
+                      <div style={style}>
+                        {isSticky ? <div style={{ height: '95px' }} /> : ''}
+                        <CartSidebar />
+                      </div>
+                    )}
+                  </Sticky>
+                </StickyContainer>
+              </Col>
+            </div>
+          ) : (
+            <BlankState
+              icon={{ style: 'solid', symbol: 'file-alt' }}
+              title="Empty Services, Please Add to Cart of Service"
+              subtitle="Add your first product by clicking the button below."
+            />
+          )}
           <Col md={12}>
             <OtherProduct productsDataQuery={productsDataQuery} />
           </Col>

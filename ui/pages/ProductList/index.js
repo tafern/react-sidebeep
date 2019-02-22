@@ -6,7 +6,6 @@ import ProductItem from '../../components/ProductItem';
 import BlankState from '../../components/BlankState';
 
 function ProductList(data) {
-  console.log('data', data);
   const settings = {
     dots: false,
     speed: 500,
@@ -56,9 +55,12 @@ function ProductList(data) {
         <Slider {...settings}>
           {data.data.products.map((item) => (
             <div key={item._id}>
-              {console.log('data', item)}
               <ProductItem
                 productName={item.name}
+                price={item.price}
+                orderCount={item.orderCount}
+                viewCount={item.viewCount}
+                org={item.user}
                 files={item.files}
                 id={item._id}
                 isSmall={data.isSmall}

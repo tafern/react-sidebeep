@@ -25,7 +25,7 @@ class SiderSidebar extends React.Component {
     // this.props.fetchSiderInfo(siderId);
   }
   render() {
-    const { onSiderDetailClicked } = this.props;
+    const { org } = this.props;
     const description =
       'Mau Kemana Si adalah Tour Organizer yang sudah pengalaman semenjak tahun 2015 dan\n' +
       'sangat mengutamakan kenyamanan, keamanan dan kepuasaan customers. Tour Organizer kami\n' +
@@ -37,9 +37,15 @@ class SiderSidebar extends React.Component {
     const id = 'fEjfJn9wArz8aeb4m';
     return (
       <SiderContainer>
-        <SiderWrapper onClick={onSiderDetailClicked}>
-          <SiderImage src="/img/logo-sider/shoesandcare.jpg" alt="siderImage" />
-          <SiderName>SHOES AND CARE (SENAYAN)</SiderName>
+        <SiderWrapper to={`/org/${org.org._id}`}>
+          {org.files.map((item) => (
+            <div key={item._id}>
+              <SiderImage src={item.images[0].imgUrl} alt="siderImage" />
+            </div>
+          ))}
+          <SiderName>
+            {org.name.first} {org.name.last}
+          </SiderName>
         </SiderWrapper>
         <SiderRatingWrapper>
           <SiderRating>
@@ -75,7 +81,7 @@ class SiderSidebar extends React.Component {
 }
 
 SiderSidebar.propTypes = {
-  onSiderDetailClicked: PropTypes.func.isRequired,
+  org: PropTypes.object.isRequired,
 };
 
 export default SiderSidebar;

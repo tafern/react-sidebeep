@@ -40,16 +40,12 @@ class ViewProduct extends React.Component {
           if (error) {
             Bert.alert(error.reason, 'danger');
           } else {
-            console.log('tidak error');
             Bert.alert('Cart!', 'success');
             this.props.history.push('/cart');
           }
         },
       );
     }, 300);
-  };
-  handleRedirectToSiderDetail = () => {
-    this.props.history.push(`/org/fEjfJn9wArz8aeb4m`);
   };
   render() {
     const { productDataQuery, productsDataQuery } = this.props;
@@ -63,7 +59,6 @@ class ViewProduct extends React.Component {
       if (Meteor.isClient && Meteor.userId()) {
         console.log('UserId', Meteor.userId());
       }
-      console.log('productDataQuery', productDataQuery);
       return (
         <StyledViewProduct>
           <SEO
@@ -78,13 +73,16 @@ class ViewProduct extends React.Component {
             <Col md={9}>
               <MainContent
                 productName={item.name}
+                price={item.price}
+                orderCount={item.orderCount}
+                viewCount={item.viewCount}
                 createdAt={item.createdAt}
                 productDescription={item.description}
                 files={item.files}
                 isPublic={item.isPublic}
                 addToCart={this.handleAddToCart}
               />
-              <AdditionalContent />
+              <AdditionalContent description={item.description} portfolio={item.files} />
               {/* <React.Fragment>
                 <h1>{item && item.name}</h1>
                 <Styles.ProductBody
@@ -100,7 +98,7 @@ class ViewProduct extends React.Component {
                   {({ style, isSticky }) => (
                     <div style={style}>
                       {isSticky ? <div style={{ height: '95px' }} /> : ''}
-                      <SiderSidebar onSiderDetailClicked={this.handleRedirectToSiderDetail} />
+                      <SiderSidebar org={item.user} />
                     </div>
                   )}
                 </Sticky>

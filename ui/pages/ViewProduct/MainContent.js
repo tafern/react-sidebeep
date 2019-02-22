@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row } from 'react-bootstrap';
+import NumberFormat from 'react-number-format';
 import Portfolio from '../../components/Portfolio';
 import {
   ContentWrapper,
@@ -30,21 +31,12 @@ import {
   ButtonOrder,
 } from './styles';
 
-const MainContent = ({ productName, files, addToCart }) => (
+const MainContent = ({ productName, files, price, viewCount, orderCount, addToCart }) => (
   <ContentWrapper>
     <Row>
       <MainContentWrapper sm={5}>
         <PortfolioWrapper>
-          {files.map((item) => {
-            if (item.refType === 'Portfolio') {
-              return (
-                <div key={item._id}>
-                  <Portfolio className="mr-3" images={item.images} />
-                </div>
-              );
-            }
-            return null;
-          })}
+          <Portfolio className="mr-3" files={files} />
         </PortfolioWrapper>
       </MainContentWrapper>
       <MainContentWrapper sm={7}>
@@ -64,7 +56,15 @@ const MainContent = ({ productName, files, addToCart }) => (
             </Col>
           </Row>
         </ProductSeenOrderWrapper> */}
-        <ProductPrice>IDR 5.000.000</ProductPrice>
+        <ProductPrice>
+          <NumberFormat
+            value={price}
+            displayType="text"
+            thousandSeparator="."
+            decimalSeparator=","
+            prefix="IDR "
+          />
+        </ProductPrice>
         <ProductLocationWrapper>
           <IconImage className="icon ion-md-locate" />
           Jakarta
@@ -73,7 +73,9 @@ const MainContent = ({ productName, files, addToCart }) => (
           <ProductRating>
             <IconRating className="icon ion-md-star" /> 5
           </ProductRating>
-          <ProductCount>(22 review) | 48 orders | 70 views</ProductCount>
+          <ProductCount>
+            (22 review) | {orderCount} orders | {viewCount} views
+          </ProductCount>
         </ProductRatingWrapper>
         <ProductLocationTitle>Service Location</ProductLocationTitle>
         <ProductLocationVisit>Visit Sider Location</ProductLocationVisit>
@@ -104,6 +106,9 @@ MainContent.propTypes = {
   productName: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
   addToCart: PropTypes.func.isRequired,
+  price: PropTypes.number.isRequired,
+  viewCount: PropTypes.number.isRequired,
+  orderCount: PropTypes.number.isRequired,
 };
 
 export default MainContent;

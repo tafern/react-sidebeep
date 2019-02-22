@@ -21,6 +21,10 @@ const Products = ({ data }) => (
               productName={item.name}
               updatedAt={item.updatedAt}
               productDescription={item.description}
+              price={item.price}
+              orderCount={item.orderCount}
+              viewCount={item.viewCount}
+              org={item.user}
               files={item.files}
               isPublic={item.isPublic}
               id={item._id}
