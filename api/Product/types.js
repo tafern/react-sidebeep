@@ -18,6 +18,7 @@ export default `
   type Product {
     ${generalFields}
     price: Int
+    uom: String
     currency: CurrencyCode # FIXME ini bikin table sendiri, jadi bisa ada shortname dan longname
     locations: [Location]
     files: [File]
