@@ -60,6 +60,14 @@ const GlobalStyle = createGlobalStyle`
   .navbar-default li.active > a {
     background-color: ${SB_DARK_GREEN} !important;
   }
+  
+  .navbar-default li.open > a {
+    background-color: ${SB_DARK_GREEN} !important;
+  }
+  
+  .dropdown-menu {
+    padding: 0 !important;
+  }
 
   form label {
     display: block;

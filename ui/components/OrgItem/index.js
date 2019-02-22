@@ -7,7 +7,7 @@ const OrgItem = ({ id, isPublic, orgName, orgDescription, files, createdAt }) =>
   <Styles.OrgItemWrapper to={`/org/${id}`}>
     <Styles.HeaderContentWrapper>
       {files.map((item) => {
-        if (item.type === 'Org') {
+        if (item.refType === 'Org') {
           return (
             <div key={item._id}>
               <Styles.OrgImage src={item.images[0].imgUrl} alt="imgOrg" />

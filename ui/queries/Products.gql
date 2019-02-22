@@ -8,7 +8,7 @@ query products {
     description
     files {
       _id
-      type
+      refType
       images{
         _id
         imgUrl

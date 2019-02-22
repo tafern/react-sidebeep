@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 import { Tabs, Tab, Button, Col } from 'react-bootstrap';
 import {
   SB_DARK_GREY,
@@ -97,20 +97,6 @@ export const FilterTab = styled(Tab)`
   &:hover {
     cursor: pointer;
   }
-`;
-export const Products = styled.div`
-  margin: 10px auto;
-  position: relative;
-
-  @media screen and (min-width: 768px) {
-    margin: 10px 0;
-  }
-`;
-export const ProductName = styled.div`
-  margin-top: 10px;
-  margin-bottom: 5px;
-  font-weight: 400;
-  font-size: 20px;
 `;
 export const ProductPrice = styled.div`
   color: ${SB_GREEN};
@@ -229,9 +215,10 @@ export const SiderContainer = styled.div`
   position: relative;
 `;
 export const SiderWrapper = styled.div`
-  margin: 10px;
+  margin: 10px 0 5px 0;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
 `;
 export const SiderImage = styled.img`
   width: 60px;
@@ -241,7 +228,6 @@ export const SiderName = styled.div`
   font-size: 12px;
   font-weight: bold;
   text-align: center;
-  padding: 5px;
   color: ${SB_GREY};
 `;
 export const SiderRatingWrapper = styled.div`
@@ -258,11 +244,12 @@ export const SiderCount = styled.p`
 `;
 export const SiderLine = styled.div`
   border: 1px solid ${SB_LIGHT_GREY};
-  width: 200px;
+  width: 185px;
   margin: 10px;
 `;
 export const SiderWrapInfo = styled.div`
   color: ${SB_GREY};
+  padding-bottom: 5px;
 `;
 export const SiderIdentityImage = styled.img`
   width: 14px;
@@ -273,9 +260,14 @@ export const SiderIdentityImage = styled.img`
 export const SiderIdentityDesc = styled.div`
   color: ${SB_GREY};
 `;
-export const SiderDescription = styled.div`
-  margin-top: 20px;
+export const SiderDescription = styled(Link)`
+  margin: 20px;
   color: ${SB_GREY};
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: ${SB_GREY};
+  }
   .read-more-button {
     color: ${SB_GREEN};
     cursor: pointer;

@@ -56,6 +56,7 @@ function ProductList(data) {
         <Slider {...settings}>
           {data.data.products.map((item) => (
             <div key={item._id}>
+              {console.log('data', item)}
               <ProductItem
                 productName={item.name}
                 files={item.files}

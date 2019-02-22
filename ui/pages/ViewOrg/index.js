@@ -27,7 +27,7 @@ class ViewOrg extends React.Component {
           />
           <Styles.SiderInfo className="clearfix">
             {data.org.files.map((item) => {
-              if (item.type === 'Org') {
+              if (item.refType === 'Org') {
                 return (
                   <Styles.ImageSider
                     className="mr-3"
@@ -67,6 +67,7 @@ class ViewOrg extends React.Component {
                       files={item.files}
                       isPublic={item.isPublic}
                       id={item._id}
+                      isGrid
                     />
                   </Styles.Block>
                 ))}

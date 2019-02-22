@@ -31,56 +31,56 @@ const HomePage = ({ productDataQuery }) => (
     <Styles.Category className="clearfix">
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory className="icon ion-md-construct" />
+          <Styles.IconCategory src="/img/icons/icon2-repair.png" />
           <Styles.IconTitle>Repair</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory className="icon ion-md-home" />
+          <Styles.IconCategory src="/img/icons/icon2-home-utilities.png" />
           <Styles.IconTitle>Home</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory className="icon ion-md-briefcase" />
+          <Styles.IconCategory src="/img/icons/icon2-beauty.png" />
           <Styles.IconTitle>Beauty</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory className="icon ion-md-fitness" />
+          <Styles.IconCategory src="/img/icons/icon2-health.png" />
           <Styles.IconTitle>Health</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory className="icon ion-md-brush" />
+          <Styles.IconCategory src="/img/icons/icon2-fashion.png" />
           <Styles.IconTitle>Fashion</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory className="icon ion-md-color-palette" />
+          <Styles.IconCategory src="/img/icons/icon2-art.png" />
           <Styles.IconTitle>Art</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory className="icon ion-md-tennisball" />
+          <Styles.IconCategory src="/img/icons/icon2-hobbies.png" />
           <Styles.IconTitle>Hobbies</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory className="icon ion-md-journal" />
+          <Styles.IconCategory src="/img/icons/icon2-other.png" />
           <Styles.IconTitle>Others</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>

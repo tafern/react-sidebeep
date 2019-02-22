@@ -34,12 +34,13 @@ class SiderSidebar extends React.Component {
       'sudah dipercaya untuk Study tour beberapa kampus dan sekolah yaitu Universitas Uhamka, GS\n' +
       'Fame Bussiness School, SMP 269 Jakarta, SMP 78 Jakarta dan lainnya We Provide : 🏖 Open\n' +
       'trip 🕴 Private trip 👩‍🎓 Study tour 👔 Family gathering 🚎 Rent Bus';
+    const id = 'fEjfJn9wArz8aeb4m';
     return (
       <SiderContainer>
         <SiderWrapper onClick={onSiderDetailClicked}>
           <SiderImage src="/img/logo-sider/shoesandcare.jpg" alt="siderImage" />
+          <SiderName>SHOES AND CARE (SENAYAN)</SiderName>
         </SiderWrapper>
-        <SiderName>SHOES AND CARE (SENAYAN)</SiderName>
         <SiderRatingWrapper>
           <SiderRating>
             <IconRating className="icon ion-md-star" /> 5
@@ -59,7 +60,7 @@ class SiderSidebar extends React.Component {
           <SiderIdentityImage src="/img/icons/sb-verified.png" alt="identity" />
           <SiderIdentityDesc>appropriate identity</SiderIdentityDesc>
         </SiderWrapInfo>
-        <SiderDescription>
+        <SiderDescription to={`/org/${id}`}>
           <ReadMoreReact
             className="read-more-button"
             text={description}

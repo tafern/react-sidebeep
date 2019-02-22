@@ -178,11 +178,9 @@ class Profile extends React.Component {
                       email: true,
                     },
                     currentPassword: {
-                      required: (form, blah) => {
-                        console.log(form, blah);
+                      required: () =>
                         // Only required if newPassword field has a value.
-                        return document.querySelector('[name="newPassword"]').value.length > 0;
-                      },
+                        document.querySelector('[name="newPassword"]').value.length > 0,
                     },
                     newPassword: {
                       required() {

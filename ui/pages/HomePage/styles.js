@@ -75,9 +75,8 @@ const CategoryLine = styled.div`
   height: 35px;
   margin: 25px 28px 0 28px;
 `;
-const IconCategory = styled.i`
-  color: ${SB_GREEN};
-  font-size: 35px;
+const IconCategory = styled.img`
+  width: 35px;
   margin-right: 5px;
   float: left;
 `;

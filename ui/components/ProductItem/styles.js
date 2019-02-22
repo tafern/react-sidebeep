@@ -31,11 +31,21 @@ const ProductImage = styled.img`
       return '178px';
     }
     if (props.isGrid) {
+      console.log('props', props.isGrid);
       return '215px';
     }
     return '270px';
   }};
-})};
+  width: ${(props) => {
+    if (props.isSmall) {
+      return '180px';
+    }
+    if (props.isGrid) {
+      console.log('props', props.isGrid);
+      return '215px;';
+    }
+    return '270px';
+  }};
   @media (max-width: 380px) {
     height: 145px;
   }
@@ -58,6 +68,9 @@ const ItemWrapper = styled.div`
 const SiderWrapper = styled(Link)`
   margin: 2px 0;
   text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 `;
 const SiderImage = styled.img`
   width: ${(props) => (props.isSmall ? '25px' : '30px')};
@@ -65,14 +78,17 @@ const SiderImage = styled.img`
   border-radius: 50px;
 `;
 const SiderName = styled.div`
-  font-size: ${(props) => (props.isSmall ? '10px' : '12px')};
-  margin: ${(props) => (props.isSmall ? '3px 0 0 30px' : '0 30px')};
+  font-size: ${(props) => (props.isSmall || props.isGrid ? '10px' : '12px')};
+  margin: ${(props) => (props.isSmall || props.isGrid ? '3px 0 0 30px' : '0 30px')};
   padding: ${(props) => (props.isSmall ? '0' : '5px')};
   color: ${SB_GREY};
 `;
 const ProductName = styled.div`
   margin-top: 5px;
   color: ${SB_MEDIUM_GREY};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 const ProductPrice = styled.div`
   color: ${SB_GREEN};

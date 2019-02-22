@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
-import { Grid } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 
@@ -86,16 +85,9 @@ class App extends React.Component {
     const { props, state, setAfterLoginPath } = this;
     return (
       <Styles.App ready={this.state.ready} loading={props.loading}>
-        {props.authenticated && (
-          <VerifyEmailAlert
-            userId={props.userId}
-            emailVerified={props.emailVerified}
-            emailAddress={props.emailAddress}
-          />
-        )}
         {props.authenticated && <GDPRConsentModal userId={props.userId} />}
         <Navigation {...props} {...state} />
-        <Grid>
+        <Styles.GridWrapper authenticated={props.authenticated}>
           <Switch>
             {/* New Sidebeep */}
             <Route exact name="welcome" path="/" component={HomePage} />
@@ -103,7 +95,7 @@ class App extends React.Component {
             <Route name="Orgs" path="/orgs" component={Orgs} />
             <Route exact path="/org/:_id" component={ViewOrg} />
             <Route name="Products" path="/products" component={Products} />
-            <Route exact path="/product/:_id" component={ViewProduct} />
+            <Public path="/product/:_id" component={ViewProduct} isValidate {...props} {...state} />
             <Route name="campaign" path="/campaign" component={Campaign} />
             <Route name="campaignDetail" path="/campaign/:id" component={CampaignDetail} />
             <Route name="forgot-password" path="/forgot-password" component={ForgotPassword} />
@@ -228,7 +220,14 @@ class App extends React.Component {
 
             <Route component={NotFound} />
           </Switch>
-        </Grid>
+          {props.authenticated && (
+            <VerifyEmailAlert
+              userId={props.userId}
+              emailVerified={props.emailVerified}
+              emailAddress={props.emailAddress}
+            />
+          )}
+        </Styles.GridWrapper>
         <Footer />
       </Styles.App>
     );

@@ -8,12 +8,12 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import MainContent from './MainContent';
 import AdditionalContent from './AdditionalContent';
 import SiderSidebar from './SiderSidebar';
-import ProductList from '../ProductList';
+import OtherProduct from '../OtherProduct';
 import SEO from '../../components/SEO';
 import BlankState from '../../components/BlankState';
 import { product as productQuery, products as productsQuery } from '../../queries/Products.gql';
 import { addTrxItem as addTrxItemMutation } from '../../mutations/TrxItem.gql';
-import { StyledViewProduct, Products, ProductName } from './styles';
+import { StyledViewProduct } from './styles';
 import delay from '../../../modules/delay';
 // import parseMarkdown from '../../../modules/parseMarkdown';
 
@@ -23,7 +23,9 @@ class ViewProduct extends React.Component {
     this.props.productsDataQuery.refetch();
   }
   handleAddToCart = () => {
-    console.log('meteor', Meteor.userId());
+    if (!this.props.authenticated) {
+      this.props.history.push(`/login`);
+    }
     delay(() => {
       this.props.addTrxItem(
         {
@@ -35,7 +37,6 @@ class ViewProduct extends React.Component {
           },
         },
         (error) => {
-          console.log('error', error);
           if (error) {
             Bert.alert(error.reason, 'danger');
           } else {
@@ -48,11 +49,10 @@ class ViewProduct extends React.Component {
     }, 300);
   };
   handleRedirectToSiderDetail = () => {
-    this.props.history.push(`/org/id`);
+    this.props.history.push(`/org/fEjfJn9wArz8aeb4m`);
   };
   render() {
     const { productDataQuery, productsDataQuery } = this.props;
-    console.log('.addTrxItemDataMutation', this.props);
     if (
       !productDataQuery.loading &&
       productDataQuery.product &&
@@ -63,6 +63,7 @@ class ViewProduct extends React.Component {
       if (Meteor.isClient && Meteor.userId()) {
         console.log('UserId', Meteor.userId());
       }
+      console.log('productDataQuery', productDataQuery);
       return (
         <StyledViewProduct>
           <SEO
@@ -105,11 +106,10 @@ class ViewProduct extends React.Component {
                 </Sticky>
               </StickyContainer>
             </Col>
+            <Col md={12}>
+              <OtherProduct productsDataQuery={productsDataQuery} />
+            </Col>
           </Row>
-          <Products>
-            <ProductName>Other Service</ProductName>
-            <ProductList data={productsDataQuery} isSmall />
-          </Products>
         </StyledViewProduct>
       );
     }
@@ -132,6 +132,7 @@ ViewProduct.propTypes = {
   addTrxItem: PropTypes.func.isRequired,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
+  authenticated: PropTypes.bool.isRequired,
 };
 export default compose(
   graphql(productQuery, {
