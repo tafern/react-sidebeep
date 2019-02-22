@@ -42,8 +42,9 @@ export default {
         status: configs.trxs.status.open,
         createdAt: date,
         updatedAt: date,
+        subTotal: 1,
       });
-      TrxItems.insert({
+      const trxItemsId = TrxItems.insert({
         trxId,
         productId: product._id,
         unitPrice: product.price,
@@ -51,7 +52,7 @@ export default {
         createdAt: date,
         updatedAt: date,
       });
-      return Products.findOne(product._id);
+      return TrxItems.findOne(trxItemsId);
     }
 
     if (
@@ -67,7 +68,7 @@ export default {
     });
 
     if (checkRelevantOwner) {
-      TrxItems.insert({
+      const trxItemsId = TrxItems.insert({
         trxId: checkTrx._id,
         productId: product._id,
         unitPrice: product.price,
@@ -75,7 +76,17 @@ export default {
         createdAt: date,
         updatedAt: date,
       });
-      return Products.findOne(product._id);
+      Trxs.update(
+        { _id: checkTrx._id },
+        {
+          $set: {
+            ...args,
+            qty: checkTrx.subTotal + 1,
+            subTotal: checkTrx.subTotal + 1,
+          },
+        },
+      );
+      return TrxItems.findOne(trxItemsId);
     }
     throw new Error(
       `Sorry, you need to choose the relevant product from ${checkTrx.seller} stores.`,

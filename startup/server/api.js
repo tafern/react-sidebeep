@@ -122,7 +122,7 @@ const schema = {
       posts: [Post]
       post(_id: String): Post
       trxs: [Trx]
-      trx(_id: String): Trx
+      trx(_id: String, buyer: String): Trx
       trxItems: [TrxItem]
       trxItem(_id: String): TrxItem
     }
