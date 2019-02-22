@@ -50,12 +50,12 @@ export const lestariTattooProductCoverImageSeed = () => {
       static: [
         {
           _id: 'PRDICOVER10000ORG60000',
-          fileId: 'PFPRDCOVER100000ORG60000',
+          fileId: 'PRDFCOVER100000ORG60000',
           imgUrl: '/assets/lestari_tattoo/_products/cover_product_1.jpeg',
         },
         {
           _id: 'PRDICOVER20000ORG60000',
-          fileId: 'PFPRDCOVER200000ORG60000',
+          fileId: 'PRDFCOVER200000ORG60000',
           imgUrl: '/assets/lestari_tattoo/_products/cover_product_2.jpeg',
         },
       ],
@@ -70,25 +70,25 @@ export const lestariTattooProductCoverFileSeed = () => {
     data: {
       static: [
         {
-          _id: 'PFPRDCOVER100000ORG60000',
+          _id: 'PRDFCOVER100000ORG60000',
           refId: 'PRD100000ORG60000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI10000ORG60000',
-              fileId: 'PFPRDCOVER100000ORG60000',
+              fileId: 'PRDFCOVER100000ORG60000',
               imgUrl: '/assets/lestari_tattoo/_products/cover_product_1.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRDCOVER200000ORG60000',
+          _id: 'PRDFCOVER200000ORG60000',
           refId: 'PRD200000ORG60000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI20000ORG60000',
-              fileId: 'PFPRDCOVER200000ORG60000',
+              fileId: 'PRDFCOVER200000ORG60000',
               imgUrl: '/assets/lestari_tattoo/_products/cover_product_2jpeg',
             },
           ],
@@ -106,12 +106,12 @@ export const lestariTattooProductPortfolioImageSeed = () => {
       static: [
         {
           _id: 'PRDI10000ORG60000',
-          fileId: 'PFPRD100000ORG60000',
+          fileId: 'PRDF100000ORG60000',
           imgUrl: '/assets/lestari_tattoo/_portfolio/portfolio_1.jpeg',
         },
         {
           _id: 'PRDI20000ORG60000',
-          fileId: 'PFPRD200000ORG60000',
+          fileId: 'PRDF200000ORG60000',
           imgUrl: '/assets/lestari_tattoo/_portfolio/portfolio_2.jpeg',
         },
       ],
@@ -126,25 +126,25 @@ export const lestariTattooProductPortfolioFileSeed = () => {
     data: {
       static: [
         {
-          _id: 'PFPRD100000ORG60000',
+          _id: 'PRDF100000ORG60000',
           refId: 'PRD100000ORG60000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI10000ORG60000',
-              fileId: 'PFPRD100000ORG60000',
+              fileId: 'PRDF100000ORG60000',
               imgUrl: '/assets/lestari_tattoo/_portfolio/portfolio_1.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRD200000ORG60000',
+          _id: 'PRDF200000ORG60000',
           refId: 'PRD200000ORG60000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI20000ORG60000',
-              fileId: 'PFPRD200000ORG60000',
+              fileId: 'PRDF200000ORG60000',
               imgUrl: '/assets/lestari_tattoo/_portfolio/portfolio_2.jpeg',
             },
           ],

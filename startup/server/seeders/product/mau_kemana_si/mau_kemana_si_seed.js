@@ -50,27 +50,27 @@ export const mauKemanaSiProductCoverImageSeed = () => {
       static: [
         {
           _id: 'PRDICOVER10000ORG70000',
-          fileId: 'PFPRDCOVER100000ORG70000',
+          fileId: 'PRDFCOVER100000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_products/cover_product_1.jpeg',
         },
         {
           _id: 'PRDICOVER20000ORG70000',
-          fileId: 'PFPRDCOVER200000ORG70000',
+          fileId: 'PRDFCOVER200000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_products/cover_product_2.jpeg',
         },
         {
           _id: 'PRDICOVER30000ORG70000',
-          fileId: 'PFPRDCOVER300000ORG70000',
+          fileId: 'PRDFCOVER300000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_products/cover_product_3.jpeg',
         },
         {
           _id: 'PRDICOVER40000ORG70000',
-          fileId: 'PFPRDCOVER400000ORG70000',
+          fileId: 'PRDFCOVER400000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_products/cover_product_4.jpeg',
         },
         {
           _id: 'PRDICOVER50000ORG70000',
-          fileId: 'PFPRDCOVER500000ORG70000',
+          fileId: 'PRDFCOVER500000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_products/cover_product_5.jpeg',
         },
       ],
@@ -85,61 +85,61 @@ export const mauKemanaSiProductCoverFileSeed = () => {
     data: {
       static: [
         {
-          _id: 'PFPRDCOVER100000ORG70000',
+          _id: 'PRDFCOVER100000ORG70000',
           refId: 'PRD100000ORG70000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI10000ORG70000',
-              fileId: 'PFPRDCOVER100000ORG70000',
+              fileId: 'PRDFCOVER100000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_products/cover_product_1.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRDCOVER200000ORG70000',
+          _id: 'PRDFCOVER200000ORG70000',
           refId: 'PRD200000ORG70000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI20000ORG70000',
-              fileId: 'PFPRDCOVER200000ORG70000',
+              fileId: 'PRDFCOVER200000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_products/cover_product_2.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRDCOVER300000ORG70000',
+          _id: 'PRDFCOVER300000ORG70000',
           refId: 'PRD300000ORG70000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI30000ORG70000',
-              fileId: 'PFPRDCOVER300000ORG70000',
+              fileId: 'PRDFCOVER300000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_products/cover_product_3.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRDCOVER400000ORG70000',
+          _id: 'PRDFCOVER400000ORG70000',
           refId: 'PRD400000ORG70000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI40000ORG70000',
-              fileId: 'PFPRDCOVER400000ORG70000',
+              fileId: 'PRDFCOVER400000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_products/cover_product_4.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRDCOVER500000ORG70000',
+          _id: 'PRDFCOVER500000ORG70000',
           refId: 'PRD500000ORG70000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI50000ORG70000',
-              fileId: 'PFPRDCOVER500000ORG70000',
+              fileId: 'PRDFCOVER500000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_products/cover_product_5.jpeg',
             },
           ],
@@ -157,27 +157,27 @@ export const mauKemanaSiProductPortfolioImageSeed = () => {
       static: [
         {
           _id: 'PRDI10000ORG70000',
-          fileId: 'PFPRD100000ORG70000',
+          fileId: 'PRDF100000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
         },
         {
           _id: 'PRDI20000ORG70000',
-          fileId: 'PFPRD200000ORG70000',
+          fileId: 'PRDF200000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_2.jpeg',
         },
         {
           _id: 'PRDI30000ORG70000',
-          fileId: 'PFPRD300000ORG70000',
+          fileId: 'PRDF300000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_3.jpeg',
         },
         {
           _id: 'PRDI40000ORG70000',
-          fileId: 'PFPRD400000ORG70000',
+          fileId: 'PRDF400000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_4.jpeg',
         },
         {
           _id: 'PRDI50000ORG70000',
-          fileId: 'PFPRD500000ORG70000',
+          fileId: 'PRDF500000ORG70000',
           imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_5.jpeg',
         },
       ],
@@ -192,61 +192,61 @@ export const mauKemanaSiProductPortfolioFileSeed = () => {
     data: {
       static: [
         {
-          _id: 'PFPRD100000ORG70000',
+          _id: 'PRDF100000ORG70000',
           refId: 'PRD100000ORG70000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI10000ORG70000',
-              fileId: 'PFPRD100000ORG70000',
+              fileId: 'PRDF100000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_1.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRD200000ORG70000',
+          _id: 'PRDF200000ORG70000',
           refId: 'PRD200000ORG70000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI20000ORG70000',
-              fileId: 'PFPRD200000ORG70000',
+              fileId: 'PRDF200000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_2.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRD300000ORG70000',
+          _id: 'PRDF300000ORG70000',
           refId: 'PRD300000ORG70000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI30000ORG70000',
-              fileId: 'PFPRD300000ORG70000',
+              fileId: 'PRDF300000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_3.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRD400000ORG70000',
+          _id: 'PRDF400000ORG70000',
           refId: 'PRD400000ORG70000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI40000ORG70000',
-              fileId: 'PFPRD400000ORG70000',
+              fileId: 'PRDF400000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_4.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRD500000ORG70000',
+          _id: 'PRDF500000ORG70000',
           refId: 'PRD500000ORG70000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI50000ORG70000',
-              fileId: 'PFPRD500000ORG70000',
+              fileId: 'PRDF500000ORG70000',
               imgUrl: '/assets/mau_kemana_si/_portfolio/portfolio_5.jpeg',
             },
           ],

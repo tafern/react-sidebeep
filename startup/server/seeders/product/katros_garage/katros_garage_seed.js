@@ -50,17 +50,17 @@ export const katrosGarageProductCoverImageSeed = () => {
       static: [
         {
           _id: 'PRDICOVER10000ORG30000',
-          fileId: 'PFPRDCOVER100000ORG30000',
+          fileId: 'PRDFCOVER100000ORG30000',
           imgUrl: '/assets/katros_garage/_products/cover_product_1.jpeg',
         },
         {
           _id: 'PRDICOVER20000ORG30000',
-          fileId: 'PFPRDCOVER200000ORG30000',
+          fileId: 'PRDFCOVER200000ORG30000',
           imgUrl: '/assets/katros_garage/_products/cover_product_2.jpeg',
         },
         {
           _id: 'PRDICOVER30000ORG30000',
-          fileId: 'PFPRDCOVER300000ORG30000',
+          fileId: 'PRDFCOVER300000ORG30000',
           imgUrl: '/assets/katros_garage/_products/cover_product_3.jpeg',
         },
       ],
@@ -75,37 +75,37 @@ export const katrosGarageProductCoverFileSeed = () => {
     data: {
       static: [
         {
-          _id: 'PFPRDCOVER100000ORG30000',
+          _id: 'PRDFCOVER100000ORG30000',
           refId: 'PRD100000ORG30000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI10000ORG30000',
-              fileId: 'PFPRDCOVER100000ORG30000',
+              fileId: 'PRDFCOVER100000ORG30000',
               imgUrl: '/assets/katros_garage/_products/cover_product_1.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRDCOVER200000ORG30000',
+          _id: 'PRDFCOVER200000ORG30000',
           refId: 'PRD200000ORG30000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI20000ORG30000',
-              fileId: 'PFPRDCOVER200000ORG30000',
+              fileId: 'PRDFCOVER200000ORG30000',
               imgUrl: '/assets/katros_garage/_products/cover_product_2.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRDCOVER300000ORG30000',
+          _id: 'PRDFCOVER300000ORG30000',
           refId: 'PRD300000ORG30000',
           refType: 'ProductCover',
           images: [
             {
               _id: 'PRDI30000ORG30000',
-              fileId: 'PFPRDCOVER300000ORG30000',
+              fileId: 'PRDFCOVER300000ORG30000',
               imgUrl: '/assets/katros_garage/_products/cover_product_3.jpeg',
             },
           ],
@@ -123,17 +123,17 @@ export const katrosGarageProductPortfolioImageSeed = () => {
       static: [
         {
           _id: 'PRDI10000ORG30000',
-          fileId: 'PFPRD100000ORG30000',
+          fileId: 'PRDF100000ORG30000',
           imgUrl: '/assets/katros_garage/_portfolio/portfolio_1.jpeg',
         },
         {
           _id: 'PRDI20000ORG30000',
-          fileId: 'PFPRD200000ORG30000',
+          fileId: 'PRDF200000ORG30000',
           imgUrl: '/assets/katros_garage/_portfolio/portfolio_2.jpeg',
         },
         {
           _id: 'PRDI30000ORG30000',
-          fileId: 'PFPRD300000ORG30000',
+          fileId: 'PRDF300000ORG30000',
           imgUrl: '/assets/katros_garage/_portfolio/portfolio_3.jpeg',
         },
       ],
@@ -148,37 +148,37 @@ export const katrosGarageProductPortfolioFileSeed = () => {
     data: {
       static: [
         {
-          _id: 'PFPRD100000ORG30000',
+          _id: 'PRDF100000ORG30000',
           refId: 'PRD100000ORG30000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI10000ORG30000',
-              fileId: 'PFPRD100000ORG30000',
+              fileId: 'PRDF100000ORG30000',
               imgUrl: '/assets/katros_garage/_portfolio/portfolio_1.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRD200000ORG30000',
+          _id: 'PRDF200000ORG30000',
           refId: 'PRD200000ORG30000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI20000ORG30000',
-              fileId: 'PFPRD200000ORG30000',
+              fileId: 'PRDF200000ORG30000',
               imgUrl: '/assets/katros_garage/_portfolio/portfolio_2.jpeg',
             },
           ],
         },
         {
-          _id: 'PFPRD300000ORG30000',
+          _id: 'PRDF300000ORG30000',
           refId: 'PRD300000ORG30000',
           refType: 'Portfolio',
           images: [
             {
               _id: 'PRDI30000ORG30000',
-              fileId: 'PFPRD300000ORG30000',
+              fileId: 'PRDF300000ORG30000',
               imgUrl: '/assets/katros_garage/_portfolio/portfolio_3.jpeg',
             },
           ],
