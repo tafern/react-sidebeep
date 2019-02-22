@@ -1,4 +1,11 @@
 export default `
+  enum CurrencyCode {
+    IDR
+    USD
+    SGD
+    EUR
+  }
+
   type Ref {
     _id: String
     type: String

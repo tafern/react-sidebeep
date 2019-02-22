@@ -71,7 +71,7 @@ import Images from '../../api/Images/Images';
 import Headlines from '../../api/Headline/Headline';
 import Orgs from '../../api/Org/Org';
 import Locations from '../../api/Location/Location';
-import Categories from '../../api/Category/Category';
+import Categories from '../../api/Tag/Tag';
 
 const userImageSeed = (userId, imgUrl, idOfFile) => {
   seeder(Images, {

@@ -1,8 +1,8 @@
 import seeder from '@cleverbeagle/seeder/index.min';
-import Products from '../../../../api/Products/Products';
+import Products from '../../../../api/Product/Product';
 import Images from '../../../../api/Images/Images';
 import Files from '../../../../api/File/File';
-import Reviews from '../../../../api/Reviews/Reviews';
+import Reviews from '../../../../api/Review/Review';
 
 export const reviewsSeed = (userId, date, productId) => {
   seeder(Reviews, {

@@ -1,8 +1,11 @@
 export default `
-    description: String
-    owner: Party
-    fromDate: String
-    thruDate: String
-    refs: [Ref]
-    histories: [History]
+  _id: String
+  name: String
+  description: String
+  owner: Party
+  fromDate: String
+  thruDate: String
+  sequenceNr: Int
+  refs: [Ref]
+  histories: [History]
 `;

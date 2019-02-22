@@ -1,7 +1,7 @@
 import seeder from '@cleverbeagle/seeder/index.min';
 import Images from '../../../../api/Images/Images';
 import Files from '../../../../api/File/File';
-import Categories from '../../../../api/Category/Category';
+import Categories from '../../../../api/Tag/Tag';
 
 export const categoryImages = () => {
   seeder(Images, {

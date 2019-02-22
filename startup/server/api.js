@@ -17,14 +17,18 @@ import CommentQueries from '../../api/Comments/queries';
 import CommentMutations from '../../api/Comments/mutations';
 import CommentSubscriptions from '../../api/Comments/subscriptions';
 
-import ProductTypes from '../../api/Products/types';
-import ProductQueries from '../../api/Products/queries';
-import ProductMutations from '../../api/Products/mutations';
+// mulai customization
 
-import ReviewTypes from '../../api/Reviews/types';
-import ReviewQueries from '../../api/Reviews/queries';
-import ReviewMutations from '../../api/Reviews/mutations';
-import ReviewSubscriptions from '../../api/Reviews/subscriptions';
+import GeneralTypes from '../../api/general_types';
+
+import ProductTypes from '../../api/Product/types';
+import ProductQueries from '../../api/Product/queries';
+import ProductMutations from '../../api/Product/mutations';
+
+import ReviewTypes from '../../api/Review/types';
+import ReviewQueries from '../../api/Review/queries';
+import ReviewMutations from '../../api/Review/mutations';
+import ReviewSubscriptions from '../../api/Review/subscriptions';
 
 import OAuthQueries from '../../api/OAuth/queries';
 
@@ -36,10 +40,6 @@ import FileTypes from '../../api/File/types';
 import FileQueries from '../../api/File/queries';
 import FileMutations from '../../api/File/mutations';
 
-import ImageTypes from '../../api/Images/types';
-import ImageQueries from '../../api/Images/queries';
-import ImageMutations from '../../api/Images/mutations';
-
 import LocationTypes from '../../api/Location/types';
 import LocationQueries from '../../api/Location/queries';
 import LocationMutations from '../../api/Location/mutations';
@@ -48,32 +48,28 @@ import HeadlineTypes from '../../api/Headline/types';
 import HeadlineQueries from '../../api/Headline/queries';
 import HeadlineMutations from '../../api/Headline/mutations';
 
-import CategoryTypes from '../../api/Category/types';
-import CategoryQueries from '../../api/Category/queries';
-import CategoryMutations from '../../api/Category/mutations';
+import CategoryTypes from '../../api/Tag/types';
+import CategoryQueries from '../../api/Tag/queries';
+import CategoryMutations from '../../api/Tag/mutations';
 
-import PostTypes from '../../api/Posts/types';
-import PostQueries from '../../api/Posts/queries';
-import PostMutations from '../../api/Posts/mutations';
+import TrxTypes from '../../api/Trx/types';
+import TrxQueries from '../../api/Trx/queries';
+import TrxMutations from '../../api/Trx/mutations';
 
-import TrxTypes from '../../api/Trxs/types';
-import TrxQueries from '../../api/Trxs/queries';
-import TrxMutations from '../../api/Trxs/mutations';
-
-import TrxItemTypes from '../../api/TrxItems/types';
-import TrxItemQueries from '../../api/TrxItems/queries';
-import TrxItemMutations from '../../api/TrxItems/mutations';
+import TrxItemTypes from '../../api/TrxItem/types';
+import TrxItemQueries from '../../api/TrxItem/queries';
+import TrxItemMutations from '../../api/TrxItem/mutations';
 
 import '../../api/Documents/server/indexes';
-import '../../api/Products/server/indexes';
+import '../../api/Product/server/indexes';
 import '../../api/Org/server/indexes';
 import '../../api/File/server/indexes';
 import '../../api/Images/server/indexes';
 import '../../api/Location/server/indexes';
 import '../../api/Headline/server/indexes';
 import '../../api/Posts/server/indexes';
-import '../../api/Trxs/server/indexes';
-import '../../api/TrxItems/server/indexes';
+import '../../api/Trx/server/indexes';
+import '../../api/TrxItem/server/indexes';
 import '../../api/webhooks';
 
 const schema = {
@@ -82,15 +78,16 @@ const schema = {
     ${DocumentTypes}
     ${CommentTypes}
     ${UserSettingsTypes}
+
+    # mulai customization
+    ${GeneralTypes}
     ${ProductTypes}
     ${ReviewTypes}
     ${OrgTypes}
     ${FileTypes}
-    ${ImageTypes}
     ${LocationTypes}
     ${HeadlineTypes}
     ${CategoryTypes}
-    ${PostTypes}
     ${TrxTypes}
     ${TrxItemTypes}
 
@@ -186,11 +183,9 @@ const schema = {
       ...ProductQueries,
       ...OrgQueries,
       ...FileQueries,
-      ...ImageQueries,
       ...LocationQueries,
       ...HeadlineQueries,
       ...CategoryQueries,
-      ...PostQueries,
       ...TrxQueries,
       ...TrxItemQueries,
     },
@@ -203,11 +198,9 @@ const schema = {
       ...ReviewMutations,
       ...OrgMutations,
       ...FileMutations,
-      ...ImageMutations,
       ...LocationMutations,
       ...HeadlineMutations,
       ...CategoryMutations,
-      ...PostMutations,
       ...TrxMutations,
       ...TrxItemMutations,
     },
@@ -222,7 +215,7 @@ const schema = {
       user: UserQueries.user,
     },
     Org: {
-      products: ProductQueries.products,
+      products: ProductQueries.orgProducts,
       locations: LocationQueries.orgLocations,
       users: UserQueries.users,
       files: FileQueries.files,
@@ -253,13 +246,6 @@ const schema = {
     TrxItem: {
       trx: TrxQueries.trx,
       product: ProductQueries.product,
-    },
-    Post: {
-      user: UserQueries.user,
-      files: FileQueries.files,
-    },
-    File: {
-      images: ImageQueries.images,
     },
   },
 };

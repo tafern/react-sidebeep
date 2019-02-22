@@ -14,13 +14,11 @@ export default `
   }
 
   type File {
-    _id: String
-    name: String
+    ${generalFields}
     url: String
     size: Int
     mimeType: String
     type: FileType
     status: FileStatus
-    ${generalFields}
   }
 `;
