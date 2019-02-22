@@ -1,7 +1,7 @@
 import TrxItems from './TrxItems';
 
 export default {
-  trxItems: ({ _id }) => TrxItems.find({ trxId: _id }, { sort: { createdAt: 1 } }).fetch(),
+  trxItems: () => TrxItems.find({}),
   trxItem: (parent, args) =>
     TrxItems.findOne({
       $or: [{ _id: args._id }],

@@ -6,4 +6,5 @@ export default {
     Products.findOne({
       $or: [{ _id: args._id }],
     }),
+  productTrxItem: ({ productId }) => Products.findOne(productId),
 };

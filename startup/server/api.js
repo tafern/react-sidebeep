@@ -106,6 +106,7 @@ const schema = {
       oAuthServices(services: [String]): [String]
       products: [Product]
       product(_id: String): Product
+      productTrxItem(_id: String): Product
       orgs: [Org]
       org(_id: String): Org
       files: [File]
@@ -253,7 +254,7 @@ const schema = {
     },
     TrxItem: {
       trx: TrxQueries.trx,
-      product: ProductQueries.product,
+      product: ProductQueries.productTrxItem,
     },
     Post: {
       user: UserQueries.user,

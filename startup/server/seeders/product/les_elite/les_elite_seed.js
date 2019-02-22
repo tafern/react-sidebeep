@@ -50,7 +50,7 @@ export const lesEliteProductCoverImageSeed = () => {
       static: [
         {
           _id: 'PRDICOVER10000ORG50000',
-          fileId: 'PFPRDCOVER100000ORG50000',
+          fileId: '﻿PFPRDCOVER100000ORG50000',
           imgUrl: '/assets/les_elite/_products/cover_product_1.jpeg',
         },
         {
@@ -95,88 +95,39 @@ export const lesEliteProductCoverFileSeed = () => {
     data: {
       static: [
         {
-          _id: 'PFPRDCOVER100000ORG50000',
+          _id: '﻿PFPRDCOVER100000ORG50000',
           refId: 'PRD100000ORG50000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI10000ORG50000',
-              fileId: 'PFPRDCOVER100000ORG50000',
-              imgUrl: '/assets/les_elite/_products/cover_product_1.jpeg',
-            },
-          ],
         },
         {
           _id: 'PFPRDCOVER200000ORG50000',
           refId: 'PRD200000ORG50000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI20000ORG50000',
-              fileId: 'PFPRDCOVER200000ORG50000',
-              imgUrl: '/assets/les_elite/_products/cover_product_2.jpeg',
-            },
-          ],
         },
         {
           _id: 'PFPRDCOVER300000ORG50000',
           refId: 'PRD300000ORG50000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI30000ORG50000',
-              fileId: 'PFPRDCOVER300000ORG50000',
-              imgUrl: '/assets/les_elite/_products/cover_product_3.jpeg',
-            },
-          ],
         },
         {
           _id: 'PFPRDCOVER400000ORG50000',
           refId: 'PRD400000ORG50000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI40000ORG50000',
-              fileId: 'PFPRDCOVER400000ORG50000',
-              imgUrl: '/assets/les_elite/_products/cover_product_4.jpeg',
-            },
-          ],
         },
         {
           _id: 'PFPRDCOVER500000ORG50000',
-          refId: 'PRD200000ORG50000',
+          refId: 'PRD500000ORG50000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI50000ORG50000',
-              fileId: 'PFPRDCOVER500000ORG50000',
-              imgUrl: '/assets/les_elite/_products/cover_product_5.jpeg',
-            },
-          ],
         },
         {
           _id: 'PFPRDCOVER600000ORG50000',
           refId: 'PRD600000ORG50000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI60000ORG50000',
-              fileId: 'PFPRDCOVER600000ORG50000',
-              imgUrl: '/assets/les_elite/_products/cover_product_6.jpeg',
-            },
-          ],
         },
         {
           _id: 'PFPRDCOVER700000ORG50000',
           refId: 'PRD700000ORG50000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI70000ORG50000',
-              fileId: 'PFPRDCOVER700000ORG50000',
-              imgUrl: '/assets/les_elite/_products/cover_product_7.jpeg',
-            },
-          ],
         },
       ],
     },

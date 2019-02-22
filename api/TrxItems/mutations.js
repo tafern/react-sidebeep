@@ -2,12 +2,13 @@ import { Meteor } from 'meteor/meteor';
 import TrxItems from './TrxItems';
 import Trxs from '../Trxs/Trxs';
 import Products from '../Products/Products';
+import { configs } from '../App/configs/configs';
+import queryProductOwner from './actions/queryProductOwner';
 
 export default {
   addTrxItem: (root, args) => {
     // if (!context.user) throw new Error('Sorry, you must be logged in to add a new trx.');
 
-    let doc = null;
     const date = new Date().toISOString();
 
     const product = Products.findOne({ _id: args.productId });
@@ -20,7 +21,17 @@ export default {
     if (!userSeller) throw new Error('Sorry, seller that you search not found.');
 
     const checkTrx = Trxs.findOne({
-      $or: [{ _id: args._id }, { buyer: args.buyer, seller: args.seller, status: 'Open' }],
+      $or: [
+        { _id: args._id },
+        {
+          buyer: args.buyer,
+          seller: args.seller,
+          status:
+            configs.trxs.status.open ||
+            configs.trxs.status.wait_approval ||
+            configs.trxs.status.approved,
+        },
+      ],
     });
 
     if (!checkTrx) {
@@ -28,21 +39,35 @@ export default {
         buyer: userBuyer._id,
         seller: userSeller._id,
         currency: 'IDR',
+        status: configs.trxs.status.open,
         createdAt: date,
         updatedAt: date,
       });
-      const trxItemId = TrxItems.insert({
+      TrxItems.insert({
         trxId,
         productId: product._id,
         unitPrice: product.price,
         qty: args.qty,
-        status: 'open',
         createdAt: date,
         updatedAt: date,
       });
-      doc = TrxItems.findOne(trxItemId);
-    } else {
-      const trxItemId = TrxItems.insert({
+      return Products.findOne(product._id);
+    }
+
+    if (
+      TrxItems.findOne({
+        $or: [{ trxId: checkTrx._id, productId: product._id }],
+      })
+    )
+      throw new Error('Sorry, product already added in cart.');
+
+    const checkRelevantOwner = queryProductOwner({
+      productId: product._id,
+      seller: checkTrx.seller,
+    });
+
+    if (checkRelevantOwner) {
+      TrxItems.insert({
         trxId: checkTrx._id,
         productId: product._id,
         unitPrice: product.price,
@@ -50,9 +75,11 @@ export default {
         createdAt: date,
         updatedAt: date,
       });
-      doc = TrxItems.findOne(trxItemId);
+      return Products.findOne(product._id);
     }
-    return doc;
+    throw new Error(
+      `Sorry, you need to choose the relevant product from ${checkTrx.seller} stores.`,
+    );
   },
   updateTrxItem: (root, args) => {
     // if (!context.user) throw new Error('Sorry, you must be logged in to update a trx.');
