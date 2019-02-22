@@ -93,73 +93,31 @@ export const labaLabaProductCoverFileSeed = () => {
           _id: 'PRDFCOVER100000ORG40000',
           refId: 'PRD100000ORG40000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI10000ORG40000',
-              fileId: 'PRDFCOVER100000ORG40000',
-              imgUrl: '/assets/laba_laba/_products/cover_product_1.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDFCOVER200000ORG40000',
           refId: 'PRD200000ORG40000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI20000ORG40000',
-              fileId: 'PRDFCOVER200000ORG40000',
-              imgUrl: '/assets/laba_laba/_products/cover_product_2.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDFCOVER300000ORG40000',
           refId: 'PRD300000ORG40000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI30000ORG40000',
-              fileId: 'PRDFCOVER300000ORG40000',
-              imgUrl: '/assets/laba_laba/_products/cover_product_3.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDFCOVER400000ORG40000',
           refId: 'PRD400000ORG40000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI40000ORG40000',
-              fileId: 'PRDFCOVER400000ORG40000',
-              imgUrl: '/assets/laba_laba/_products/cover_product_4.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDFCOVER500000ORG40000',
           refId: 'PRD500000ORG40000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI50000ORG40000',
-              fileId: 'PRDFCOVER500000ORG40000',
-              imgUrl: '/assets/laba_laba/_products/cover_product_5.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDFCOVER600000ORG40000',
           refId: 'PRD600000ORG40000',
           refType: 'ProductCover',
-          images: [
-            {
-              _id: 'PRDI60000ORG40000',
-              fileId: 'PRDFCOVER600000ORG40000',
-              imgUrl: '/assets/laba_laba/_products/cover_product_6.jpeg',
-            },
-          ],
         },
       ],
     },
@@ -217,73 +175,31 @@ export const labaLabaProductPortfolioFileSeed = () => {
           _id: 'PRDF100000ORG40000',
           refId: 'PRD100000ORG40000',
           refType: 'Portfolio',
-          images: [
-            {
-              _id: 'PRDI10000ORG40000',
-              fileId: 'PRDF100000ORG40000',
-              imgUrl: '/assets/laba_laba/_portfolio/portfolio_1.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDF200000ORG40000',
           refId: 'PRD200000ORG40000',
           refType: 'Portfolio',
-          images: [
-            {
-              _id: 'PRDI20000ORG40000',
-              fileId: 'PRDF200000ORG40000',
-              imgUrl: '/assets/laba_laba/_portfolio/portfolio_2.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDF300000ORG40000',
           refId: 'PRD300000ORG40000',
           refType: 'Portfolio',
-          images: [
-            {
-              _id: 'PRDI30000ORG40000',
-              fileId: 'PRDF300000ORG40000',
-              imgUrl: '/assets/laba_laba/_portfolio/portfolio_3.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDF400000ORG40000',
           refId: 'PRD400000ORG40000',
           refType: 'Portfolio',
-          images: [
-            {
-              _id: 'PRDI40000ORG40000',
-              fileId: 'PRDF400000ORG40000',
-              imgUrl: '/assets/laba_laba/_portfolio/portfolio_4.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDF500000ORG40000',
           refId: 'PRD500000ORG40000',
           refType: 'Portfolio',
-          images: [
-            {
-              _id: 'PRDI50000ORG40000',
-              fileId: 'PRDF500000ORG40000',
-              imgUrl: '/assets/laba_laba/_portfolio/portfolio_5.jpeg',
-            },
-          ],
         },
         {
           _id: 'PRDF600000ORG40000',
           refId: 'PRD600000ORG40000',
           refType: 'Portfolio',
-          images: [
-            {
-              _id: 'PRDI60000ORG40000',
-              fileId: 'PRDF600000ORG40000',
-              imgUrl: '/assets/laba_laba/_portfolio/portfolio_6.jpeg',
-            },
-          ],
         },
       ],
     },

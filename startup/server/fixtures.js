@@ -326,42 +326,42 @@ seeder(Images, {
       {
         _id: 'ORGI10000',
         fileId: 'ORGF10000',
-        imgUrl: '/assets/cay_cay/logo_vendor.jpg',
+        imgUrl: '/assets/cay_cay/logo_vendor.jpeg',
       },
       {
         _id: 'ORGI20000',
         fileId: 'ORGF20000',
-        imgUrl: '/assets/kaizen/logo_vendor.jpg',
+        imgUrl: '/assets/kaizen/logo_vendor.jpeg',
       },
       {
         _id: 'ORGI30000',
         fileId: 'ORGF30000',
-        imgUrl: '/assets/katros_garage/logo_vendor.jpg',
+        imgUrl: '/assets/katros_garage/logo_vendor.jpeg',
       },
       {
         _id: 'ORGI40000',
         fileId: 'ORGF40000',
-        imgUrl: '/assets/laba_laba/logo_vendor.jpg',
+        imgUrl: '/assets/laba_laba/logo_vendor.jpeg',
       },
       {
         _id: 'ORGI50000',
         fileId: 'ORGF50000',
-        imgUrl: '/assets/les_elite/logo_vendor.jpg',
+        imgUrl: '/assets/les_elite/logo_vendor.jpeg',
       },
       {
         _id: 'ORGI60000',
         fileId: 'ORGF60000',
-        imgUrl: '/assets/lestari_tattoo/logo_vendor.jpg',
+        imgUrl: '/assets/lestari_tattoo/logo_vendor.jpeg',
       },
       {
         _id: 'ORGI70000',
         fileId: 'ORGF70000',
-        imgUrl: '/assets/mau_kemana_si/logo_vendor.jpg',
+        imgUrl: '/assets/mau_kemana_si/logo_vendor.jpeg',
       },
       {
         _id: 'ORGI80000',
         fileId: 'ORGF80000',
-        imgUrl: '/assets/shoes_and_care/logo_vendor.jpg',
+        imgUrl: '/assets/shoes_and_care/logo_vendor.jpeg',
       },
       {
         _id: 'HIM10000',
