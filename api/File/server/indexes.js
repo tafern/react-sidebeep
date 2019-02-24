@@ -1,4 +1,4 @@
 import createIndex from '../../../modules/server/createIndex';
-import Files from '../File';
+import File from '../File';
 
-createIndex(Files, { owner: 1 });
+createIndex(File, { owner: 1 });

@@ -1,4 +1,4 @@
 import createIndex from '../../../modules/server/createIndex';
-import Products from '../Product';
+import Product from '../Product';
 
-createIndex(Products, { owner: 1 });
+createIndex(Product, { owner: 1 });

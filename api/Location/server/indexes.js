@@ -1,4 +1,4 @@
 import createIndex from '../../../modules/server/createIndex';
-import Locations from '../Location';
+import Location from '../Location';
 
-createIndex(Locations, { owner: 1 });
+createIndex(Location, { owner: 1 });

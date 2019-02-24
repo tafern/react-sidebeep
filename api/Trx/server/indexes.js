@@ -1,4 +1,4 @@
 import createIndex from '../../../modules/server/createIndex';
-import Trxs from '../Trx';
+import Trx from '../Trx';
 
-createIndex(Trxs, { owner: 1 });
+createIndex(Trx, { owner: 1 });
