@@ -14,7 +14,6 @@ export default `
   }
 
   type Location {
-    _id: String
     address: String
     zipcode: String
     city: String

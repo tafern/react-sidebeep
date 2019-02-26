@@ -4,6 +4,10 @@ export default `
   enum FileType {
     Image_Thumbnail
     Image_Detail
+    Image_Cover_Thumbnail
+    Image_Cover_Detail
+    Image_Portfolio_Thumbnail
+    Image_Portfolio_Detail
     Other
   }
 

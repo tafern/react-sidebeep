@@ -15,8 +15,6 @@ export default `
   }
 
   type Org {
-    _id: String
-    name: String
     phones: String
     files: [File]
     locations: [Location]

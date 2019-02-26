@@ -24,7 +24,7 @@ export default `
     discount: Int
     tax: Int
     total: Int
-    payments: [Payment]
+    # payments: [Payment]
     type: TrxType
     status: TrxStatus
   }

@@ -1,15 +1,14 @@
 import Product from './Product';
 
 export default {
-  orgProducts: ({ _id }) =>
-    Product.find({
-      'owner._id': _id,
-      'owner.type': 'Org',
-      isPublic: true,
-      status: 'Active',
-    }).fetch(),
+  products: () => Product.find({}).fetch(),
   product: (parent, args) =>
     Product.findOne({
       _id: args._id,
     }),
+  orgProducts: (parent) =>
+    Product.find({
+      'owner._id': parent._id,
+      'owner.type': 'Org',
+    }).fetch(),
 };

@@ -14,8 +14,6 @@ export default `
   }
 
   type Headline {
-    _id: String
-    name: String
     files: [File!]!
     type: HeadlineType
 	  status: HeadlineStatus

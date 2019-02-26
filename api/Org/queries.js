@@ -1,6 +1,7 @@
 import Org from './Org';
 
 export default {
-  orgs: ({ _id }) => Org.find({ 'member._id': _id }).fetch(),
+  orgs: () => Org.find({}),
   org: (parent, args) => Org.findOne({ _id: args._id }),
+  orgUser: (parent, args) => Org.findOne({ 'members._id': args._id }),
 };

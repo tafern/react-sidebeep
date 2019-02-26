@@ -48,9 +48,9 @@ import HeadlineTypes from '../../api/Headline/types';
 import HeadlineQueries from '../../api/Headline/queries';
 import HeadlineMutations from '../../api/Headline/mutations';
 
-import CategoryTypes from '../../api/Tag/types';
-import CategoryQueries from '../../api/Tag/queries';
-import CategoryMutations from '../../api/Tag/mutations';
+import TagTypes from '../../api/Tag/types';
+import TagQueries from '../../api/Tag/queries';
+import TagMutations from '../../api/Tag/mutations';
 
 import TrxTypes from '../../api/Trx/types';
 import TrxQueries from '../../api/Trx/queries';
@@ -64,10 +64,9 @@ import '../../api/Documents/server/indexes';
 import '../../api/Product/server/indexes';
 import '../../api/Org/server/indexes';
 import '../../api/File/server/indexes';
-import '../../api/Images/server/indexes';
 import '../../api/Location/server/indexes';
 import '../../api/Headline/server/indexes';
-import '../../api/Posts/server/indexes';
+import '../../api/Tag/server/indexes';
 import '../../api/Trx/server/indexes';
 import '../../api/TrxItem/server/indexes';
 import '../../api/webhooks';
@@ -87,7 +86,7 @@ const schema = {
     ${FileTypes}
     ${LocationTypes}
     ${HeadlineTypes}
-    ${CategoryTypes}
+    ${TagTypes}
     ${TrxTypes}
     ${TrxItemTypes}
 
@@ -101,22 +100,24 @@ const schema = {
       userSettings: [UserSetting]
       exportUserData: UserDataExport
       oAuthServices(services: [String]): [String]
+      orgProducts: [Product]
       products: [Product]
       product(_id: String): Product
       orgs: [Org]
+      orgUser(_id: String): Org
       org(_id: String): Org
+      orgFiles: [File]
       headlineFiles: [File]
       productFiles: [File]
+      tagFiles: [File]
+      userFiles: [File]
       file(_id: String): File
       orgLocations: [Location]
       location(_id: String): Location
       headlines: [Headline]
       headline(_id: String): Headline
-      categories: [Category]
-      category(_id: String): Category
-      posts: [Post]
-      post(_id: String): Posts
-      trxs: [Trx]
+      tags: [Tag]
+      tag(_id: String): Tag
       trx(_id: String): Trx
       trxItems: [TrxItem]
       trxItem(_id: String): TrxItem
@@ -146,21 +147,15 @@ const schema = {
       addFile(refId: String, fileUrl: String): File
       updateFile(_id: String!, fileUrl: String): File
       removeFile(_id: String!): File
-      addImage(fileId: String, imgUrl: String): Image
-      updateImage(_id: String!, imgUrl: String): Image
-      removeImage(_id: String!): Image
       addLocation(address: String, postcode: String): Location
       updateLocation(_id: String!, address: String, postcode: String): Location
       removeLocation(_id: String!): Location
       addHeadline(name: String, description: String): Headline
       updateHeadline(_id: String!, name: String, description: String): Headline
       removeHeadline(_id: String!): Headline
-      addCategory(name: String, description: String): Category
-      updateCategory(_id: String!, name: String, description: String): Category
-      removeCategory(_id: String!): Category
-      addPost(name: String, description: String): Post
-      updatePost(_id: String!, name: String, description: String): Post
-      removePost(_id: String!): Post
+      addTag(name: String, description: String): Tag
+      updateTag(_id: String!, name: String, description: String): Tag
+      removeTag(_id: String!): Tag
       addTrx(buyer: String!, seller: String!, subTotal: String, total: String): Trx
       updateTrx(_id: String!, buyer: String, seller: String, subTotal: String, total: String): Trx
       removeTrx(_id: String!): Trx
@@ -185,7 +180,7 @@ const schema = {
       ...FileQueries,
       ...LocationQueries,
       ...HeadlineQueries,
-      ...CategoryQueries,
+      ...TagQueries,
       ...TrxQueries,
       ...TrxItemQueries,
     },
@@ -200,7 +195,7 @@ const schema = {
       ...FileMutations,
       ...LocationMutations,
       ...HeadlineMutations,
-      ...CategoryMutations,
+      ...TagMutations,
       ...TrxMutations,
       ...TrxItemMutations,
     },
@@ -217,13 +212,12 @@ const schema = {
     Org: {
       products: ProductQueries.orgProducts,
       locations: LocationQueries.orgLocations,
-      users: UserQueries.users,
-      files: FileQueries.files,
+      members: UserQueries.users,
+      files: FileQueries.orgFiles,
     },
     Product: {
       reviews: ReviewQueries.reviews,
       files: FileQueries.productFiles,
-      user: UserQueries.user,
     },
     Review: {
       user: UserQueries.user,
@@ -231,11 +225,11 @@ const schema = {
     Headline: {
       files: FileQueries.headlineFiles,
     },
-    Category: {
-      files: FileQueries.files,
+    Tag: {
+      files: FileQueries.tagFiles,
     },
     User: {
-      files: FileQueries.files,
+      files: FileQueries.userFiles,
       org: OrgQueries.org,
     },
     Trx: {
