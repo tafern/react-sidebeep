@@ -17,63 +17,58 @@ import CommentQueries from '../../api/Comments/queries';
 import CommentMutations from '../../api/Comments/mutations';
 import CommentSubscriptions from '../../api/Comments/subscriptions';
 
-import ProductTypes from '../../api/Products/types';
-import ProductQueries from '../../api/Products/queries';
-import ProductMutations from '../../api/Products/mutations';
+// mulai customization
 
-import ReviewTypes from '../../api/Reviews/types';
-import ReviewQueries from '../../api/Reviews/queries';
-import ReviewMutations from '../../api/Reviews/mutations';
-import ReviewSubscriptions from '../../api/Reviews/subscriptions';
+import GeneralTypes from '../../api/general_types';
+
+import ProductTypes from '../../api/Product/types';
+import ProductQueries from '../../api/Product/queries';
+import ProductMutations from '../../api/Product/mutations';
+
+import ReviewTypes from '../../api/Review/types';
+import ReviewQueries from '../../api/Review/queries';
+import ReviewMutations from '../../api/Review/mutations';
+import ReviewSubscriptions from '../../api/Review/subscriptions';
 
 import OAuthQueries from '../../api/OAuth/queries';
 
-import OrgTypes from '../../api/Orgs/types';
-import OrgQueries from '../../api/Orgs/queries';
-import OrgMutations from '../../api/Orgs/mutations';
+import OrgTypes from '../../api/Org/types';
+import OrgQueries from '../../api/Org/queries';
+import OrgMutations from '../../api/Org/mutations';
 
-import FileTypes from '../../api/Files/types';
-import FileQueries from '../../api/Files/queries';
-import FileMutations from '../../api/Files/mutations';
+import FileTypes from '../../api/File/types';
+import FileQueries from '../../api/File/queries';
+import FileMutations from '../../api/File/mutations';
 
-import ImageTypes from '../../api/Images/types';
-import ImageQueries from '../../api/Images/queries';
-import ImageMutations from '../../api/Images/mutations';
+import LocationTypes from '../../api/Location/types';
+import LocationQueries from '../../api/Location/queries';
+import LocationMutations from '../../api/Location/mutations';
 
-import LocationTypes from '../../api/Locations/types';
-import LocationQueries from '../../api/Locations/queries';
-import LocationMutations from '../../api/Locations/mutations';
+import HeadlineTypes from '../../api/Headline/types';
+import HeadlineQueries from '../../api/Headline/queries';
+import HeadlineMutations from '../../api/Headline/mutations';
 
-import HeadlineTypes from '../../api/Headlines/types';
-import HeadlineQueries from '../../api/Headlines/queries';
-import HeadlineMutations from '../../api/Headlines/mutations';
+import TagTypes from '../../api/Tag/types';
+import TagQueries from '../../api/Tag/queries';
+import TagMutations from '../../api/Tag/mutations';
 
-import CategoryTypes from '../../api/Categories/types';
-import CategoryQueries from '../../api/Categories/queries';
-import CategoryMutations from '../../api/Categories/mutations';
+import TrxTypes from '../../api/Trx/types';
+import TrxQueries from '../../api/Trx/queries';
+import TrxMutations from '../../api/Trx/mutations';
 
-import PostTypes from '../../api/Posts/types';
-import PostQueries from '../../api/Posts/queries';
-import PostMutations from '../../api/Posts/mutations';
-
-import TrxTypes from '../../api/Trxs/types';
-import TrxQueries from '../../api/Trxs/queries';
-import TrxMutations from '../../api/Trxs/mutations';
-
-import TrxItemTypes from '../../api/TrxItems/types';
-import TrxItemQueries from '../../api/TrxItems/queries';
-import TrxItemMutations from '../../api/TrxItems/mutations';
+import TrxItemTypes from '../../api/TrxItem/types';
+import TrxItemQueries from '../../api/TrxItem/queries';
+import TrxItemMutations from '../../api/TrxItem/mutations';
 
 import '../../api/Documents/server/indexes';
-import '../../api/Products/server/indexes';
-import '../../api/Orgs/server/indexes';
-import '../../api/Files/server/indexes';
-import '../../api/Images/server/indexes';
-import '../../api/Locations/server/indexes';
-import '../../api/Headlines/server/indexes';
-import '../../api/Posts/server/indexes';
-import '../../api/Trxs/server/indexes';
-import '../../api/TrxItems/server/indexes';
+import '../../api/Product/server/indexes';
+import '../../api/Org/server/indexes';
+import '../../api/File/server/indexes';
+import '../../api/Location/server/indexes';
+import '../../api/Headline/server/indexes';
+import '../../api/Tag/server/indexes';
+import '../../api/Trx/server/indexes';
+import '../../api/TrxItem/server/indexes';
 import '../../api/webhooks';
 
 const schema = {
@@ -82,15 +77,16 @@ const schema = {
     ${DocumentTypes}
     ${CommentTypes}
     ${UserSettingsTypes}
+
+    # mulai customization
+    ${GeneralTypes}
     ${ProductTypes}
     ${ReviewTypes}
     ${OrgTypes}
     ${FileTypes}
-    ${ImageTypes}
     ${LocationTypes}
     ${HeadlineTypes}
-    ${CategoryTypes}
-    ${PostTypes}
+    ${TagTypes}
     ${TrxTypes}
     ${TrxItemTypes}
 
@@ -104,23 +100,25 @@ const schema = {
       userSettings: [UserSetting]
       exportUserData: UserDataExport
       oAuthServices(services: [String]): [String]
+      orgProducts: [Product]
       products: [Product]
       product(_id: String): Product
       productTrxItem(_id: String): Product
       orgs: [Org]
+      orgUser(_id: String): Org
       org(_id: String): Org
-      files: [File]
+      orgFiles: [File]
+      headlineFiles: [File]
+      productFiles: [File]
+      tagFiles: [File]
+      userFiles: [File]
       file(_id: String): File
-      images: [Image]
-      image(_id: String): Image
-      locations: [Location]
+      orgLocations: [Location]
       location(_id: String): Location
       headlines: [Headline]
       headline(_id: String): Headline
-      categories: [Category]
-      category(_id: String): Category
-      posts: [Post]
-      post(_id: String): Post
+      tags: [Tag]
+      tag(_id: String): Tag
       trxs: [Trx]
       trx(_id: String, buyer: String): Trx
       trxItems: [TrxItem]
@@ -151,21 +149,15 @@ const schema = {
       addFile(refId: String, fileUrl: String): File
       updateFile(_id: String!, fileUrl: String): File
       removeFile(_id: String!): File
-      addImage(fileId: String, imgUrl: String): Image
-      updateImage(_id: String!, imgUrl: String): Image
-      removeImage(_id: String!): Image
       addLocation(address: String, postcode: String): Location
       updateLocation(_id: String!, address: String, postcode: String): Location
       removeLocation(_id: String!): Location
       addHeadline(name: String, description: String): Headline
       updateHeadline(_id: String!, name: String, description: String): Headline
       removeHeadline(_id: String!): Headline
-      addCategory(name: String, description: String): Category
-      updateCategory(_id: String!, name: String, description: String): Category
-      removeCategory(_id: String!): Category
-      addPost(name: String, description: String): Post
-      updatePost(_id: String!, name: String, description: String): Post
-      removePost(_id: String!): Post
+      addTag(name: String, description: String): Tag
+      updateTag(_id: String!, name: String, description: String): Tag
+      removeTag(_id: String!): Tag
       addTrx(buyer: String!, seller: String!, subTotal: String, total: String): Trx
       updateTrx(_id: String!, buyer: String, seller: String, subTotal: String, total: String): Trx
       removeTrx(_id: String!): Trx
@@ -188,11 +180,9 @@ const schema = {
       ...ProductQueries,
       ...OrgQueries,
       ...FileQueries,
-      ...ImageQueries,
       ...LocationQueries,
       ...HeadlineQueries,
-      ...CategoryQueries,
-      ...PostQueries,
+      ...TagQueries,
       ...TrxQueries,
       ...TrxItemQueries,
     },
@@ -205,11 +195,9 @@ const schema = {
       ...ReviewMutations,
       ...OrgMutations,
       ...FileMutations,
-      ...ImageMutations,
       ...LocationMutations,
       ...HeadlineMutations,
-      ...CategoryMutations,
-      ...PostMutations,
+      ...TagMutations,
       ...TrxMutations,
       ...TrxItemMutations,
     },
@@ -224,27 +212,26 @@ const schema = {
       user: UserQueries.user,
     },
     Org: {
-      products: ProductQueries.products,
-      locations: LocationQueries.locations,
-      users: UserQueries.users,
-      files: FileQueries.files,
+      products: ProductQueries.orgProducts,
+      locations: LocationQueries.orgLocations,
+      members: UserQueries.users,
+      files: FileQueries.orgFiles,
     },
     Product: {
       reviews: ReviewQueries.reviews,
-      files: FileQueries.files,
-      user: UserQueries.user,
+      files: FileQueries.productFiles,
     },
     Review: {
       user: UserQueries.user,
     },
     Headline: {
-      files: FileQueries.files,
+      files: FileQueries.headlineFiles,
     },
-    Category: {
-      files: FileQueries.files,
+    Tag: {
+      files: FileQueries.tagFiles,
     },
     User: {
-      files: FileQueries.files,
+      files: FileQueries.userFiles,
       org: OrgQueries.org,
     },
     Trx: {
@@ -255,13 +242,6 @@ const schema = {
     TrxItem: {
       trx: TrxQueries.trx,
       product: ProductQueries.productTrxItem,
-    },
-    Post: {
-      user: UserQueries.user,
-      files: FileQueries.files,
-    },
-    File: {
-      images: ImageQueries.images,
     },
   },
 };
