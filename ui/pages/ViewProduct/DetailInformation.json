@@ -1,0 +1,57 @@
+{
+  "detailInfo": [
+    {
+      "id": "a1",
+      "title": "Deskripsi jasa ",
+      "description": "Jasa Deep Cleaning adalah treatment untuk segala jenis sepatu, semua bagian sepatu, dan untuk seluruh material sepatu, termasuk penghilangan noda tertentu yang akan menghabiskan waktu 3-4 Hari pengerjaan.",
+      "pointDescription": []
+    },
+    {
+      "id": "a2",
+      "title": "Mengapa anda harus memesan jasa ini?",
+      "description": "Jasa Deep Cleaning di Shoes and Care menggunakan chemical pembersih & peralatan khusus, sehingga tidak akan menyebabkan kerusakan sepatu. Tak hanya bersih dipakai layanan Deep Cleaning kami juga selalu diakhiri dengan pemberian parfum khusus untuk menghindari bau tak sedap pada sepatu.",
+      "pointDescription": []
+    },
+    {
+      "id": "a3",
+      "title": "Hal yang harus anda perhatikan saat memesan jasa ini",
+      "description": "",
+      "pointDescription": [
+        {
+          "id": "b1",
+          "description": "Perlu diingat jasa Deep Cleaning hanya membersihka sepatu agar terlihat good looking kembali bukan menjadikannya seperti baru lagi."
+        },
+        {
+          "id": "b2",
+          "description": "Apabila ingin menggunakan layanan logistik free pickup & delivery sepatu harap perhatikan pengemasan sepatu dan selalu cantumkan nama dan nomor telepon."
+        },
+        {
+          "id": "b3",
+          "description": "Kami akan mengirimkan foto, apabila kami melihat ada kerusakan yang terjadi di sepatu untuk menghindari kesalahpahaman hasil pengerjaan."
+        },
+        {
+          "id": "b4",
+          "description": "Apabila hasil pengerjaan telah selesai namun bertepatan dengan hari libur, maka sepatu akan dikirimkan keesokan harinya."
+        },
+        {
+          "id": "b5",
+          "description": "Komplain hasil pengerjaan tidak berlaku lebih dari 1 hari setelah sepatu dikembalikan."
+        }
+      ]
+    }
+  ],
+  "additionalServices": [
+    {
+      "id": "c1",
+      "title": "Vitamin sepatu",
+      "price": "5000",
+      "description": "Menambahkan kilauan pada body sepatu"
+    },
+    {
+      "id": "c2",
+      "title": "Tambahan lem untuk sepatu",
+      "price": "10000",
+      "description": "Lebih memperkuat dari segi pemakaian extra"
+    }
+  ]
+}

@@ -13,8 +13,8 @@ const PublicNavigation = () => (
         Log In
       </GuestLink>
     </LinkWrapper>
-    <LinkWrapper to="/signup">
-      <GuestLink eventKey={3} href="/signup">
+    <LinkWrapper to="/signup" isBorder>
+      <GuestLink eventKey={3} href="/signup" isBorder>
         Sign Up
       </GuestLink>
     </LinkWrapper>

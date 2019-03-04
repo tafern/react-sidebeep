@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SB_DARK_GREY } from '../../../modules/styleConstants';
 
 export const Products = styled.div`
   margin: 10px auto;
@@ -13,4 +14,5 @@ export const ProductName = styled.div`
   margin-bottom: 5px;
   font-weight: 400;
   font-size: 20px;
+  color: ${SB_DARK_GREY};
 `;

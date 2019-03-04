@@ -35,7 +35,6 @@ export const ProductBody = styled.div`
     margin-bottom: 0;
   }
 `;
-
 export const ContentWrapper = styled.div`
   @media (max-width: 768px) {
     padding: 5px 8px 10px 8px;
@@ -44,15 +43,36 @@ export const ContentWrapper = styled.div`
   position: relative;
   margin: 10px 0;
 `;
-
+export const ContentContainer = styled.div`
+  margin-bottom: 20px;
+`;
+export const TitleDescription = styled.div`
+  color: ${SB_MEDIUM_GREY};
+  font-weight: bold;
+  font-size: 16px;
+`;
+export const Description = styled.div`
+  color: ${SB_MEDIUM_GREY};
+  font-size: 14px;
+  text-align: justify;
+`;
+export const PointDescripionWrapper = styled.ul`
+  list-style-position: outside;
+  margin-left: -25px;
+`;
+export const PointDescripion = styled.li`
+  color: ${SB_MEDIUM_GREY};
+  font-size: 14px;
+  text-align: justify;
+`;
 export const PortfolioWrapper = styled.div`
   position: relative;
 `;
-
 export const ProductTitle = styled.div`
   font-size: 20px;
   font-weight: bold;
   margin-top: 15px;
+  color: ${SB_DARK_GREY};
 `;
 export const ProductSeenOrderWrapper = styled.div``;
 export const ProductSeenOrderImage = styled.img`
@@ -105,7 +125,7 @@ export const ProductPrice = styled.div`
   margin-top: 5px;
 `;
 export const ProductLocationWrapper = styled.div`
-  color: ${SB_GREY};
+  color: ${SB_DARK_GREY};
 `;
 export const IconImage = styled.i`
   color: ${SB_GREY};
@@ -113,14 +133,17 @@ export const IconImage = styled.i`
 `;
 export const ProductRatingWrapper = styled.div`
   color: ${SB_YELLOW};
+  margin-bottom: 5px;
 `;
 export const ProductRating = styled.p`
   float: left;
 `;
 export const IconRating = styled.i`
   color: ${SB_YELLOW};
-  margin-right: 5px;
   font-size: 16px;
+`;
+export const IconSiderRating = styled.img`
+  width: 25px;
 `;
 export const ProductCount = styled.p`
   margin-left: 5px;
@@ -133,10 +156,27 @@ export const ProductLocationTitle = styled.div`
   font-weight: bold;
   font-size: 14px;
 `;
+export const ProductBoxLocation = styled.div`
+  margin: 5px 0;
+`;
 export const ProductLocationVisit = styled.div`
   color: ${SB_GREEN};
   font-size: 14px;
   font-weight: bold;
+  float: left;
+  margin-right: 10px;
+  cursor: pointer;
+  padding: 0 10px;
+  ${(props) =>
+    props.active
+      ? `box-shadow: 1px 5px 7px -4px ${SB_GREY}; border-radius: 3px; padding: 10px;`
+      : 'margin-top: 10px'};
+  &:hover {
+    box-shadow: 1px 5px 7px -4px ${SB_GREY};
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 0;
+  }
 `;
 export const ProductLocationDescription = styled.div`
   color: ${SB_GREY};
@@ -170,47 +210,41 @@ export const BlockGrid = styled.div`
 export const IconWrapper = styled.div`
   margin: 15px 0;
 `;
+export const IconContainer = styled.div`
+  float: left;
+  cursor: pointer;
+`;
 export const IconShare = styled.img`
   float: left;
   margin-right: 10px;
   color: ${SB_GREEN};
 `;
 export const ShareTitle = styled.div`
+  float: left;
   font-size: 13px;
   color: ${SB_GREEN};
-  float: left;
   margin-right: 40px;
   margin-top: 2px;
 `;
 export const IconWishlist = styled.img`
-  color: ${SB_GREEN};
   float: left;
+  color: ${SB_GREEN};
   margin-right: 10px;
   margin-top: 2px;
 `;
 export const WishlistTitle = styled.div`
+  float: left;
   font-size: 13px;
   color: ${SB_GREEN};
-  float: left;
   margin-top: 2px;
 `;
 export const ButtonChatSider = styled(Button)`
   border: 1px solid ${SB_GREEN};
   color: ${SB_GREEN};
   padding: 10px 58px;
-  margin: 0 10px 0 0px;
+  margin: 15px 10px 0px 0px;
+  width: 100%;
 
-  &:hover {
-    background-color: ${SB_GREEN};
-    color: ${SB_WHITE};
-  }
-`;
-export const ButtonShoppingCart = styled(Button)`
-  border: 1px solid ${SB_GREEN};
-  color: ${SB_GREEN};
-  font-size: 20px;
-  padding: 6px 18px;
-  margin: 0 20px 0 0px;
   &:hover {
     background-color: ${SB_GREEN};
     color: ${SB_WHITE};
@@ -253,18 +287,20 @@ export const SiderWrapper = styled(Link)`
 export const SiderImage = styled.img`
   width: 60px;
   border-radius: 50px;
+  margin-top: 15px;
 `;
 export const SiderName = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
-  color: ${SB_GREY};
+  color: ${SB_DARK_GREY};
 `;
 export const SiderRatingWrapper = styled.div`
   color: ${SB_YELLOW};
 `;
 export const SiderRating = styled.p`
   text-align: center;
+  margin: 5px 0 10px !important;
 `;
 export const SiderCount = styled.p`
   margin-left: 5px;
@@ -274,18 +310,21 @@ export const SiderCount = styled.p`
 `;
 export const SiderLine = styled.div`
   border: 1px solid ${SB_LIGHT_GREY};
-  width: 185px;
-  margin: 10px;
+  width: 100%;
+  margin: 10px 0;
 `;
 export const SiderWrapInfo = styled.div`
   color: ${SB_GREY};
   padding-bottom: 5px;
 `;
-export const SiderIdentityImage = styled.img`
-  width: 14px;
+export const InfoTitleSidebar = styled.div`
+  font-size: 14px;
   float: left;
-  margin-right: 5px;
-  margin-top: 3px;
+`;
+export const InfoSidebar = styled.div`
+  font-size: 14px;
+  float: right;
+  color: ${SB_MEDIUM_GREY};
 `;
 export const SiderIdentityDesc = styled.div`
   color: ${SB_GREY};
@@ -308,6 +347,12 @@ export const SiderDescription = styled(Link)`
 export const DayName = styled.div`
   font-weight: bold;
   font-size: 14px;
+  background-color: ${SB_GREEN};
+  color: ${SB_WHITE};
+  border-radius: 3px;
+  text-align: center;
+  padding: 5px 0;
+  width: 70%;
 `;
 
 // Rating / Review
@@ -338,4 +383,26 @@ export const LineReview = styled.div`
   border: 1px solid ${SB_LIGHT_GREY};
   width: 100%;
   margin: 15px 0;
+`;
+
+// Information Description
+export const AdditionalWrapper = styled.div`
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid ${SB_MEDIUM_GREY};
+  border-radius: 5px;
+  width: 60%;
+`;
+export const AdditionalTitle = styled.div`
+  font-size: 14px;
+  font-weight: bold;
+  float: left;
+  margin-right: 10px;
+`;
+export const AdditionalPrice = styled.div`
+  font-size: 14px;
+  float: left;
+`;
+export const AdditionalDescription = styled.div`
+  font-size: 13px;
 `;
