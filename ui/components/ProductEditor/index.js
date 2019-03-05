@@ -7,8 +7,8 @@ import { Mutation } from 'react-apollo';
 import autoBind from 'react-autobind';
 import { Bert } from 'meteor/themeteorchef:bert';
 import Icon from '../../components/Icon';
-import { editProduct as editProductQuery, products } from '../../queries/Products.gql';
-import { updateProduct, removeProduct } from '../../mutations/Products.gql';
+import { editProduct as editProductQuery, products } from '../../queries/Product.gql';
+import { updateProduct, removeProduct } from '../../mutations/Product.gql';
 import delay from '../../../modules/delay';
 import { timeago } from '../../../modules/dates';
 

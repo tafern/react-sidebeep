@@ -13,7 +13,7 @@ import CampaignDetail from '../../pages/Campaign/CampaignDetail';
 import Category from '../../pages/Category';
 import Orgs from '../../pages/Orgs';
 import ViewOrg from '../../pages/ViewOrg';
-import Products from '../../pages/Products';
+import Product from '../../pages/Products';
 import ViewProduct from '../../pages/ViewProduct';
 import EditProduct from '../../pages/EditProduct';
 import Favorites from '../../pages/Favorites';
@@ -94,7 +94,7 @@ class App extends React.Component {
             <Route name="category" path="/category" component={Category} />
             <Route name="Orgs" path="/orgs" component={Orgs} />
             <Route exact path="/org/:_id" component={ViewOrg} />
-            <Route name="Products" path="/products" component={Products} />
+            <Route name="Product" path="/products" component={Product} />
             <Public path="/product/:_id" component={ViewProduct} isValidate {...props} {...state} />
             <Route name="campaign" path="/campaign" component={Campaign} />
             <Route name="campaignDetail" path="/campaign/:id" component={CampaignDetail} />

@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo';
 import ProductEditor from '../../components/ProductEditor';
 import Loading from '../../components/Loading';
 import NotFound from '../NotFound';
-import { editProduct as editProductQuery } from '../../queries/Products.gql';
+import { editProduct as editProductQuery } from '../../queries/Product.gql';
 
 const EditProduct = ({ data, history }) => (
   <React.Fragment>

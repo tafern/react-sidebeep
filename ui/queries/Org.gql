@@ -1,4 +1,4 @@
-#import "../fragments/Orgs.gql"
+#import "../fragments/Org.gql"
 
 query orgs {
   orgs {

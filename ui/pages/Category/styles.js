@@ -41,7 +41,7 @@ const IconCategory = styled.i`
   color: ${SB_GREEN};
   font-size: 50px;
 `;
-const Products = styled.div`
+const Product = styled.div`
   background: #fff;
   padding: 5px 20px 10px 20px !important;
   border: 1px solid #e0e0e0;
@@ -122,7 +122,7 @@ export default {
   CategoryWrapper,
   IconCategory,
   Wrapper,
-  Products,
+  Product,
   ProductTitle,
   ProductDescription,
   WrapperViewAll,

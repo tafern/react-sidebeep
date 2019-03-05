@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import TrxItems from './TrxItems';
-import Trxs from '../Trxs/Trxs';
-import Products from '../Products/Products';
+import TrxItem from './TrxItem';
+import Trx from '../Trx/Trx';
+import Product from '../Product/Product';
 import { configs } from '../App/configs/configs';
 import queryProductOwner from './actions/queryProductOwner';
 
@@ -12,7 +12,7 @@ export default {
 
     const date = new Date().toISOString();
 
-    const product = Products.findOne({ _id: args.productId });
+    const product = Product.findOne({ _id: args.productId });
     if (!product) throw new Error('Sorry, product you search not found.');
 
     const userBuyer = Meteor.users.findOne(args.buyer);
@@ -21,7 +21,7 @@ export default {
     const userSeller = Meteor.users.findOne({ _id: product.userId });
     if (!userSeller) throw new Error('Sorry, seller that you search not found.');
 
-    const checkTrx = Trxs.findOne({
+    const checkTrx = Trx.findOne({
       $or: [
         { _id: args._id },
         {
@@ -36,7 +36,7 @@ export default {
     });
 
     if (!checkTrx) {
-      const trxId = Trxs.insert({
+      const trxId = Trx.insert({
         buyer: userBuyer._id,
         seller: userSeller._id,
         currency: 'IDR',
@@ -45,7 +45,7 @@ export default {
         updatedAt: date,
         subTotal: 1,
       });
-      const trxItemsId = TrxItems.insert({
+      const trxItemsId = TrxItem.insert({
         trxId,
         productId: product._id,
         unitPrice: product.price,
@@ -53,11 +53,11 @@ export default {
         createdAt: date,
         updatedAt: date,
       });
-      return TrxItems.findOne(trxItemsId);
+      return TrxItem.findOne(trxItemsId);
     }
 
     if (
-      TrxItems.findOne({
+      TrxItem.findOne({
         $or: [{ trxId: checkTrx._id, productId: product._id }],
       })
     )
@@ -69,7 +69,7 @@ export default {
     });
 
     if (checkRelevantOwner) {
-      const trxItemsId = TrxItems.insert({
+      const trxItemsId = TrxItem.insert({
         trxId: checkTrx._id,
         productId: product._id,
         unitPrice: product.price,
@@ -77,7 +77,7 @@ export default {
         createdAt: date,
         updatedAt: date,
       });
-      Trxs.update(
+      Trx.update(
         { _id: checkTrx._id },
         {
           $set: {
@@ -87,7 +87,7 @@ export default {
           },
         },
       );
-      return TrxItems.findOne(trxItemsId);
+      return TrxItem.findOne(trxItemsId);
     }
     throw new Error(
       `Sorry, you need to choose the relevant product from ${checkTrx.seller} stores.`,
@@ -95,10 +95,10 @@ export default {
   },
   updateTrxItem: (root, args) => {
     // if (!context.user) throw new Error('Sorry, you must be logged in to update a trx.');
-    if (!TrxItems.findOne({ _id: args._id }))
+    if (!TrxItem.findOne({ _id: args._id }))
       throw new Error('Sorry, you need to be the owner of this trx to update it.');
     const finalSubTotal = args.unitPrice * args.qty;
-    TrxItems.update(
+    TrxItem.update(
       { _id: args._id },
       {
         $set: {
@@ -111,14 +111,14 @@ export default {
         },
       },
     );
-    const doc = TrxItems.findOne(args._id);
+    const doc = TrxItem.findOne(args._id);
     return doc;
   },
   removeTrxItem: (root, args, context) => {
     if (!context.user) throw new Error('Sorry, you must be logged in to remove a trx.');
-    if (!TrxItems.findOne({ _id: args._id, owner: context.user._id }))
+    if (!TrxItem.findOne({ _id: args._id, owner: context.user._id }))
       throw new Error('Sorry, you need to be the owner of this trx to remove it.');
-    TrxItems.remove(args);
+    TrxItem.remove(args);
     return args;
   },
 };

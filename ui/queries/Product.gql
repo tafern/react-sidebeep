@@ -1,4 +1,4 @@
-#import "../fragments/Products.gql"
+#import "../fragments/Product.gql"
 
 query products {
   products {

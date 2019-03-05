@@ -8,6 +8,8 @@ export default `
     Image_Cover_Detail
     Image_Portfolio_Thumbnail
     Image_Portfolio_Detail
+    Image_Profile_Thumbnail
+    Image_Profile_Detail
     Other
   }
 

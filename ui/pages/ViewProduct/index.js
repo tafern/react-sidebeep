@@ -11,7 +11,7 @@ import SiderSidebar from './SiderSidebar';
 import OtherProduct from '../OtherProduct';
 import SEO from '../../components/SEO';
 import BlankState from '../../components/BlankState';
-import { product as productQuery, products as productsQuery } from '../../queries/Products.gql';
+import { product as productQuery, products as productsQuery } from '../../queries/Product.gql';
 import { addTrxItem as addTrxItemMutation } from '../../mutations/TrxItem.gql';
 import { StyledViewProduct } from './styles';
 import delay from '../../../modules/delay';

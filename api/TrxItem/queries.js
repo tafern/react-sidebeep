@@ -1,10 +1,10 @@
-import TrxItems from './TrxItem';
+import TrxItem from './TrxItem';
 
 // FIXME belum dibahas
 export default {
-  trxItems: () => TrxItems.find({}),
+  trxItems: () => TrxItem.find({}),
   trxItem: (parent, args) =>
-    TrxItems.findOne({
+    TrxItem.findOne({
       $or: [{ _id: args._id }],
     }),
 };

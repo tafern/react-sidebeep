@@ -83,7 +83,7 @@ const IconCategory = styled.img`
 const IconTitle = styled.div`
   padding-top: 8px;
 `;
-const Products = styled.div`
+const Product = styled.div`
   margin: 10px auto;
   border-radius: 5px;
   position: relative;
@@ -179,7 +179,7 @@ export default {
   IconCategory,
   IconTitle,
   Wrapper,
-  Products,
+  Product,
   ProductTitle,
   ProductDescription,
   WrapperViewAll,

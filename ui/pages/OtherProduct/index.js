@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Products, ProductName } from './styles';
+import { Product, ProductName } from './styles';
 import ProductList from '../ProductList';
 
 const OtherProduct = ({ productsDataQuery }) => (
-  <Products>
+  <Product>
     <ProductName>Other Service</ProductName>
     <ProductList data={productsDataQuery} isSmall />
-  </Products>
+  </Product>
 );
 OtherProduct.propTypes = {
   productsDataQuery: PropTypes.object.isRequired,

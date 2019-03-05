@@ -2,7 +2,7 @@ import seeder from '@cleverbeagle/seeder';
 import { Meteor } from 'meteor/meteor';
 import Documents from '../../../api/Documents/Documents';
 import Comments from '../../../api/Comments/Comments';
-import Products from '../../../api/Product/Product';
+import Product from '../../../api/Product/Product';
 import Files from '../../../api/File/File';
 import Reviews from '../../../api/Review/Review';
 import Orgs from '../../../api/Org/Org';
@@ -180,7 +180,7 @@ const productsSeed = (userId) => {
     'Martial Arts and Self Defense',
     'Sports',
   ];
-  seeder(Products, {
+  seeder(Product, {
     seedIfExistingData: true,
     environments: ['development', 'staging'],
     data: {

@@ -37,6 +37,7 @@ seeder(Meteor.users, {
         },
       },
       {
+        orgId: 'ORG10000',
         email: 'cay_cay@sidebeep.com',
         password: 'password',
         profile: {

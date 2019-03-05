@@ -1,7 +1,7 @@
 {
   "name": "pup",
   "version": "2.0.1",
-  "description": "The Ultimate Boilerplate for Products.",
+  "description": "The Ultimate Boilerplate for Product.",
   "private": true,
   "repository": {
     "url": "git@cleverbeagle:cleverbeagle/pup.git",

@@ -6,7 +6,7 @@ export default {
     Product.findOne({
       _id: args._id,
     }),
-  orgProducts: (parent) =>
+  orgProduct: (parent) =>
     Product.find({
       'owner._id': parent._id,
       'owner.type': 'Org',

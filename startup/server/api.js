@@ -100,7 +100,7 @@ const schema = {
       userSettings: [UserSetting]
       exportUserData: UserDataExport
       oAuthServices(services: [String]): [String]
-      orgProducts: [Product]
+      orgProduct: [Product]
       products: [Product]
       product(_id: String): Product
       productTrxItem(_id: String): Product
@@ -212,7 +212,7 @@ const schema = {
       user: UserQueries.user,
     },
     Org: {
-      products: ProductQueries.orgProducts,
+      products: ProductQueries.orgProduct,
       locations: LocationQueries.orgLocations,
       members: UserQueries.users,
       files: FileQueries.orgFiles,
@@ -241,7 +241,7 @@ const schema = {
     },
     TrxItem: {
       trx: TrxQueries.trx,
-      product: ProductQueries.productTrxItem,
+      product: ProductQueries.product,
     },
   },
 };

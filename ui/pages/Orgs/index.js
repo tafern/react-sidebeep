@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import OrgItem from '../../components/OrgItem';
 import BlankState from '../../components/BlankState';
-import { orgs as orgQuery } from '../../queries/Orgs.gql';
+import { orgs as orgQuery } from '../../queries/Org.gql';
 import Styles from './styles';
 
 const Orgs = ({ data }) => (

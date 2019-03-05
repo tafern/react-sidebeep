@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import ProductItem from '../../components/ProductItem';
 import BlankState from '../../components/BlankState';
-import { products as productsQuery } from '../../queries/Products.gql';
+import { products as productsQuery } from '../../queries/Product.gql';
 import Styles from './styles';
 
-const Products = ({ data }) => (
+const Product = ({ data }) => (
   <Styles.GridWrapper className="clearfix">
     {/* <TotalCountSearch>
         {searchKeyword
@@ -43,8 +43,8 @@ const Products = ({ data }) => (
   </Styles.GridWrapper>
 );
 
-Products.propTypes = {
+Product.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default graphql(productsQuery)(Products);
+export default graphql(productsQuery)(Product);

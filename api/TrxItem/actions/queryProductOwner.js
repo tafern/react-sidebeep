@@ -1,10 +1,10 @@
 /* eslint-disable consistent-return */
 
-import Products from '../../Products/Products';
+import Product from '../../Product/Product';
 
 const getProduct = (productId) => {
   try {
-    return Products.findOne({ _id: productId });
+    return Product.findOne({ _id: productId });
   } catch (exception) {
     throw new Error(`[queryProductOwner.getProduct] ${exception.message}`);
   }

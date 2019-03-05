@@ -1,4 +1,4 @@
-#import "../fragments/Trxs.gql"
+#import "../fragments/Trx.gql"
 
 query trxs {
  trxs {

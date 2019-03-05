@@ -8,7 +8,7 @@ import Campaign from '../Campaign';
 import ProductList from '../ProductList';
 import Partner from '../Partner';
 import NewsInfo from '../NewsInfo';
-import { products as productQuery } from '../../queries/Products.gql';
+import { products as productQuery } from '../../queries/Product.gql';
 
 const HomePage = ({ productDataQuery }) => (
   <div>
@@ -85,7 +85,7 @@ const HomePage = ({ productDataQuery }) => (
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
     </Styles.Category>
-    <Styles.Products>
+    <Styles.Product>
       <Styles.Wrapper className="clearfix">
         <Styles.ProductTitle className="pull-left">Recommendation</Styles.ProductTitle>
         <Styles.WrapperViewAll className="pull-right" to="/products">
@@ -95,9 +95,9 @@ const HomePage = ({ productDataQuery }) => (
       <Styles.ProductDescription>
         Services that are mostly orders by our customers
       </Styles.ProductDescription>
-      {/* Products */}
+      {/* Product */}
       <ProductList data={productDataQuery} />
-    </Styles.Products>
+    </Styles.Product>
     <Styles.News>
       <Styles.Wrapper className="clearfix">
         <Styles.NewsTitle className="pull-left">News</Styles.NewsTitle>
@@ -108,16 +108,16 @@ const HomePage = ({ productDataQuery }) => (
       {/* News */}
       <NewsInfo />
     </Styles.News>
-    <Styles.Products>
+    <Styles.Product>
       <Styles.Wrapper className="clearfix">
         <Styles.ProductTitle className="pull-left">All Services</Styles.ProductTitle>
         <Styles.WrapperViewAll className="pull-right underLinkView" to="/products">
           View all
         </Styles.WrapperViewAll>
       </Styles.Wrapper>
-      {/* Products */}
+      {/* Product */}
       <ProductList data={productDataQuery} isSmall />
-    </Styles.Products>
+    </Styles.Product>
     <Styles.MediaPartner>
       <Styles.Wrapper>
         <Styles.H3>Media Patner</Styles.H3>

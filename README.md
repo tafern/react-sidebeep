@@ -1,7 +1,7 @@
 ### Pup
 Latest commit 0199e0b on nov 16, 2018
 
-The Ultimate Boilerplate for Products.
+The Ultimate Boilerplate for Product.
 
 [Read the Documentation](https://cleverbeagle.com/pup)
 

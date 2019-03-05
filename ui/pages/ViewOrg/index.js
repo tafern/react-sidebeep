@@ -5,7 +5,7 @@ import parseMarkdown from '../../../modules/parseMarkdown';
 import SEO from '../../components/SEO';
 // import ProductItem from '../../components/ProductItem';
 import BlankState from '../../components/BlankState';
-import { org as orgQuery } from '../../queries/Orgs.gql';
+import { org as orgQuery } from '../../queries/Org.gql';
 import Styles from './styles';
 
 class ViewOrg extends React.Component {

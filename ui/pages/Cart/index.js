@@ -9,8 +9,8 @@ import CartSidebar from './CartSidebar';
 import CartForm from './CartForm';
 import OtherProduct from '../OtherProduct';
 import BlankState from '../../components/BlankState';
-import { trxs as trxsQuery } from '../../queries/Trxs.gql';
-import { products as productsQuery } from '../../queries/Products.gql';
+import { trxs as trxsQuery } from '../../queries/Trx.gql';
+import { products as productsQuery } from '../../queries/Product.gql';
 
 class Cart extends React.Component {
   componentWillMount() {}
