@@ -203,6 +203,7 @@ const orgLocationSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Les Elite',
+            url: '/assets/les_elite/logo_vendor.jpeg',
           },
           address: 'Jl MH Thamrin 9 Menara Cakrawala Lt 5,Kebon Sirih',
           city: 'Jakarta Pusat',
@@ -229,6 +230,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Les Elite',
+            url: '/assets/les_elite/logo_vendor.jpeg',
           },
           name: 'Regular',
           description:
@@ -243,6 +245,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Les Elite',
+            url: '/assets/les_elite/logo_vendor.jpeg',
           },
           name: 'Promo #Berimlek Ultra Nano',
           description:
@@ -257,6 +260,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Les Elite',
+            url: '/assets/les_elite/logo_vendor.jpeg',
           },
           name: 'PRO Service',
           description:
@@ -271,6 +275,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Les Elite',
+            url: '/assets/les_elite/logo_vendor.jpeg',
           },
           name: 'Premium',
           description:
@@ -285,6 +290,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Les Elite',
+            url: '/assets/les_elite/logo_vendor.jpeg',
           },
           name: 'Glass Water Sport',
           description: 'Perawatan Mobil penanganan Glass Water Spot.',
@@ -298,6 +304,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Les Elite',
+            url: '/assets/les_elite/logo_vendor.jpeg',
           },
           name: 'Body Water Spot',
           description: 'Perawatan mobil untuk Body Water Spot.',
@@ -311,6 +318,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Les Elite',
+            url: '/assets/les_elite/logo_vendor.jpeg',
           },
           name: 'Poles / Salon',
           description:
@@ -339,6 +347,7 @@ export const lesEliteSeed = (userId) => {
                 _id: 'ORG50000',
                 type: 'Org',
                 fullname: 'Les Elite',
+                url: '/assets/les_elite/logo_vendor.jpeg',
               },
               type: 'Image_Cover_Detail',
               status: 'Active',
@@ -351,6 +360,7 @@ export const lesEliteSeed = (userId) => {
                 _id: 'ORG50000',
                 type: 'Org',
                 fullname: 'Les Elite',
+                url: '/assets/les_elite/logo_vendor.jpeg',
               },
               address: 'Jl MH Thamrin 9 Menara Cakrawala Lt 5,Kebon Sirih',
               city: 'Jakarta Pusat',
@@ -380,6 +390,7 @@ export const lesEliteSeed = (userId) => {
                 _id: 'ORG50000',
                 type: 'Org',
                 fullname: 'Les Elite',
+                url: '/assets/les_elite/logo_vendor.jpeg',
               },
               name: 'Regular',
               description:
@@ -394,6 +405,7 @@ export const lesEliteSeed = (userId) => {
                 _id: 'ORG50000',
                 type: 'Org',
                 fullname: 'Les Elite',
+                url: '/assets/les_elite/logo_vendor.jpeg',
               },
               name: 'Promo #Berimlek Ultra Nano',
               description:
@@ -408,6 +420,7 @@ export const lesEliteSeed = (userId) => {
                 _id: 'ORG50000',
                 type: 'Org',
                 fullname: 'Les Elite',
+                url: '/assets/les_elite/logo_vendor.jpeg',
               },
               name: 'PRO Service',
               description:
@@ -422,6 +435,7 @@ export const lesEliteSeed = (userId) => {
                 _id: 'ORG50000',
                 type: 'Org',
                 fullname: 'Les Elite',
+                url: '/assets/les_elite/logo_vendor.jpeg',
               },
               name: 'Premium',
               description:
@@ -436,6 +450,7 @@ export const lesEliteSeed = (userId) => {
                 _id: 'ORG50000',
                 type: 'Org',
                 fullname: 'Les Elite',
+                url: '/assets/les_elite/logo_vendor.jpeg',
               },
               name: 'Glass Water Sport',
               description: 'Perawatan Mobil penanganan Glass Water Spot.',
@@ -449,6 +464,7 @@ export const lesEliteSeed = (userId) => {
                 _id: 'ORG50000',
                 type: 'Org',
                 fullname: 'Les Elite',
+                url: '/assets/les_elite/logo_vendor.jpeg',
               },
               name: 'Body Water Spot',
               description: 'Perawatan mobil untuk Body Water Spot.',
@@ -462,6 +478,7 @@ export const lesEliteSeed = (userId) => {
                 _id: 'ORG50000',
                 type: 'Org',
                 fullname: 'Les Elite',
+                url: '/assets/les_elite/logo_vendor.jpeg',
               },
               name: 'Poles / Salon',
               description:
@@ -475,6 +492,7 @@ export const lesEliteSeed = (userId) => {
             _id: 'ORG50000',
             type: 'Org',
             fullname: 'Les Elite',
+            url: '/assets/les_elite/logo_vendor.jpeg',
           },
           type: 'Channel',
           status: 'Active',

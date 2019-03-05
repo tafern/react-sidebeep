@@ -15,6 +15,7 @@ export default `
     _id: String
     type: String  #Org or Member
     fullname: String
+    url: String
   }
   
   type History{

@@ -58,9 +58,9 @@ function ProductList(data) {
               <ProductItem
                 productName={item.name}
                 price={item.price}
-                orderCount={item.orderCount}
-                viewCount={item.viewCount}
-                org={item.user}
+                orderCount="0"
+                viewCount="0"
+                org={item.owner}
                 files={item.files}
                 id={item._id}
                 isSmall={data.isSmall}

@@ -168,6 +168,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Mau Kemana Si',
+            url: '/assets/mau_kemana_si/logo_vendor.jpeg',
           },
           name: 'One Day Trip 3 Pulau & Lampion Party',
           description:
@@ -182,6 +183,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Mau Kemana Si',
+            url: '/assets/mau_kemana_si/logo_vendor.jpeg',
           },
           name: 'Open Trip Dieng Negeri Diatas Awan (3D2N)',
           description:
@@ -196,6 +198,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Mau Kemana Si',
+            url: '/assets/mau_kemana_si/logo_vendor.jpeg',
           },
           name: 'Open Trip Pahawang Start Jakarta (3D2N)',
           description:
@@ -210,6 +213,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Mau Kemana Si',
+            url: '/assets/mau_kemana_si/logo_vendor.jpeg',
           },
           name: 'Open Trip Pahawang Start Merak (3D2N)',
           description:
@@ -224,6 +228,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Mau Kemana Si',
+            url: '/assets/mau_kemana_si/logo_vendor.jpeg',
           },
           name: 'Open Trip Peucang Start Jakarta (3D2N)',
           description:
@@ -248,6 +253,7 @@ const orgLocationSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Mau Kemana Si',
+            url: '/assets/mau_kemana_si/logo_vendor.jpeg',
           },
           address: 'Jl MH Thamrin 9 Menara Cakrawala Lt 5,Kebon Sirih',
           city: 'Jakarta Pusat',
@@ -277,6 +283,7 @@ export const mauKemanaSiSeed = (userId) => {
                 _id: 'ORG70000',
                 type: 'Org',
                 fullname: 'Mau Kemana Si',
+                url: '/assets/mau_kemana_si/logo_vendor.jpeg',
               },
               type: 'Image_Cover_Detail',
               status: 'Active',
@@ -289,6 +296,7 @@ export const mauKemanaSiSeed = (userId) => {
                 _id: 'ORG70000',
                 type: 'Org',
                 fullname: 'Mau Kemana Si',
+                url: '/assets/mau_kemana_si/logo_vendor.jpeg',
               },
               address: 'Jl MH Thamrin 9 Menara Cakrawala Lt 5,Kebon Sirih',
               city: 'Jakarta Pusat',
@@ -318,6 +326,7 @@ export const mauKemanaSiSeed = (userId) => {
                 _id: 'ORG70000',
                 type: 'Org',
                 fullname: 'Mau Kemana Si',
+                url: '/assets/mau_kemana_si/logo_vendor.jpeg',
               },
               name: 'One Day Trip 3 Pulau & Lampion Party',
               description:
@@ -332,6 +341,7 @@ export const mauKemanaSiSeed = (userId) => {
                 _id: 'ORG70000',
                 type: 'Org',
                 fullname: 'Mau Kemana Si',
+                url: '/assets/mau_kemana_si/logo_vendor.jpeg',
               },
               name: 'Open Trip Dieng Negeri Diatas Awan (3D2N)',
               description:
@@ -346,6 +356,7 @@ export const mauKemanaSiSeed = (userId) => {
                 _id: 'ORG70000',
                 type: 'Org',
                 fullname: 'Mau Kemana Si',
+                url: '/assets/mau_kemana_si/logo_vendor.jpeg',
               },
               name: 'Open Trip Pahawang Start Jakarta (3D2N)',
               description:
@@ -360,6 +371,7 @@ export const mauKemanaSiSeed = (userId) => {
                 _id: 'ORG70000',
                 type: 'Org',
                 fullname: 'Mau Kemana Si',
+                url: '/assets/mau_kemana_si/logo_vendor.jpeg',
               },
               name: 'Open Trip Pahawang Start Merak (3D2N)',
               description:
@@ -374,6 +386,7 @@ export const mauKemanaSiSeed = (userId) => {
                 _id: 'ORG70000',
                 type: 'Org',
                 fullname: 'Mau Kemana Si',
+                url: '/assets/mau_kemana_si/logo_vendor.jpeg',
               },
               name: 'Open Trip Peucang Start Jakarta (3D2N)',
               description:
@@ -387,6 +400,7 @@ export const mauKemanaSiSeed = (userId) => {
             _id: 'ORG70000',
             type: 'Org',
             fullname: 'Mau Kemana Si',
+            url: '/assets/mau_kemana_si/logo_vendor.jpeg',
           },
           type: 'Channel',
           status: 'Active',

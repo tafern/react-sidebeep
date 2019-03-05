@@ -132,6 +132,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Katros Garage',
+            url: '/assets/katros_garage/logo_vendor.jpeg',
           },
           name: 'Custom Motor Kawasaki W175 Stage 1',
           description:
@@ -146,6 +147,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Katros Garage',
+            url: '/assets/katros_garage/logo_vendor.jpeg',
           },
           name: 'Custom Motor Kawasaki W175 Stage 2',
           description:
@@ -160,6 +162,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Katros Garage',
+            url: '/assets/katros_garage/logo_vendor.jpeg',
           },
           name: 'Custom Motor Kawasaki W175 Stage 3',
           description:
@@ -184,6 +187,7 @@ const orgLocationSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Katros Garage',
+            url: '/assets/katros_garage/logo_vendor.jpeg',
           },
           address: 'Jl MH Thamrin 9 Menara Cakrawala Lt 5,Kebon Sirih',
           city: 'Jakarta Pusat',
@@ -213,6 +217,7 @@ export const katrosGarageSeed = (userId) => {
                 _id: 'ORG30000',
                 type: 'Org',
                 fullname: 'Katros Garage',
+                url: '/assets/katros_garage/logo_vendor.jpeg',
               },
               type: 'Image_Cover_Detail',
               status: 'Active',
@@ -225,6 +230,7 @@ export const katrosGarageSeed = (userId) => {
                 _id: 'ORG30000',
                 type: 'Org',
                 fullname: 'Katros Garage',
+                url: '/assets/katros_garage/logo_vendor.jpeg',
               },
               address: 'Jl MH Thamrin 9 Menara Cakrawala Lt 5,Kebon Sirih',
               city: 'Jakarta Pusat',
@@ -254,6 +260,7 @@ export const katrosGarageSeed = (userId) => {
                 _id: 'ORG30000',
                 type: 'Org',
                 fullname: 'Katros Garage',
+                url: '/assets/katros_garage/logo_vendor.jpeg',
               },
               name: 'Custom Motor Kawasaki W175 Stage 1',
               description:
@@ -268,6 +275,7 @@ export const katrosGarageSeed = (userId) => {
                 _id: 'ORG30000',
                 type: 'Org',
                 fullname: 'Katros Garage',
+                url: '/assets/katros_garage/logo_vendor.jpeg',
               },
               name: 'Custom Motor Kawasaki W175 Stage 2',
               description:
@@ -282,6 +290,7 @@ export const katrosGarageSeed = (userId) => {
                 _id: 'ORG30000',
                 type: 'Org',
                 fullname: 'Katros Garage',
+                url: '/assets/katros_garage/logo_vendor.jpeg',
               },
               name: 'Custom Motor Kawasaki W175 Stage 3',
               description:
@@ -295,6 +304,7 @@ export const katrosGarageSeed = (userId) => {
             _id: 'ORG30000',
             type: 'Org',
             fullname: 'Katros Garage',
+            url: '/assets/katros_garage/logo_vendor.jpeg',
           },
           type: 'Channel',
           status: 'Active',

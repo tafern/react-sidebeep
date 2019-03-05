@@ -42,13 +42,13 @@ class ProductPortfolio extends React.Component {
     return (
       <ContentWrapper>
         {portfolio.map((item, index) => {
-          if (item.refType === 'Portfolio') {
+          if (item.type === 'Image_Portfolio_Detail') {
             return (
               <BlockGrid
                 key={item._id}
                 onClick={(e) => this.handleShowModal(e, item, portfolio, index, 3)}
               >
-                <PortfolioImage src={item.images[0].imgUrl} alt="sidebeep service" />
+                <PortfolioImage src={item.url} alt="sidebeep service" />
               </BlockGrid>
             );
           }
@@ -67,6 +67,6 @@ class ProductPortfolio extends React.Component {
   }
 }
 ProductPortfolio.propTypes = {
-  portfolio: PropTypes.string.isRequired,
+  portfolio: PropTypes.array.isRequired,
 };
 export default ProductPortfolio;

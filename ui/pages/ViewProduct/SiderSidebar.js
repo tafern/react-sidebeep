@@ -37,15 +37,11 @@ class SiderSidebar extends React.Component {
     const id = 'fEjfJn9wArz8aeb4m';
     return (
       <SiderContainer>
-        <SiderWrapper to={`/org/${org.org._id}`}>
-          {org.files.map((item) => (
-            <div key={item._id}>
-              <SiderImage src={item.images[0].imgUrl} alt="siderImage" />
-            </div>
-          ))}
-          <SiderName>
-            {org.name.first} {org.name.last}
-          </SiderName>
+        <SiderWrapper to={`/org/${org._id}`}>
+          <div>
+            <SiderImage src={org.url} alt="siderImage" />
+          </div>
+          <SiderName>{org.fullname}</SiderName>
         </SiderWrapper>
         <SiderRatingWrapper>
           <SiderRating>

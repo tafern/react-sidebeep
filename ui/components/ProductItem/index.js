@@ -19,12 +19,12 @@ const ProductItem = ({
     <Styles.HeaderContentWrapper>
       {files.length > 0 ? (
         files.map((item) => {
-          if (item.refType === 'ProductCover') {
+          if (item.type === 'Image_Portfolio_Detail') {
             return (
               <div key={item._id}>
                 <Styles.ProductImage
                   className="mr-3"
-                  src={item.images[0].imgUrl}
+                  src={item.url}
                   alt="imgProduct"
                   isSmall={isSmall}
                   isGrid={isGrid}
@@ -45,13 +45,11 @@ const ProductItem = ({
       )}
       <Styles.ItemWrapper>
         <Styles.SiderWrapper to={`/org/${id}`}>
-          {org.files.map((item) => (
-            <div key={item._id}>
-              <Styles.SiderImage isSmall={isSmall} src={item.images[0].imgUrl} alt="siderImage" />
-            </div>
-          ))}
+          <div>
+            <Styles.SiderImage isSmall={isSmall} src={org.url} alt="siderImage" />
+          </div>
           <Styles.SiderName isSmall={isSmall} isGrid={isGrid}>
-            {org.name.first} {org.name.last}
+            {org.fullname}
           </Styles.SiderName>
         </Styles.SiderWrapper>
         <Styles.ProductName>{productName}</Styles.ProductName>
@@ -95,8 +93,8 @@ ProductItem.propTypes = {
   productName: PropTypes.string.isRequired,
   files: PropTypes.array.isRequired,
   price: PropTypes.number.isRequired,
-  orderCount: PropTypes.number.isRequired,
-  viewCount: PropTypes.number.isRequired,
+  orderCount: PropTypes.string.isRequired,
+  viewCount: PropTypes.string.isRequired,
   org: PropTypes.object.isRequired,
   isSmall: PropTypes.bool,
   isGrid: PropTypes.bool,

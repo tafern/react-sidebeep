@@ -74,8 +74,8 @@ class ViewProduct extends React.Component {
               <MainContent
                 productName={item.name}
                 price={item.price}
-                orderCount={item.orderCount}
-                viewCount={item.viewCount}
+                orderCount="0"
+                viewCount="0"
                 createdAt={item.createdAt}
                 productDescription={item.description}
                 files={item.files}
@@ -98,7 +98,7 @@ class ViewProduct extends React.Component {
                   {({ style, isSticky }) => (
                     <div style={style}>
                       {isSticky ? <div style={{ height: '95px' }} /> : ''}
-                      <SiderSidebar org={item.user} />
+                      <SiderSidebar org={item.owner} />
                     </div>
                   )}
                 </Sticky>

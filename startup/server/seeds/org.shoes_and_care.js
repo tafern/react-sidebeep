@@ -131,6 +131,7 @@ const orgLocationSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Shoes And Care',
+            url: '/assets/shoes_and_care/logo_vendor.jpeg',
           },
           address: 'Jl MH Thamrin 9 Menara Cakrawala Lt 5,Kebon Sirih',
           city: 'Jakarta Pusat',
@@ -157,6 +158,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Shoes And Care',
+            url: '/assets/shoes_and_care/logo_vendor.jpeg',
           },
           name: 'Deep Cleaning Shoes',
           description:
@@ -171,6 +173,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Shoes And Care',
+            url: '/assets/shoes_and_care/logo_vendor.jpeg',
           },
           name: 'Bag Care Medium',
           description:
@@ -185,6 +188,7 @@ export const orgProductSeed = (orgId) => {
             _id: orgId,
             type: 'Org',
             fullname: 'Shoes And Care',
+            url: '/assets/shoes_and_care/logo_vendor.jpeg',
           },
           name: 'Snapback Cleaning Hard',
           description:
@@ -213,6 +217,7 @@ export const shoesAndCareSeed = (userId) => {
                 _id: 'ORG80000',
                 type: 'Org',
                 fullname: 'Shoes And Care',
+                url: '/assets/shoes_and_care/logo_vendor.jpeg',
               },
               type: 'Image_Cover_Detail',
               status: 'Active',
@@ -225,6 +230,7 @@ export const shoesAndCareSeed = (userId) => {
                 _id: 'ORG80000',
                 type: 'Org',
                 fullname: 'Shoes And Care',
+                url: '/assets/shoes_and_care/logo_vendor.jpeg',
               },
               address: 'Jl MH Thamrin 9 Menara Cakrawala Lt 5,Kebon Sirih',
               city: 'Jakarta Pusat',
@@ -254,6 +260,7 @@ export const shoesAndCareSeed = (userId) => {
                 _id: 'ORG80000',
                 type: 'Org',
                 fullname: 'Shoes And Care',
+                url: '/assets/shoes_and_care/logo_vendor.jpeg',
               },
               name: 'Deep Cleaning Shoes',
               description:
@@ -268,6 +275,7 @@ export const shoesAndCareSeed = (userId) => {
                 _id: 'ORG80000',
                 type: 'Org',
                 fullname: 'Shoes And Care',
+                url: '/assets/shoes_and_care/logo_vendor.jpeg',
               },
               name: 'Bag Care Medium',
               description:
@@ -282,6 +290,7 @@ export const shoesAndCareSeed = (userId) => {
                 _id: 'ORG80000',
                 type: 'Org',
                 fullname: 'Shoes And Care',
+                url: '/assets/shoes_and_care/logo_vendor.jpeg',
               },
               name: 'Snapback Cleaning Hard',
               description:
@@ -295,6 +304,7 @@ export const shoesAndCareSeed = (userId) => {
             _id: 'ORG80000',
             type: 'Org',
             fullname: 'Shoes And Care',
+            url: '/assets/shoes_and_care/logo_vendor.jpeg',
           },
           type: 'Channel',
           status: 'Active',

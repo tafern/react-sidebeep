@@ -21,10 +21,10 @@ class Portfolio extends React.Component {
       <PortfolioWrapper>
         <Slider {...settings}>
           {files.map((item) => {
-            if (item.refType === 'ProductCover') {
+            if (item.type === 'Image_Cover_Detail') {
               return (
                 <div key={item._id}>
-                  <PortfolioImage src={item.images[0].imgUrl} alt="sidebeep service" />
+                  <PortfolioImage src={item.url} alt="sidebeep service" />
                 </div>
               );
             }

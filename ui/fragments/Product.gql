@@ -6,57 +6,44 @@ fragment ProductAttributes on Product {
   name
   description
   price
-  viewCount
-  orderCount
+  countView
+  countMember
+  countTrxQty
+  countReview
+  countTrxAmount
   locations {
     _id
     address
     city
-    postcode
-    orgId
+    zipcode
+    owner {
+        fullname
+    }
     latitude
     longitude
     province
-  }
-  categories {
-    _id
-    name
-    description
-    files {
-      _id
-      refId
-      fileUrl
-      images {
-        _id
-        imgUrl
-      }
-    }
-  }
-  files {
-    _id
-    refType
-    images{
-      _id
-      imgUrl
-    }
-  }
-  user {
-    _id
-    name {
-      first
-      last
-    }
-    files {
-      _id
-      images {
-        _id
-        imgUrl
-      }
-    }
-    org {
-      _id
-    }
-  }
-  updatedAt
-  createdAt
+ }
+  tags {
+   _id
+   name
+   description
+   files {
+     _id
+     type
+     url
+   }
+ }
+ files {
+   _id
+   type
+   url
+ }
+ owner {
+   _id
+   type
+   fullname
+   url
+ }
+  # updatedAt
+  # createdAt
 }
