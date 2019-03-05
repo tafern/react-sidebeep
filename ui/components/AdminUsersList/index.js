@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from 'react-autobind';
@@ -22,8 +24,8 @@ class AdminUsersList extends React.Component {
     for (let pageNumber = 1; pageNumber <= pagesToGenerate; pageNumber += 1) {
       pages.push(
         <li
-          role="button"
           key={`pagination_${pageNumber}`}
+          role="button"
           className={pageNumber === currentPage ? 'active' : ''}
           onClick={() => onChangePage(pageNumber)}
           onKeyDown={() => onChangePage(pageNumber)}
@@ -40,7 +42,6 @@ class AdminUsersList extends React.Component {
 
   render() {
     const { data, search, perPage } = this.props;
-
     if (data.loading) return <Loading />;
     return (
       <React.Fragment>

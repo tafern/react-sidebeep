@@ -34,12 +34,14 @@ export const UserLink = styled(NavItem)`
   color: ${SB_WHITE};
   a {
     color: white !important;
-    padding: 1.2em 1.5em !important;
+    padding: 17px 15px;
+    // padding: 1.2em 1.5em !important;
     line-height: 30px !important;
 
     &:hover,
     &:focus {
       background: ${SB_DARK_GREEN};
+      padding: 17px 15px;
     }
   }
 `;
@@ -47,7 +49,7 @@ export const UserMenuDropdown = styled(NavDropdown)`
   color: ${SB_WHITE};
   a {
     color: white !important;
-    padding: 1.2em 1.5em !important;
+    // padding: 1.2em 1.5em !important;
     line-height: 30px !important;
 
     &:hover,
@@ -60,7 +62,7 @@ export const UserMenuItem = styled(MenuItem)`
   color: ${SB_WHITE};
   a {
     color: white !important;
-    padding: 1.2em 1.5em !important;
+    // padding: 1.2em 1.5em !important;
     line-height: 30px !important;
     background-color: ${SB_GREEN};
 
@@ -70,7 +72,8 @@ export const UserMenuItem = styled(MenuItem)`
     }
   }
 `;
-export const IconCart = styled.i`
+export const IconNavbar = styled.i`
   color: ${SB_WHITE};
   font-size: 22px;
+  top: 5px;
 `;

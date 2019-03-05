@@ -20,9 +20,11 @@ const HeaderCampaign = styled(Col)`
 const CampaignPromo = styled.div`
   width: 100%;
   padding-bottom: 10px;
+  display: block;
   @media (max-width: 380px) {
     padding-bottom: 0;
     margin: 10px 0;
+    display: none;
   }
 `;
 const CampaignPromoImage = styled.img`
@@ -47,41 +49,51 @@ const LinkCampaign = styled(Link)`
   }
 `;
 const Category = styled.div`
-  padding: 5px 20px;
   border-radius: 5px;
   position: relative;
+  margin-left: 10px;
 
   @media screen and (max-width: 360px) {
     margin: 10px 0;
   }
 `;
-const CategoryWrapper = styled.div`
-  margin: 25px 0;
-  color: ${SB_GREEN};
-`;
 const CategoryLink = styled(Link)`
-  width: 100px;
+  width: 122px;
   float: left;
   &:hover,
   &:focus {
     cursor: pointer;
     text-decoration: none;
   }
+  @media (max-width: 380px) {
+    width: 80px;
+    height: 100px;
+  }
+`;
+const CategoryWrapper = styled.div`
+  margin: 20px 0;
+  color: ${SB_GREEN};
+  text-align: center;
 `;
 const CategoryLine = styled.div`
   background-color: ${SB_LIGHT_GREY};
-  padding: 1px;
   float: left;
   height: 35px;
-  margin: 25px 20px 0 20px;
+  margin: 25px 10px 0 10px;
+  padding: 0.5px;
+  display: block;
+  @media (max-width: 380px) {
+    display: none;
+  }
 `;
 const IconCategory = styled.img`
   width: 35px;
-  margin-right: 5px;
-  float: left;
+  margin-top: 3px;
+  height: 30px;
 `;
 const IconTitle = styled.div`
-  padding-top: 8px;
+  padding-top: 5px;
+  font-size: 13px;
 `;
 const Product = styled.div`
   margin: 10px auto;
@@ -136,7 +148,32 @@ const NewsTitle = styled.div`
   font-size: 20px;
   color: ${SB_DARK_GREY};
 `;
-const MediaPartner = styled.div`
+const VideoTitle = styled.div`
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 20px;
+  color: ${SB_DARK_GREY};
+`;
+const Videos = styled.div`
+  padding: 5px;
+  margin: 10px auto;
+  border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    padding: 5px 8px 10px 8px;
+    margin: 10px 0;
+  }
+`;
+const MediaTitle = styled.div`
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding-left: 8px;
+  font-weight: 400;
+  font-size: 20px;
+  color: ${SB_DARK_GREY};
+`;
+const MediaCoverage = styled.div`
   padding: 5px;
   margin: 10px auto;
   border-radius: 5px;
@@ -155,14 +192,20 @@ const H3 = styled.h3`
 `;
 const VideoWrapper = styled.div`
   width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; //16 x 9
-  position: relative;
-  .player {
-    position: absolute;
-    top: 0;
+  max-width: 1080px;
+  margin: 10px auto;
+  .fullSize {
     width: 100%;
-    height: 100%;
+    height: 676px;
+    @media (max-width: 1200px) {
+      height: 530px;
+    }
+    @media (max-width: 992px) {
+      height: 400px;
+    }
+    @media (max-width: 480px) {
+      height: 250px;
+    }
   }
 `;
 
@@ -185,7 +228,10 @@ export default {
   WrapperViewAll,
   News,
   NewsTitle,
-  MediaPartner,
+  VideoTitle,
+  Videos,
+  MediaTitle,
+  MediaCoverage,
   H3,
   VideoWrapper,
 };

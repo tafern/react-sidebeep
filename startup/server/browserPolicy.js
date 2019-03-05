@@ -9,11 +9,19 @@ BrowserPolicy.content.allowOriginForAll('*.bootstrapcdn.com');
 // FontAwesome
 BrowserPolicy.content.allowOriginForAll('use.fontawesome.com');
 
+// Font Family
+BrowserPolicy.content.allowOriginForAll('fonts.googleapis.com');
+BrowserPolicy.content.allowOriginForAll('fonts.gstatic.com');
+BrowserPolicy.content.allowOriginForAll('https://*.fonts.gstatic.com');
+
 // Cdnjs Slick
 BrowserPolicy.content.allowOriginForAll('cdnjs.cloudflare.com');
 
 // Font Ionicons
 BrowserPolicy.content.allowOriginForAll('unpkg.com');
+
+// Youtube
+BrowserPolicy.content.allowOriginForAll('https://*.youtube.com');
 
 // GraphQL Playground
 BrowserPolicy.content.allowOriginForAll('graphcool-playground.netlify.com');

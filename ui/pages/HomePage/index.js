@@ -6,6 +6,7 @@ import { Row } from 'react-bootstrap';
 import Styles from './styles';
 import Campaign from '../Campaign';
 import ProductList from '../ProductList';
+import Video from '../Video';
 import Partner from '../Partner';
 import NewsInfo from '../NewsInfo';
 import { products as productQuery } from '../../queries/Product.gql';
@@ -21,66 +22,66 @@ const HomePage = ({ productDataQuery }) => (
       </Styles.HeaderCampaign>
       <Styles.HeaderCampaign md={4}>
         <Styles.CampaignPromo>
-          <Styles.CampaignPromoImage src="/banner-top.jpg" alt="promo" />
+          <Styles.CampaignPromoImage src="/img/banner-top.jpg" alt="promo" />
         </Styles.CampaignPromo>
         <Styles.CampaignPromo>
-          <Styles.CampaignPromoImage src="/banner-bottom.jpg" alt="promo" />
+          <Styles.CampaignPromoImage src="/img/banner-bottom.jpg" alt="promo" />
         </Styles.CampaignPromo>
       </Styles.HeaderCampaign>
     </Row>
     <Styles.Category className="clearfix">
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory src="/img/icons/icon2-repair.png" />
+          <Styles.IconCategory src="/img/icons/categories/category-repair.png" />
           <Styles.IconTitle>Repair</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory src="/img/icons/icon2-home-utilities.png" />
-          <Styles.IconTitle>Home</Styles.IconTitle>
+          <Styles.IconCategory src="/img/icons/categories/category-homecare.png" />
+          <Styles.IconTitle>Home Care</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory src="/img/icons/icon2-beauty.png" />
-          <Styles.IconTitle>Beauty</Styles.IconTitle>
+          <Styles.IconCategory src="/img/icons/categories/category-beauty-groom.png" />
+          <Styles.IconTitle>Beauty & Grooming</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory src="/img/icons/icon2-health.png" />
+          <Styles.IconCategory src="/img/icons/categories/category-health.png" />
           <Styles.IconTitle>Health</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory src="/img/icons/icon2-fashion.png" />
+          <Styles.IconCategory src="/img/icons/categories/category-fashion.png" />
           <Styles.IconTitle>Fashion</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory src="/img/icons/icon2-art.png" />
+          <Styles.IconCategory src="/img/icons/categories/category-art.png" />
           <Styles.IconTitle>Art</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory src="/img/icons/icon2-hobbies.png" />
+          <Styles.IconCategory src="/img/icons/categories/category-hobbies.png" />
           <Styles.IconTitle>Hobbies</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
       <Styles.CategoryLine />
       <Styles.CategoryLink to="/category">
         <Styles.CategoryWrapper>
-          <Styles.IconCategory src="/img/icons/icon2-other.png" />
+          <Styles.IconCategory src="/img/icons/categories/category-others.png" />
           <Styles.IconTitle>Others</Styles.IconTitle>
         </Styles.CategoryWrapper>
       </Styles.CategoryLink>
@@ -92,10 +93,10 @@ const HomePage = ({ productDataQuery }) => (
           View all
         </Styles.WrapperViewAll>
       </Styles.Wrapper>
-      <Styles.ProductDescription>
+      {/* <Styles.ProductDescription>
         Services that are mostly orders by our customers
-      </Styles.ProductDescription>
-      {/* Product */}
+      </Styles.ProductDescription> */}
+      {/* Products */}
       <ProductList data={productDataQuery} />
     </Styles.Product>
     <Styles.News>
@@ -110,7 +111,27 @@ const HomePage = ({ productDataQuery }) => (
     </Styles.News>
     <Styles.Product>
       <Styles.Wrapper className="clearfix">
-        <Styles.ProductTitle className="pull-left">All Services</Styles.ProductTitle>
+        <Styles.ProductTitle className="pull-left">For Female</Styles.ProductTitle>
+        <Styles.WrapperViewAll className="pull-right underLinkView" to="/products">
+          View all
+        </Styles.WrapperViewAll>
+      </Styles.Wrapper>
+      {/* Products */}
+      <ProductList data={productDataQuery} />
+    </Styles.Product>
+    <Styles.Product>
+      <Styles.Wrapper className="clearfix">
+        <Styles.ProductTitle className="pull-left">For Male</Styles.ProductTitle>
+        <Styles.WrapperViewAll className="pull-right underLinkView" to="/products">
+          View all
+        </Styles.WrapperViewAll>
+      </Styles.Wrapper>
+      {/* Products */}
+      <ProductList data={productDataQuery} />
+    </Styles.Product>
+    <Styles.Product>
+      <Styles.Wrapper className="clearfix">
+        <Styles.ProductTitle className="pull-left">New Services</Styles.ProductTitle>
         <Styles.WrapperViewAll className="pull-right underLinkView" to="/products">
           View all
         </Styles.WrapperViewAll>
@@ -118,24 +139,26 @@ const HomePage = ({ productDataQuery }) => (
       {/* Product */}
       <ProductList data={productDataQuery} isSmall />
     </Styles.Product>
-    <Styles.MediaPartner>
-      <Styles.Wrapper>
-        <Styles.H3>Media Patner</Styles.H3>
+    <Styles.Videos>
+      <Styles.Wrapper className="clearfix">
+        <Styles.VideoTitle className="pull-left">Videos</Styles.VideoTitle>
+        <Styles.WrapperViewAll className="pull-right underLinkView" to="/videos">
+          View all
+        </Styles.WrapperViewAll>
       </Styles.Wrapper>
-      {/* Media Partner */}
+      {/* Videos */}
+      <Video />
+    </Styles.Videos>
+    <Styles.MediaCoverage>
+      <Styles.Wrapper className="clearfix">
+        <Styles.MediaTitle className="pull-left">Media Coverage</Styles.MediaTitle>
+        <Styles.WrapperViewAll className="pull-right underLinkView" to="/videos">
+          View all
+        </Styles.WrapperViewAll>
+      </Styles.Wrapper>
+      {/* Media Coverage */}
       <Partner />
-    </Styles.MediaPartner>
-    {/* <Styles.VideoWrapper>
-      <iframe
-        className="player"
-        title="sidebeep-intro"
-        type="text/html"
-        width="100%"
-        height="100%"
-        src="https://www.youtube.com/embed/wR5Irqh0BN0"
-        frameBorder="0"
-      />
-    </Styles.VideoWrapper> */}
+    </Styles.MediaCoverage>
   </div>
 );
 HomePage.propTypes = {

@@ -8,14 +8,14 @@ import {
   SiderName,
   SiderRatingWrapper,
   SiderRating,
-  IconRating,
+  IconSiderRating,
   SiderCount,
   SiderLine,
-  IconImage,
+  InfoTitleSidebar,
+  InfoSidebar,
   SiderWrapInfo,
-  SiderIdentityImage,
-  SiderIdentityDesc,
   SiderDescription,
+  ButtonChatSider,
 } from './styles';
 // import fetchSiderInfo from 'common/siderDetail/actions';
 
@@ -45,32 +45,34 @@ class SiderSidebar extends React.Component {
         </SiderWrapper>
         <SiderRatingWrapper>
           <SiderRating>
-            <IconRating className="icon ion-md-star" /> 5
+            <IconSiderRating src="/img/icons/medal.svg" /> 5
           </SiderRating>
           <SiderCount>(22 review) | 48 orders | 70 views</SiderCount>
         </SiderRatingWrapper>
         <SiderLine />
-        <SiderWrapInfo>
-          <IconImage className="icon ion-md-archive" />
-          25 Services
-        </SiderWrapInfo>
-        <SiderWrapInfo>
-          <IconImage className="icon ion-md-locate" />
-          Jakarta
+        <SiderWrapInfo className="clearfix">
+          <InfoTitleSidebar>Total Services</InfoTitleSidebar>
+          <InfoSidebar>25 Services</InfoSidebar>
         </SiderWrapInfo>
         <SiderWrapInfo className="clearfix">
-          <SiderIdentityImage src="/img/icons/sb-verified.png" alt="identity" />
-          <SiderIdentityDesc>appropriate identity</SiderIdentityDesc>
+          <InfoTitleSidebar>Location Sider</InfoTitleSidebar>
+          <InfoSidebar>Jakarta</InfoSidebar>
         </SiderWrapInfo>
+        <SiderWrapInfo className="clearfix">
+          <InfoTitleSidebar>Avg. Response Time</InfoTitleSidebar>
+          <InfoSidebar>2 hours</InfoSidebar>
+        </SiderWrapInfo>
+        <SiderLine />
         <SiderDescription to={`/org/${id}`}>
           <ReadMoreReact
-            className="read-more-button"
             text={description}
             min={80}
             ideal={100}
             max={200}
+            readMoreText="View Profile"
           />
         </SiderDescription>
+        <ButtonChatSider>Chat Sider</ButtonChatSider>
       </SiderContainer>
     );
   }

@@ -8,8 +8,8 @@ const settings = {
   dots: false,
   speed: 500,
   arrows: true,
-  nextArrow: <Styles.ArrowIconNext src="/img/icons/next-button-banner.png" />,
-  prevArrow: <Styles.ArrowIconPrev src="/img/icons/back-button-banner.png" />,
+  nextArrow: <Styles.ArrowIconNext src="/img/icons/back-button-slider.png" />,
+  prevArrow: <Styles.ArrowIconPrev src="/img/icons/next-button-slider.png" />,
   autoplay: false,
   infinite: true,
   pauseOnHover: true,
@@ -17,6 +17,17 @@ const settings = {
   slidesToShow: 2,
   slidesToScroll: 2,
   swipeToSlide: true,
+  responsive: [
+    {
+      breakpoint: 448,
+      settings: {
+        arrows: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 const NewsInfo = () => (
   <Slider {...settings}>

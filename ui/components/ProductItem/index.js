@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
 import Styles from './styles';
+import HoverWrapper from './HoverWrapper';
 // import { timeago } from '../../../modules/dates';
 
 const ProductItem = ({
@@ -17,6 +18,7 @@ const ProductItem = ({
 }) => (
   <Styles.ProductItemWrapper to={`/product/${id}`}>
     <Styles.HeaderContentWrapper>
+      <HoverWrapper viewCount={viewCount} isGrid={isGrid} isSmall={isSmall} />
       {files.length > 0 ? (
         files.map((item) => {
           if (item.type === 'Image_Portfolio_Detail') {
@@ -72,11 +74,9 @@ const ProductItem = ({
           <Styles.ProductRatingWrapper className="clearfix">
             <Styles.ProductRating>
               <Styles.IconRating className="icon ion-md-star" />
-              (5)
+              4.5
             </Styles.ProductRating>
-            <Styles.ProductCount>
-              (2 review) | {orderCount} orders | {viewCount} views
-            </Styles.ProductCount>
+            <Styles.ProductCount>(2 review) | {orderCount} orders</Styles.ProductCount>
           </Styles.ProductRatingWrapper>
         )}
       </Styles.ItemWrapper>
