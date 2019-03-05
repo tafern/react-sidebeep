@@ -73,9 +73,6 @@ class MainContent extends React.Component {
       visitLocation =
         'Tim logistic Sidebeep akan menjemput dan mengantarkan kembali pesanan jasa Beeper';
     }
-    console.log('sider', this.state.activeSider);
-    console.log('beeper', this.state.activeBeeper);
-    console.log('logistic', this.state.activeLogistic);
     return (
       <ContentWrapper>
         <Row>

@@ -1,38 +1,85 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { ContentWrapper, DayName } from './styles';
+import {
+  ContentWrapper,
+  TitleWorkingHours,
+  DayInactiveName,
+  DayName,
+  Time,
+  NotedWorkingHours,
+  TitleLocation,
+} from './styles';
 
 const ProductSchedule = () => (
   <ContentWrapper>
     <Row>
-      <Col md={1}>
-        <DayName>Senin:</DayName>
+      <Col xs={6} md={6}>
+        <TitleWorkingHours>Working Hours :</TitleWorkingHours>
+        <div className="clearfix">
+          <DayName>Senin</DayName>
+          <Time>04.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayName>Selasa</DayName>
+          <Time>04.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayName>Rabu</DayName>
+          <Time>04.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayName>Kamis</DayName>
+          <Time>04.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayName>Jumat</DayName>
+          <Time>04.00 - 12.00 , 14.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayInactiveName>Sabtu</DayInactiveName>
+        </div>
+        <div className="clearfix">
+          <DayInactiveName>Minggu</DayInactiveName>
+        </div>
       </Col>
-      <Col md={11}>04.00 - 23.59</Col>
-      <Col md={1}>
-        <DayName>Selasa:</DayName>
+      <Col xs={6} md={6}>
+        <TitleWorkingHours>Chat Time :</TitleWorkingHours>
+        <div className="clearfix">
+          <DayName>Senin</DayName>
+          <Time>04.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayName>Selasa</DayName>
+          <Time>04.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayName>Rabu</DayName>
+          <Time>04.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayName>Kamis</DayName>
+          <Time>04.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayName>Jumat</DayName>
+          <Time>04.00 - 23.59</Time>
+        </div>
+        <div className="clearfix">
+          <DayInactiveName>Sabtu</DayInactiveName>
+        </div>
+        <div className="clearfix">
+          <DayInactiveName>Minggu</DayInactiveName>
+        </div>
       </Col>
-      <Col md={11}>04.00 - 23.59</Col>
-      <Col md={1}>
-        <DayName>Rabu:</DayName>
+      <Col md={12}>
+        <NotedWorkingHours>
+          <div>Notes:</div>
+          <div>Setiap hari libur / tanggal merah tutup</div>
+        </NotedWorkingHours>
       </Col>
-      <Col md={11}>04.00 - 23.59</Col>
-      <Col md={1}>
-        <DayName>Kamis:</DayName>
+      <Col md={12}>
+        <TitleLocation>Service Location</TitleLocation>
       </Col>
-      <Col md={11}>04.00 - 23.59</Col>
-      <Col md={1}>
-        <DayName>Jumat:</DayName>
-      </Col>
-      <Col md={11}>04.00 - 23.59</Col>
-      <Col md={1}>
-        <DayName>Sabtu:</DayName>
-      </Col>
-      <Col md={11}>04.00 - 23.59</Col>
-      <Col md={1}>
-        <DayName>Minggu:</DayName>
-      </Col>
-      <Col md={11}>04.00 - 23.59</Col>
     </Row>
   </ContentWrapper>
 );
