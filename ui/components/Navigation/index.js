@@ -15,9 +15,7 @@ class Navigation extends React.Component {
     };
   }
   onSearch = (event) => {
-    console.log('event', event.target.value);
     const { history } = this.props;
-    console.log('history', history);
     this.setState({ search: event.target.value });
     history.push('/products');
   };

@@ -9,7 +9,6 @@ import {
   SB_YELLOW,
   SB_WHITE,
   SB_LIGHT_GREY,
-  SB_BLACK,
   SB_DARK_GREEN,
 } from '../../../modules/styleConstants';
 
@@ -74,28 +73,6 @@ export const ProductTitle = styled.div`
   margin-top: 15px;
   color: ${SB_DARK_GREY};
 `;
-export const ProductSeenOrderWrapper = styled.div``;
-export const ProductSeenOrderImage = styled.img`
-  background-size: cover;
-  width: 25px;
-  height: 20px;
-  float: left;
-  margin: 5px;
-`;
-export const ProductSeenOrder = styled.div`
-  font-size: 12px;
-  margin: 5px 15px;
-  color: ${SB_MEDIUM_GREY};
-  @media (max-width: 380px) {
-    margin: 5px 0;
-  }
-`;
-export const ProductDescription = styled.div`
-  font-size: 14px;
-`;
-export const ProductDate = styled.div``;
-export const ProductStatus = styled.div``;
-
 export const FilterTabWrapper = styled(Tabs)`
   li {
     a {
@@ -248,7 +225,24 @@ export const ButtonChatSider = styled(Button)`
   &:hover {
     background-color: ${SB_GREEN};
     color: ${SB_WHITE};
+    padding: 10px 30px;
+
+    .chatImageHover {
+      display: block !important;
+    }
   }
+`;
+export const ChatImage = styled.img`
+  width: 25px;
+  background-size: cover;
+  margin-right: 5px;
+  float: left;
+`;
+export const ChatImageHover = styled.img`
+  width: 25px;
+  background-size: cover;
+  float: left;
+  display: none;
 `;
 export const ButtonOrder = styled(Button)`
   background-color: ${SB_GREEN};
@@ -326,9 +320,6 @@ export const InfoSidebar = styled.div`
   float: right;
   color: ${SB_MEDIUM_GREY};
 `;
-export const SiderIdentityDesc = styled.div`
-  color: ${SB_GREY};
-`;
 export const SiderDescription = styled(Link)`
   margin: 20px;
   color: ${SB_GREY};
@@ -344,45 +335,187 @@ export const SiderDescription = styled(Link)`
 `;
 
 // Working Hours
-export const DayName = styled.div`
+export const TitleWorkingHours = styled.div`
+  font-size: 14px;
   font-weight: bold;
+  margin: 10px 0;
+  color: ${SB_DARK_GREY};
+`;
+export const DayInactiveName = styled.div`
+  font-size: 14px;
+  border: 1px solid ${SB_LIGHT_GREY};
+  background-color: ${SB_WHITE};
+  color: ${SB_LIGHT_GREY};
+  border-radius: 3px;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 5px;
+  width: 20%;
+  float: left;
+  @media (max-width: 380px) {
+    font-size: 11px;
+    padding: 2px 0;
+    width: 35%;
+  }
+`;
+export const DayName = styled.div`
   font-size: 14px;
   background-color: ${SB_GREEN};
   color: ${SB_WHITE};
   border-radius: 3px;
   text-align: center;
-  padding: 5px 0;
-  width: 70%;
+  padding: 10px 0;
+  margin-bottom: 5px;
+  width: 20%;
+  float: left;
+  @media (max-width: 380px) {
+    font-size: 11px;
+    padding: 2px 0;
+    width: 35%;
+  }
+`;
+export const Time = styled.div`
+  font-size: 14px;
+  padding: 10px 5px;
+  margin-bottom: 5px;
+  float: left;
+
+  @media (max-width: 380px) {
+    font-size: 11px;
+    padding: 2px 5px;
+  }
+`;
+export const NotedWorkingHours = styled.div`
+  margin: 10px 0;
+  color: ${SB_GREY};
+`;
+export const TitleLocation = styled.div`
+  color: ${SB_DARK_GREY};
+  font-size: 16px;
+  margin-top: 10px;
 `;
 
-// Rating / Review
-export const ReviewWrapper = styled.div`
-  font-weight: bold;
-  font-size: 14px;
-  color: ${SB_BLACK};
-  margin: 10px 5px;
-`;
+// Rating / ProductReview
 export const BeeperImage = styled.img`
   width: 50px;
   background-size: cover;
   border-radius: 50px;
 `;
-export const BeeperName = styled.div`
-  font-size: 14px;
-  font-weight: bold;
-`;
-export const RatingWrapper = styled.div``;
-export const ReviewRating = styled.div``;
 export const CreatedAt = styled.div`
   font-size: 12px;
   color: ${SB_GREY};
   margin-top: 2px;
+  margin-left: 5px;
+  float: left;
 `;
 export const ReviewDescription = styled.div``;
 export const LineReview = styled.div`
   border: 1px solid ${SB_LIGHT_GREY};
   width: 100%;
   margin: 15px 0;
+`;
+
+// Discussion
+export const DiscussionTab = styled.div`
+  margin: 10px 0;
+`;
+export const DiscussionWrapper = styled.div`
+  font-size: 14px;
+  border-radius: 3px 0 0 3px;
+  ${(props) =>
+    props.active
+      ? `color: ${SB_WHITE}; background: ${SB_GREEN};`
+      : `color: ${SB_GREEN}; border: 1px solid ${SB_GREEN};`};
+  padding: 10px 25px;
+  float: left;
+`;
+export const FaqWrapper = styled.div`
+  font-size: 14px;
+  border-radius: 0 3px 3px 0;
+  ${(props) =>
+    props.active
+      ? `color: ${SB_WHITE}; background: ${SB_GREEN}; padding: 11px 25px;`
+      : `color: ${SB_GREEN}; border: 1px solid ${SB_GREEN}; padding: 9px 25px;`};
+  float: left;
+`;
+export const AskQuetionWrapper = styled.div`
+  margin: 20px 0 30px 0;
+`;
+export const TitleAsk = styled.div`
+  float: left;
+  font-size: 14px;
+  color: ${SB_GREY};
+  padding-top: 8px;
+`;
+export const ButtonAskQuestion = styled.div`
+  float: right;
+  border: 1px solid ${SB_GREEN};
+  border-radius: 3px;
+  color: ${SB_GREEN};
+  padding: 10px 40px;
+  cursor: pointer;
+  margin-left: 30px;
+`;
+export const DiscussionBeeperName = styled.div`
+  font-size: 14px;
+  font-weight: bold;
+  float: left;
+`;
+export const AnswerWrapper = styled.div`
+  position: relative;
+`;
+export const InputWrapper = styled.div`
+  position: relative;
+`;
+export const ButtonComment = styled(Button)`
+  background: ${SB_GREEN};
+  padding: 10px 20px;
+  margin: 10px 0;
+  color: ${SB_WHITE};
+  float: right;
+  &:hover {
+    background: ${SB_DARK_GREEN};
+    color: ${SB_WHITE};
+  }
+`;
+export const InputDiscussion = styled.div`
+  margin: 20px 0;
+`;
+
+// FAQ
+export const FAQPanel = styled.div`
+  margin: 20px 0 50px 0;
+`;
+export const HeaderWrapper = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+`;
+export const FaqPanel = styled.div`
+  padding: 10px;
+  color: ${SB_MEDIUM_GREY};
+  font-size: 14px;
+  font-weight: bold;
+`;
+export const ToggleButton = styled.div`
+  width: 0;
+  height: 0;
+  margin-right: 30px;
+  margin-top: 7px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid ${SB_GREY};
+  background: transparent;
+  float: right;
+  &.toggleDown {
+    background: ${SB_GREY};
+    width: 20px;
+    height: 6px;
+    border: 0;
+  }
+`;
+export const AnswerFAQ = styled.div`
+  margin-left: 30px;
 `;
 
 // Information Description

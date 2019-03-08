@@ -1,0 +1,20 @@
+[
+  {
+    "review_id": "1",
+    "review_beeper_image": "/img/logo-sider/logo_vendor.jpeg",
+    "beeper_name": "Mahmuda Alam Surya",
+    "review_rate": "4",
+    "review_created_at": "Maret 23, 2019, 10:00 AM",
+    "review_note": "Semoga sidebeep makin jawa, fast respon untuk pelayanan services nya",
+    "review_image": "/img/image-empty.png"
+  },
+  {
+    "review_id": "2",
+    "review_beeper_image": "/img/logo-sider/logo_vendor.jpeg",
+    "beeper_name": "Indah Kurniati",
+    "review_rate": "3",
+    "review_created_at": "Februari 23, 2019, 10:00 AM",
+    "review_note": "Tidak nyesel untuk order, nanti saya bakal order lagi",
+    "review_image": "/img/image-empty.png"
+  }
+]

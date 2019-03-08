@@ -16,8 +16,9 @@ import {
   SiderWrapInfo,
   SiderDescription,
   ButtonChatSider,
+  ChatImage,
+  ChatImageHover,
 } from './styles';
-// import fetchSiderInfo from 'common/siderDetail/actions';
 
 class SiderSidebar extends React.Component {
   componentDidMount() {
@@ -72,7 +73,15 @@ class SiderSidebar extends React.Component {
             readMoreText="View Profile"
           />
         </SiderDescription>
-        <ButtonChatSider>Chat Sider</ButtonChatSider>
+        <ButtonChatSider className="clearfix">
+          <ChatImage src="/img/icons/chat-green.svg" alt="chatImage" />
+          <ChatImageHover
+            className="chatImageHover"
+            src="/img/icons/chat-white.svg"
+            alt="chatImageHover"
+          />
+          Chat Sider
+        </ButtonChatSider>
       </SiderContainer>
     );
   }
