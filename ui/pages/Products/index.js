@@ -7,7 +7,7 @@ import ProductItem from '../../components/ProductItem';
 import BlankState from '../../components/BlankState';
 import Container from '../../components/Container';
 import FilterSidebar from '../FilterSidebar';
-import { products as productsQuery } from '../../queries/Products.gql';
+import { products as productsQuery } from '../../queries/Product.gql';
 import { TitleWrapper, SortBy, SortByTitle, SortByDropdown, GridWrapper, Block } from './styles';
 
 const Products = ({ data }) => (
