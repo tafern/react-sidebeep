@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ContentWrapper, PortfolioImage, BlockGrid } from './styles';
+import { ContentWrapper, PortfolioImage, BlockGrid } from '../styles';
 import PortfolioModal from './PortfolioModal';
 
 class ProductPortfolio extends React.Component {

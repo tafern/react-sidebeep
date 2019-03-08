@@ -1,25 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import StarRating from '../../components/StarRating';
+import StarRating from '../StarRating';
 import {
   ContentWrapper,
   ReviewWrapper,
   BeeperName,
-  RatingWrapper,
   BeeperImage,
   ProductRating,
-  CreatedAt,
+  RatingWrapper,
   ReviewDescription,
   ReviewImage,
   LineReview,
+  CreatedAt,
 } from './styles';
-import ProductReviewList from './Json/ProductReviewList';
-import ProductReviewWithPhotoList from './Json/ProductReviewWithPhotoList';
 
-const productReviewDataList = ProductReviewList;
-const productReviewWithPhotoDataList = ProductReviewWithPhotoList;
-const ProductReview = ({ onHandleReview, openReview, bColorReviewAll, bColorReviewWithPhoto }) => (
+const Review = ({
+  onHandleReview,
+  openReview,
+  bColorReviewAll,
+  bColorReviewWithPhoto,
+  reviewAll,
+  reviewWithPhoto,
+}) => (
   <ContentWrapper>
     <div className="clearfix">
       <ReviewWrapper active={bColorReviewAll} onClick={(e) => onHandleReview(e, 'All', true)}>
@@ -34,7 +37,7 @@ const ProductReview = ({ onHandleReview, openReview, bColorReviewAll, bColorRevi
     </div>
     {openReview === 'All' ? (
       <div>
-        {productReviewDataList.map((item) => (
+        {reviewAll.map((item) => (
           <Row key={item.review_id}>
             <Col md={1}>
               <BeeperImage src={item.review_beeper_image} alt="siderImage" />
@@ -55,7 +58,7 @@ const ProductReview = ({ onHandleReview, openReview, bColorReviewAll, bColorRevi
       </div>
     ) : (
       <div>
-        {productReviewWithPhotoDataList.map((item) => (
+        {reviewWithPhoto.map((item) => (
           <Row key={item.review_id}>
             <Col md={1}>
               <BeeperImage src={item.review_beeper_image} alt="siderImage" />
@@ -78,11 +81,13 @@ const ProductReview = ({ onHandleReview, openReview, bColorReviewAll, bColorRevi
     )}
   </ContentWrapper>
 );
-ProductReview.propTypes = {
+Review.propTypes = {
   onHandleReview: PropTypes.func.isRequired,
   openReview: PropTypes.bool.isRequired,
   bColorReviewAll: PropTypes.bool.isRequired,
   bColorReviewWithPhoto: PropTypes.bool.isRequired,
+  reviewAll: PropTypes.array.isRequired,
+  reviewWithPhoto: PropTypes.array.isRequired,
 };
 
-export default ProductReview;
+export default Review;

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic_place" transform="translate(26.000000, 7.000000)" fill="#00B37E">
+            <g id="Icon-24px" transform="translate(0.000000, 2.068679)">
+                <path d="M25.5848629,0 C11.4400887,0 0,11.3476853 0,25.37821 C0,44.4118675 25.5848629,72.5091714 25.5848629,72.5091714 C25.5848629,72.5091714 51.1697258,44.4118675 51.1697258,25.37821 C51.1697258,11.3476853 39.7296371,0 25.5848629,0 L25.5848629,0 Z M25.5848629,34.4418564 C20.5409899,34.4418564 16.4474118,30.3813428 16.4474118,25.37821 C16.4474118,20.3750772 20.5409899,16.3145636 25.5848629,16.3145636 C30.6287358,16.3145636 34.7223139,20.3750772 34.7223139,25.37821 C34.7223139,30.3813428 30.6287358,34.4418564 25.5848629,34.4418564 L25.5848629,34.4418564 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

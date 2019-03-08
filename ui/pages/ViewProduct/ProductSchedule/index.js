@@ -8,7 +8,7 @@ import {
   Time,
   NotedWorkingHours,
   TitleLocation,
-} from './styles';
+} from '../styles';
 
 const ProductSchedule = () => (
   <ContentWrapper>

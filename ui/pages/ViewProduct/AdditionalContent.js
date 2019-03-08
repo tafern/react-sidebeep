@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ContentWrapper, FilterTabWrapper, FilterTab } from './styles';
-import ProductInformation from './ProductInformation';
-import ProductReview from './ProductReview';
+import ProductInformation from './ProductInformation/index';
+import ProductReview from './ProductReview/index';
 import ProductDiscussion from './ProductDiscussion';
-import ProductSchedule from './ProductSchedule';
-import ProductPortfolio from './ProductPortfolio';
+import ProductSchedule from './ProductSchedule/index';
+import ProductPortfolio from './ProductPortfolio/index';
 
 class AdditionalContent extends React.Component {
   constructor(props) {

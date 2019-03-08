@@ -19,7 +19,7 @@ const ProductItem = ({
   <Styles.ProductItemWrapper to={`/product/${id}`}>
     <Styles.HeaderContentWrapper>
       <HoverWrapper viewCount={viewCount} isGrid={isGrid} isSmall={isSmall} />
-      {files.length > 0 ? (
+      {files !== undefined && files.length > 0 ? (
         files.map((item) => {
           if (item.refType === 'ProductCover') {
             return (

@@ -18,10 +18,14 @@ import {
   InputWrapper,
   ButtonComment,
   InputDiscussion,
-} from './styles';
-import ProductDiscussionList from './Json/ProductDiscussion';
+  FAQPanel,
+} from '../styles';
+import FAQ from './FAQ';
+import ProductDiscussionList from '../Json/ProductDiscussion';
+import FAQList from '../Json/FAQ';
 
 const productDiscussionDataList = ProductDiscussionList;
+const faqDataList = FAQList;
 const ProductDiscussion = ({ onHandleDiscussion, openDiscussion, boxDiscuss, boxFaq }) => (
   <ContentWrapper>
     <DiscussionTab className="clearfix">
@@ -152,7 +156,11 @@ const ProductDiscussion = ({ onHandleDiscussion, openDiscussion, boxDiscuss, box
         </InputDiscussion>
       </div>
     ) : (
-      <div>dbawbdkawdawda</div>
+      <FAQPanel>
+        {faqDataList.map((faq) => (
+          <FAQ key={faq.id} question={faq.faq_question} answer={faq.faq_answer} />
+        ))}
+      </FAQPanel>
     )}
   </ContentWrapper>
 );

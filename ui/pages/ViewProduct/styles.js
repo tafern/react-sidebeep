@@ -73,28 +73,6 @@ export const ProductTitle = styled.div`
   margin-top: 15px;
   color: ${SB_DARK_GREY};
 `;
-export const ProductSeenOrderWrapper = styled.div``;
-export const ProductSeenOrderImage = styled.img`
-  background-size: cover;
-  width: 25px;
-  height: 20px;
-  float: left;
-  margin: 5px;
-`;
-export const ProductSeenOrder = styled.div`
-  font-size: 12px;
-  margin: 5px 15px;
-  color: ${SB_MEDIUM_GREY};
-  @media (max-width: 380px) {
-    margin: 5px 0;
-  }
-`;
-export const ProductDescription = styled.div`
-  font-size: 14px;
-`;
-export const ProductDate = styled.div``;
-export const ProductStatus = styled.div``;
-
 export const FilterTabWrapper = styled(Tabs)`
   li {
     a {
@@ -342,9 +320,6 @@ export const InfoSidebar = styled.div`
   float: right;
   color: ${SB_MEDIUM_GREY};
 `;
-export const SiderIdentityDesc = styled.div`
-  color: ${SB_GREY};
-`;
 export const SiderDescription = styled(Link)`
   margin: 20px;
   color: ${SB_GREY};
@@ -420,24 +395,12 @@ export const TitleLocation = styled.div`
   margin-top: 10px;
 `;
 
-// Rating / Review
-export const ReviewWrapper = styled.div`
-  font-size: 14px;
-  color: ${(props) => (props.active ? `${SB_DARK_GREY}` : `${SB_GREY}`)};
-  margin: 10px 5px 20px 5px;
-  float: left;
-`;
+// Rating / ProductReview
 export const BeeperImage = styled.img`
   width: 50px;
   background-size: cover;
   border-radius: 50px;
 `;
-export const BeeperName = styled.div`
-  font-size: 14px;
-  font-weight: bold;
-`;
-export const RatingWrapper = styled.div``;
-export const ReviewRating = styled.div``;
 export const CreatedAt = styled.div`
   font-size: 12px;
   color: ${SB_GREY};
@@ -446,12 +409,6 @@ export const CreatedAt = styled.div`
   float: left;
 `;
 export const ReviewDescription = styled.div``;
-export const ReviewImage = styled.img`
-  width: 80px;
-  background-size: cover;
-  margin: 5px 0;
-  cursor: pointer;
-`;
 export const LineReview = styled.div`
   border: 1px solid ${SB_LIGHT_GREY};
   width: 100%;
@@ -523,6 +480,42 @@ export const ButtonComment = styled(Button)`
 `;
 export const InputDiscussion = styled.div`
   margin: 20px 0;
+`;
+
+// FAQ
+export const FAQPanel = styled.div`
+  margin: 20px 0 50px 0;
+`;
+export const HeaderWrapper = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+`;
+export const FaqPanel = styled.div`
+  padding: 10px;
+  color: ${SB_MEDIUM_GREY};
+  font-size: 14px;
+  font-weight: bold;
+`;
+export const ToggleButton = styled.div`
+  width: 0;
+  height: 0;
+  margin-right: 30px;
+  margin-top: 7px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid ${SB_GREY};
+  background: transparent;
+  float: right;
+  &.toggleDown {
+    background: ${SB_GREY};
+    width: 20px;
+    height: 6px;
+    border: 0;
+  }
+`;
+export const AnswerFAQ = styled.div`
+  margin-left: 30px;
 `;
 
 // Information Description

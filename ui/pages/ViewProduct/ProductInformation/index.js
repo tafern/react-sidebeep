@@ -12,8 +12,8 @@ import {
   AdditionalTitle,
   AdditionalPrice,
   AdditionalDescription,
-} from './styles';
-import DetailInformation from './Json/DetailInformation';
+} from '../styles';
+import DetailInformation from '../Json/DetailInformation';
 
 const information = DetailInformation.detailInfo;
 const additional = DetailInformation.additionalServices;
